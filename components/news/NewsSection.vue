@@ -5,23 +5,16 @@
         </div>
         <b-row>
             <b-col>
-                <b-card title="Card title" class="mb-4">
-                    <img src="https://picsum.photos/600/300/?image=25" alt="image news" class="w-100 mb-3 mp-border-radius">
-                    <b-card-text>
-                         <p class="mp-paragraf">
-                            Lorem ipsum dolor sit, amet consectetur adipisicing elit. Cum illum distinctio quis. 
-                            Fugiat odit modi blanditiis quibusdam, quas nisi dolore molestias veniam consequuntur facere 
-                            exercitationem animi corporis recusandae possimus quod? Lorem ipsum dolor sit amet consectetur 
-                            adipisicing elit. <a href="#" class="card-link">read more...</a>
-                         </p>
-                    </b-card-text>
-                </b-card>
-                <a href="#" class="mp-fs-24">Lihat semua artikel</a>
+                <div class="mp-news-card__new mb-4" v-for="artikel in listArtikels" :key="artikel.id_artikel">
+                    <ArticleCard :news="artikel"/>
+                </div>
+                <a href="/home/artikel" class="mp-fs-24">Lihat semua artikel</a>
             </b-col>
             <b-col>
-                <b-card class="mb-3">
+                <NewsSidebarCard v-for="(data, index) in 5" :key="index"/>
+                <!-- <b-card class="mb-3">
                     <div class="d-flex">
-                        <img src="https://picsum.photos/600/300/?image=25" alt="image news" width="150" height="150" class="mp-rounded mr-3">
+                        <img src="https://picsum.photos/600/300/?image=25" alt="image news" class="mp-image-rounded mp-rounded mr-3">
                         <div class="mp-news-content">
                             <h2 class="mp-fs-24">Headline</h2>
                             <b-card-text>
@@ -60,13 +53,34 @@
                             </b-card-text>
                         </div>
                     </div>
-                </b-card>
+                </b-card> -->
             </b-col>
         </b-row>
     </div>
 </template>
 <script>
+
+import ArticleCard from "~/components/news/ArticleCard.vue";
 export default {
-    name: "NewsSection"
+    name: "NewsSection",
+    components:{
+        ArticleCard,
+    },
+    data() {
+        return {
+          listArtikels:[],
+          listKategori:[],
+        }
+    },
+    async mounted() {
+        let fetchArtikels = await this.$axios.get(`/artikels`)
+            this.listArtikels = fetchArtikels.data.data
+            this.listArtikels.forEach(row => {
+                this.listKategori.push(row.category)
+            }
+        );
+
+        this.listKategori = [...new Map(this.listKategori.map(v => [v, v])).values()]
+    }
 }
 </script>

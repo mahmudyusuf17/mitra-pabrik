@@ -1,13 +1,13 @@
 <template>
     <b-navbar toggleable="false" class="p-4 bg-semi-dark" fixed="top">
-        <b-navbar-brand style="max-width:300px;">
+        <b-navbar-brand style="max-width:250px">
             <nuxt-link to="/" class="text-primary">
-                <!-- <b-img src="https://ik.imagekit.io/d3rdfRTergDURe/mitrapabrik_assets/logo_DVBKC2Wjb.webp?ik-sdk-version=javascript-1.4.3&updatedAt=1646666518140" fluid></b-img> -->
-                <b-img src="/logo-mp.png" fluid></b-img>
+                <b-img src="https://ik.imagekit.io/d3rdfRTergDURe/mitrapabrik_assets/logo_DVBKC2Wjb.webp?ik-sdk-version=javascript-1.4.3&updatedAt=1646666518140" fluid></b-img>
+                <!-- <b-img src="/logo-mp.png" fluid></b-img> -->
             </nuxt-link>
         </b-navbar-brand>
 
-        <Transition v-if="getUserCredentials.nama_depan" name="menulist">
+        <!-- <Transition v-if="getUserCredentials.nama_depan" name="menulist">
             <div class="d-flex text-center position-absolute" style=" overflow-x: auto; top: 0px; left: 0px; right: 0px; text-align: center; z-index: -99;" ref="menuOptions" v-if="toggleMenu">
                 <div class="nav-box d-flex justify-content-center align-items-center bg-primary text-primary-shade ml-auto" ref="option1" @click="isActive('option1','/events')" style="border-radius: 0px 0px 0px 50px;">
                     <div class="row p-3 border-right border-white h-100">
@@ -51,82 +51,98 @@
             <b-button variant="transparent" class="position-absolute" @click="toggleMenu = !toggleMenu" v-if="toggleMenu" style="top: 140px; left: 45%; right: 45%; z-index: -100;">
                 <b-icon icon="chevron-bar-up"></b-icon>
             </b-button>
-        </Transition>
-        <b-button variant="transparent" class="position-absolute" @click="toggleMenu = !toggleMenu" v-if="!toggleMenu" style="top: 0px; left: 45%; right: 45%; z-index: -100;">
+        </Transition> -->
+        <!-- <b-button variant="transparent" class="position-absolute" @click="toggleMenu = !toggleMenu" v-if="!toggleMenu" style="top: 0px; left: 45%; right: 45%; z-index: -100;">
             <b-icon icon="chevron-bar-down"></b-icon>
-        </b-button>
+        </b-button> -->
         <b-navbar-nav class="ml-auto">
             <div class="row">
-                <!-- <b-nav-text class="d-flex align-items-center px-3" @click="showSearchModal = true">
+                <div class="mp-navbar__user" v-if="getUserCredentials.nama_depan">
+                    <b-nav-item class="mp-navbar-item">
+                        <span>Catalog</span>
+                    </b-nav-item>
+                    <b-nav-item class="mp-navbar-item">
+                        <span>Material Inquiry</span>
+                    </b-nav-item>
+                    <b-nav-item class="mp-navbar-item mr-4">
+                        <span>Principals</span>
+                    </b-nav-item>
+                    <!-- <b-nav-text class="d-flex align-items-center px-3" @click="showSearchModal = true">
                     <span class="navbar-text-display">Search</span> <b-avatar variant="transparent" src="/search.png"></b-avatar>
-                </b-nav-text> -->
-                <b-dropdown size="lg" right variant="link" no-caret v-if="getUserCredentials.nama_depan">
-                    <template #button-content>
-                        <b-avatar variant="transparent" src="/notification.png"></b-avatar>
-                        <b-badge variant="primary">new</b-badge>
-                    </template>
-                    <b-dropdown-header id="dropdown-header-label">
-                        <h5>Notifikasi</h5>
-                    </b-dropdown-header>
-                    <div class="notif-item-container">
-                        <b-dropdown-item 
-                            v-for="(n,idx) in notice" :key="idx" 
-                            :href="n.link"
-                            style="min-width: 300px;"
-                            class="my-2 p-0">
-                            <div>
-                                <span v-html="n.message"></span>
-                                <p class="text-secondary">{{ $timeAgo(n.timestamp) }}</p>
-                            </div>
-                        </b-dropdown-item>
-                    </div>
-                </b-dropdown>
-                <b-nav-text class="d-flex align-items-center px-3" v-if="getUserCredentials.nama_depan">
-                    <span class="navbar-text-display">{{ 'Welcome, ' + getUserCredentials.nama_depan }}</span>
-                </b-nav-text>
-                <b-nav-item v-else>
-                    <LoginModal/>
-                    <!-- <nuxt-link to="/login" class="mp-text-red pr-4">
-                        <span class="navbar-text-display">Masuk</span>
-                        <b-avatar variant="transparent" class="p-1" src="/person.png"></b-avatar>
-                    </nuxt-link> -->
-                </b-nav-item>
+                    </b-nav-text> -->
+                    
+                    <!-- <b-nav-text class="d-flex align-items-center px-3" v-if="getUserCredentials.nama_depan">
+                        <span class="navbar-text-display">{{ 'Welcome, ' + getUserCredentials.nama_depan }}</span>
+                    </b-nav-text> -->
+                    <template>
+                        <b-avatar variant="transparent" size="3rem" class="mr-3 p-1" src="/profile-icon.png" @click.native="burgerToggle = !burgerToggle"></b-avatar>
 
-                <template v-if="getUserCredentials.nama_depan">
-                    <b-avatar variant="transparent" class="mt-2 mr-3 p-1" src="/burger.png" @click.native="burgerToggle = !burgerToggle"></b-avatar>
-                    <b-collapse id="nav-collapse" class="position-absolute" style="right: 15px; top: 90px;" v-model="burgerToggle">
-                        <b-list-group>
-                            <!-- <b-list-group-item class="d-flex justify-content-between align-items-center">
-                                Settings & Privacy
-                                <b-avatar class="ml-5" variant="transparent" src="/settings.png"></b-avatar>
-                            </b-list-group-item> -->
-                            <nuxt-link to="/home/profile" @click.native="burgerToggle = false">
-                                <b-list-group-item class="d-flex justify-content-between align-items-center">
-                                    Profile
-                                    <b-avatar square class="ml-5" variant="transparent" src="/profile.png"></b-avatar>
-                                </b-list-group-item>
-                            </nuxt-link>
-                            <nuxt-link to="/home/wishlist" @click.native="burgerToggle = false">
-                                <b-list-group-item class="d-flex justify-content-between align-items-center">
-                                    Saved Materials
-                                    <b-avatar square class="ml-5" variant="transparent" src="/saved.png"></b-avatar>
-                                </b-list-group-item>
-                            </nuxt-link>
-                            <nuxt-link to="/home/faq" @click.native="burgerToggle = false">
-                                <b-list-group-item class="d-flex justify-content-between align-items-center">
-                                    Help and Support
+                        <b-collapse id="nav-collapse" class="position-absolute" style="right: 15px; top: 90px;" v-model="burgerToggle">
+                            <b-list-group>
+                                <!-- <b-list-group-item class="d-flex justify-content-between align-items-center">
+                                    Settings & Privacy
+                                    <b-avatar class="ml-5" variant="transparent" src="/settings.png"></b-avatar>
+                                </b-list-group-item> -->
+                                <nuxt-link to="/home/profile" @click.native="burgerToggle = false">
+                                    <b-list-group-item class="d-flex justify-content-between align-items-center">
+                                        Profile
+                                        <b-avatar square class="ml-5" variant="transparent" src="/profile.png"></b-avatar>
+                                    </b-list-group-item>
+                                </nuxt-link>
+                                <nuxt-link to="/home/wishlist" @click.native="burgerToggle = false">
+                                    <b-list-group-item class="d-flex justify-content-between align-items-center">
+                                        Saved Materials
+                                        <b-avatar square class="ml-5" variant="transparent" src="/saved.png"></b-avatar>
+                                    </b-list-group-item>
+                                </nuxt-link>
+                                <nuxt-link to="/home/faq" @click.native="burgerToggle = false">
+                                    <b-list-group-item class="d-flex justify-content-between align-items-center">
+                                        Help and Support
+                                        <b-avatar square class="ml-5" variant="transparent" src="/info.png"></b-avatar>
+                                    </b-list-group-item>
+                                </nuxt-link>
+                                <a href="#">
+                                    <b-list-group-item class="d-flex justify-content-between align-items-center" @click="handleLogout">
+                                    Logout
                                     <b-avatar square class="ml-5" variant="transparent" src="/info.png"></b-avatar>
-                                </b-list-group-item>
-                            </nuxt-link>
-                            <a href="#">
-                                <b-list-group-item class="d-flex justify-content-between align-items-center" @click="handleLogout">
-                                Logout
-                                <b-avatar square class="ml-5" variant="transparent" src="/info.png"></b-avatar>
-                                </b-list-group-item>
-                            </a>
-                        </b-list-group>
-                    </b-collapse>
-                </template>
+                                    </b-list-group-item>
+                                </a>
+                            </b-list-group>
+                        </b-collapse>
+                    </template>
+
+                    <b-dropdown size="lg" right variant="link" no-caret>
+                        <template #button-content>
+                            <b-icon icon="bell"  font-scale="1.5" style="color: #000;"></b-icon>
+                            <!-- <b-badge variant="primary">new</b-badge> -->
+                        </template>
+                        <b-dropdown-header id="dropdown-header-label">
+                            <h5>Notifikasi</h5>
+                        </b-dropdown-header>
+                        <div class="notif-item-container">
+                            <b-dropdown-item 
+                                v-for="(n,idx) in notice" :key="idx" 
+                                :href="n.link"
+                                style="min-width: 300px;"
+                                class="my-2 p-0">
+                                <div>
+                                    <span v-html="n.message"></span>
+                                    <p class="text-secondary">{{ $timeAgo(n.timestamp) }}</p>
+                                </div>
+                            </b-dropdown-item>
+                        </div>
+                    </b-dropdown>
+                </div>
+
+                <div class="mp-navbar__guest" v-else>
+                    <b-nav-item>
+                        <LoginModal/>
+                        <!-- <nuxt-link to="/login" class="mp-text-red pr-4">
+                            <span class="navbar-text-display">Masuk</span>
+                            <b-avatar variant="transparent" class="p-1" src="/person.png"></b-avatar>
+                        </nuxt-link> -->
+                    </b-nav-item>
+                </div>
             </div>
         </b-navbar-nav>
         <!-- <b-modal hide-footer hide-header v-model="showSearchModal" scrollable>

@@ -12,6 +12,13 @@
         "_name": "_a83598de"
       },
       {
+        "name": "home-artikel",
+        "path": "artikel",
+        "component": "/Users/mahmudyusuf17/Documents/Freelance/mp/pages/home/artikel/index.vue",
+        "chunkName": "pages/home/artikel/index",
+        "_name": "_0f8ff724"
+      },
+      {
         "name": "home-events",
         "path": "events",
         "component": "/Users/mahmudyusuf17/Documents/Freelance/mp/pages/home/events.vue",
@@ -76,7 +83,7 @@
       },
       {
         "name": "home-artikel-id",
-        "path": "artikel/:id?",
+        "path": "artikel/:id",
         "component": "/Users/mahmudyusuf17/Documents/Freelance/mp/pages/home/artikel/_id.vue",
         "chunkName": "pages/home/artikel/_id",
         "_name": "_35384a56"

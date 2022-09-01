@@ -1,19 +1,22 @@
+$color-primary: #ea2424;
+$color-white: #ffffff;
+
 .bg-semi-dark{
     background-color: rgba(0, 0, 0, 0.15);
 }
 
 .mp-text-red{
-    color: #FF0000;
+    color: $color-primary;
     font-size: 24px;
     font-weight: 600;
 }
 
 .mp-primary-color{
-    color: #FF0000;
+    color: $color-primary;
 }
 
 .mp-white-color{
-    color: #fff;
+    color: $color-white;
 }
 
 .mp-border-radius{
@@ -36,9 +39,15 @@
     border-radius: 50%;
 }
 
+@media(min-width: 1200px){
+    .container{
+        max-width: 1280px;
+    }
+}
+
 .mp-menu{
     display: block;
-    top: 350px;
+    top: 425px;
     // top: 550px; 
     overflow-x: auto; 
     z-index: 99;
@@ -46,7 +55,7 @@
     .mp-menu-items{
         position: relative;
         max-width: 280px;
-        background-color: #fff;
+        background-color: $color-white;
         margin: 10px 0;
         border-radius: 0 25px 25px 0;
         box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
@@ -87,7 +96,7 @@
 }
 
 .carousel-inner {
-    max-height: 900px;
+    max-height: 800px;
 }
 
 ul.mp-list-text{
@@ -113,6 +122,17 @@ ul.mp-list-text{
     }
 }
 
+.mp-image-news{
+    max-height: 400px;
+    object-fit: contain;
+}
+
+.mp-image-rounded{
+    width: 150px;
+    height: 150px;
+    object-fit: cover;
+}
+
 @media (min-width: 576px){
     .modal-dialog {
         max-width: 380px;
@@ -121,4 +141,72 @@ ul.mp-list-text{
 }
 
 
+.mp-navbar__user{
+    display: flex;
+    align-items: center;
+    margin-right: 20px;
+
+    .mp-navbar-item{
+        padding: 0 15px;
+
+        span{
+            font-size: 20px;
+            font-weight: 500;
+        }
+    }
+
+    @media (max-width: 900px){
+        display: none;
+    }
+}
+
+.mp-news-card__new{
+    .mp-news-card{
+        // cursor: pointer;
+
+        .card-title{
+            margin-bottom: 15px;
+        }
+
+        img{
+            width: 100%;
+            max-height: 400px;
+            object-fit: cover;
+            border-radius: 10px;
+        }
+    }
+}
+
+.mp-news__detail-content{
+    padding: 0 25px 0 20px;
+
+    img{
+        width: 100%;
+        max-height: 500px;
+        object-fit: cover;
+        border-radius: 10px;
+    }
+
+}
+
+.mp-border-bottom__news{
+    display: block;
+    max-width: 650px;
+    border: 2px solid $color-primary;
+}
+
+a.mp-link__redirect{
+    color: inherit;
+
+    &:hover{
+        color: inherit;
+    }
+}
+
+.mp-news-detail__sidebar{
+    img{
+        max-width: 100px;
+        max-height: 100px;
+    }
+}
 

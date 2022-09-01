@@ -3,13 +3,11 @@
         <b-carousel
             id="carousel-1"
             v-model="slide"
-            :interval="10000"
+            :interval="15000"
             controls
-            indicators
             background="#ababab"
             img-width="1000"
             img-height="400"
-            style="text-shadow: 1px 1px 2px #333;"
             @sliding-start="onSlideStart"
             @sliding-end="onSlideEnd"
         >
@@ -19,7 +17,7 @@
                     class="d-block img-fluid w-100 h-50"
                     width="1024"
                     height="400"
-                    src="/background-image.png"
+                    src="/mitrapabrik.webp"
                     alt="mp-image"
                     >
                 </template>

@@ -25,11 +25,12 @@
             </div>
         </div>
         <div class="mp-menu-items">
-            <div class="mp-button-menu-item" @click="scrollTo('material-inquiry-section')">
+            <div class="mp-button-menu-item" @click="onClickMaterialInquiry">
                 <span>Material Inquiry</span>
                 <img src="/menu-icon/material-inquiry-icon.png" width="40" height="40">
             </div>
         </div>
+        <!-- <LoginModal/> -->
     </div>
 </template>
 <script>
@@ -42,6 +43,12 @@ export default {
                 behavior: 'smooth', 
                 block: 'start'
             });
+        },
+
+        onClickMaterialInquiry(){
+            if(true){
+                
+            }
         }
     }
 }

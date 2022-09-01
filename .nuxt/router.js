@@ -6,6 +6,7 @@ import scrollBehavior from './router.scrollBehavior.js'
 
 const _0f2b0f8e = () => interopDefault(import('../pages/home.vue' /* webpackChunkName: "pages/home" */))
 const _a83598de = () => interopDefault(import('../pages/home/index.vue' /* webpackChunkName: "pages/home/index" */))
+const _0f8ff724 = () => interopDefault(import('../pages/home/artikel/index.vue' /* webpackChunkName: "pages/home/artikel/index" */))
 const _3adf1a2c = () => interopDefault(import('../pages/home/events.vue' /* webpackChunkName: "pages/home/events" */))
 const _54f8f195 = () => interopDefault(import('../pages/home/faq.vue' /* webpackChunkName: "pages/home/faq" */))
 const _0c23fb38 = () => interopDefault(import('../pages/home/inquiries.vue' /* webpackChunkName: "pages/home/inquiries" */))
@@ -56,6 +57,10 @@ export const routerOptions = {
       component: _a83598de,
       name: "home"
     }, {
+      path: "artikel",
+      component: _0f8ff724,
+      name: "home-artikel"
+    }, {
       path: "events",
       component: _3adf1a2c,
       name: "home-events"
@@ -92,7 +97,7 @@ export const routerOptions = {
       component: _f9f7f154,
       name: "home-wishlist"
     }, {
-      path: "artikel/:id?",
+      path: "artikel/:id",
       component: _35384a56,
       name: "home-artikel-id"
     }, {

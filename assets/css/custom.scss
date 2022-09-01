@@ -1,0 +1,124 @@
+.bg-semi-dark{
+    background-color: rgba(0, 0, 0, 0.15);
+}
+
+.mp-text-red{
+    color: #FF0000;
+    font-size: 24px;
+    font-weight: 600;
+}
+
+.mp-primary-color{
+    color: #FF0000;
+}
+
+.mp-white-color{
+    color: #fff;
+}
+
+.mp-border-radius{
+    border-radius: 5px;
+}
+
+.mp-paragraf{
+    font-size: 16px;
+}
+
+.mp-fs-24{
+    font-size: 24px;
+}
+
+.mp-fs-20{
+    font-size: 20px;
+}
+
+.mp-rounded{
+    border-radius: 50%;
+}
+
+.mp-menu{
+    display: block;
+    top: 350px;
+    // top: 550px; 
+    overflow-x: auto; 
+    z-index: 99;
+    
+    .mp-menu-items{
+        position: relative;
+        max-width: 280px;
+        background-color: #fff;
+        margin: 10px 0;
+        border-radius: 0 25px 25px 0;
+        box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+        left: -200px;
+        transition: 0.35s ease-in-out;
+
+        &:hover{
+            transform: translateX(200px);
+            transition: 0.5s ease-in-out;
+        }
+
+        .mp-button-menu-item{
+            display: flex;
+            justify-content: space-between;
+            padding: 10px 20px;
+            font-size: 24px;
+            cursor: pointer;
+
+            span{
+                font-weight: 600;
+            }
+        }
+    }
+}
+
+.mp-container{
+    padding: 60px 50px;
+    margin-bottom: 40px;
+
+    .mp-title-section{
+        text-align: center;
+        
+        h2{
+            font-size: 2.5em;
+            font-weight: 600;
+        }
+    }
+}
+
+.carousel-inner {
+    max-height: 900px;
+}
+
+ul.mp-list-text{
+    list-style-type: none;
+    margin-left: -40px;
+
+    li{
+        margin: 10px 0;
+        font-size: 18px;
+    }
+}
+
+.mp-dialog-login.modal-header{
+    border-bottom: none;
+    display: block;
+    text-align: center;
+}
+
+.mp-modal-login{
+    .modal-content{
+        background-color: rgba(0, 0, 0, 0.45);
+        // background-color: rgba(189, 189, 189, 0.5);
+    }
+}
+
+@media (min-width: 576px){
+    .modal-dialog {
+        max-width: 380px;
+        margin: 1.75rem auto;
+    }
+}
+
+
+

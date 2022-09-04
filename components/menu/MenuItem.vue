@@ -25,17 +25,30 @@
             </div>
         </div>
         <div class="mp-menu-items">
-            <div class="mp-button-menu-item" @click="onClickMaterialInquiry">
+            <div class="mp-button-menu-item" @click="checkStatusLogin">
                 <span>Material Inquiry</span>
                 <img src="/menu-icon/material-inquiry-icon.png" width="40" height="40">
             </div>
+            <LoginModal :statusModal="modalLoginShow" />
         </div>
-        <!-- <LoginModal/> -->
     </div>
 </template>
 <script>
+
+import LoginModal from "~/components/auth/LoginModal.vue";
+import { mapGetters, mapActions } from 'vuex';
+
 export default {
     name: "MenuItem",
+    components:{
+        LoginModal,
+    },
+
+    data(){
+        return{
+            modalLoginShow: false,
+        }
+    },
 
     methods: {
         scrollTo(id) {
@@ -45,11 +58,20 @@ export default {
             });
         },
 
-        onClickMaterialInquiry(){
-            if(true){
-                
+        checkStatusLogin(){
+            console.log(this.getUserCredentials.id_user)
+            if(this.getUserCredentials.id_user === undefined){
+                this.modalLoginShow = !this.modalLoginShow
+            }else{
+                this.modalLoginShow = false;
             }
         }
-    }
+    },
+
+    computed: {
+        ...mapGetters({
+            'getUserCredentials':'auth/getUserCredentials',
+        }),
+    },
 }
 </script>

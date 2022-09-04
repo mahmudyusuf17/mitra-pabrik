@@ -25,10 +25,14 @@
           <b-col cols="4">
             <ul class="mp-list-text">
                 <li>
-                  <span class="mp-white-color">ABOUT</span>
+                  <nuxt-link to="/about-us">
+                    <span class="mp-white-color">ABOUT</span>
+                  </nuxt-link>
                 </li>
                 <li>
-                  <a href="#" class="mp-white-color">About Us</a>
+                  <nuxt-link to="/about-us">
+                    <span class="mp-white-color">About Us</span>
+                  </nuxt-link>
                 </li>
                 <li>
                   <a href="#" class="mp-white-color">Privacy Policy/ToU</a>

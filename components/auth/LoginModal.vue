@@ -1,7 +1,5 @@
 <template>
     <div class="mp-dialog">
-    <span class="navbar-text-display mp-text-red mr-3" @click="modalShow = !modalShow" >Masuk</span>
-
     <b-modal
       id="modal-no-backdrop" 
       hide-backdrop
@@ -72,7 +70,7 @@
         </b-form-group>
         <p class="text-center">
             <b-button variant="primary" pill type="submit" class="mb-3 px-5" :disabled="loading">Login</b-button><br>
-            <span class="mp-paragraf mp-white-color">Belum punya akun? 
+            <span class="mp-paragraf">Belum punya akun? 
                 <span @click="onClickRegister" class="mp-text-red mp-paragraf" style="cursor:pointer">
                     Daftar disini!
                 </span>
@@ -87,6 +85,19 @@ import { mapActions } from 'vuex';
 
 export default {
     name:"LoginModal",
+    props: {
+        statusModal: {
+            type: Boolean,
+            default: false,
+        }
+    },
+
+    watch:{
+        statusModal(){
+            this.modalShow = true
+        }
+    },
+    
     data() {
       return {
         name: '',
@@ -106,6 +117,7 @@ export default {
         modalShow: false,
       }
     },
+
     methods: {
         ...mapActions({
             'userLogin':'auth/userLogin'
@@ -128,7 +140,8 @@ export default {
                     console.log(res.data.data)
                     this.userLogin(res.data.data)
                     this.$cookies.set('token',res.data.token)
-                    this.$router.push({ name: 'home' })
+                    this.$router.push({ name: 'index' })
+                    this.modalShow = false
                 }).catch(err => {
                     if(err.response)
                         err.response.data.errors.forEach(row => {

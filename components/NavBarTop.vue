@@ -136,7 +136,8 @@
 
                 <div class="mp-navbar__guest" v-else>
                     <b-nav-item>
-                        <LoginModal/>
+                        <span class="navbar-text-display mp-text-red mr-3" @click="modalShow = !modalShow" >Masuk</span>
+                        <LoginModal :statusModal="modalShow"/>
                         <!-- <nuxt-link to="/login" class="mp-text-red pr-4">
                             <span class="navbar-text-display">Masuk</span>
                             <b-avatar variant="transparent" class="p-1" src="/person.png"></b-avatar>
@@ -233,6 +234,7 @@
                 searchDataShowroom:[],
                 searchDataArticle:[],
                 basePath:'',
+                modalShow: false,
             }
         },
         components:{

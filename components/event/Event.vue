@@ -4,11 +4,12 @@
             <h2>Event</h2>
         </div>
         <b-row>
-            <b-col cols="8">
+            <b-col cols="12" md="8">
                 <b-row>
-                    <b-col>
+                    <b-col v-for="event in listEvents" :key="event.id_event">
+                        <nuxt-link :to="`/home/event/${event.id_event}`" class="mp-link__redirect">
                         <b-card
-                            title="Card Title"
+                            :title="event.event_name"
                             img-src="https://picsum.photos/600/300/?image=25"
                             img-alt="Image"
                             img-top
@@ -22,6 +23,7 @@
 
                             <b-button href="#" variant="primary" class="float-right">RSVP sekarang</b-button>
                         </b-card>
+                        </nuxt-link>
                     </b-col>
                     <b-col>
                         <b-card
@@ -59,7 +61,7 @@
                     </b-col>
                 </b-row>
             </b-col>
-            <b-col cols="4" class="border-left">
+            <b-col cols="12" md="4" class="border-left">
                 <h3>Event dari rekan <span class="mp-primary-color">mitrapabrik.com</span></h3>
                 <b-row>
                     <b-col>
@@ -103,6 +105,32 @@
 </template>
 <script>
 export default {
-    name: "Principal"
+    name: "Event",
+    data() {
+        return {
+            filterTgl:false,
+            listEvents: [],
+            defaultListEvents: [],
+        }
+    },
+
+    methods: {
+        filterEvents(terlewatkan) {
+            this.filterTgl = !this.filterTgl
+            if(terlewatkan) this.listEvents = this.defaultListEvents.filter(row => new Date(row.starting_date) <= Date.now())
+            else this.listEvents = this.defaultListEvents.filter(row => new Date(row.starting_date) >= Date.now())
+        },
+
+        toEventDetail(id){
+            this.$router.push(`/home/event/${id}`)
+        }
+    },
+
+    async mounted() {
+        let fetchEvents = await this.$axios.get(`/events`)
+        this.listEvents = fetchEvents.data.data
+        this.defaultListEvents = fetchEvents.data.data
+        // this.filterEvents(false)
+    },
 }
 </script>

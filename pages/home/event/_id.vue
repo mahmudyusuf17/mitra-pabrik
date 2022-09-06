@@ -1,15 +1,49 @@
 <template>
-    <div class="container h-100 py-5">
-        <div class="row mb-3">
+    <div class="container h-100 pl-5">
+        <!-- <div class="row mb-3">
             <div class="col-12">
                 <nuxt-link to="/home/events"><b-icon icon="arrow-left-short"></b-icon> Kembali</nuxt-link>
             </div>
+        </div> -->
+
+        <div class="mp-event__detail">
+            <div v-html="eventData.body && $md.render(eventData.body)" class="text-break"></div>
+            <div class="mp-event__description mt-4">
+                <b-row>
+                    <b-col cols="12" md="5">
+                        <div class="mp-event__date d-flex align-items-center mb-2">
+                            <b-icon font-scale="1.5" icon="calendar2-date"></b-icon>
+                            <p class="mb-0 ml-2">Date: <span>{{ $formatIDDate(eventData.starting_date)}}</span></p>
+                        </div>
+                        <div class="mp-event__location d-flex mb-2 mt-3">
+                            <b-icon font-scale="1.5" icon="geo-alt"></b-icon>
+                            <p class="mb-0 ml-2">Location: <span>{{ eventData.location }}</span></p>
+                        </div>
+                        <div class="mp-event__entry-fee d-flex align-items-center mb-2">
+                            <b-icon font-scale="1.5" icon="cash-stack"></b-icon>
+                            <p class="mb-0 ml-2">Entry Fee: <span class="text-success">{{ eventData.admission }}</span></p>
+                        </div>
+                    </b-col>
+                    <b-col cols="12" md="6">
+                        <div class="mp-event__event-by d-flex align-items-center">
+                            <p class="mb-0">Event by: <span>{{ eventData.author }}</span></p>
+                        </div>
+                        <div class="mp-event__sisa-slot d-flex align-items-center mt-2">
+                            <b-icon font-scale="1.5" icon="people"></b-icon>
+                            <p class="mb-0 ml-2">Sisa Slot: <span>-</span> </p>
+                        </div>
+                    </b-col>
+                </b-row>
+                <div class="row mb-2 mt-3">
+                    <div class="col-7">
+                        <b-button variant="primary" pill size="sm" @click="openAttendModal" v-if="attendanceID">Attend Event</b-button>
+                        <b-button variant="primary" pill size="sm" class="float-right" @click="showRegisterModal = true" v-else>RSVP Sekarang</b-button>
+                    </div>
+                </div>
+            </div>
         </div>
-        <div class="row">
-            <!-- <div class="col-md-3">
-                Event contents
-                <p v-for="(l,idx) in links" :key="idx"><b-link :href="'#'+l">{{ l }}</b-link></p>
-            </div> -->
+
+        <!-- <div class="row pt-5">
             <div class="col-md-9">
                 <h3>{{ eventData.event_name }}</h3>
                 <div v-html="eventData.body && $md.render(eventData.body)" class="text-break"></div>
@@ -40,7 +74,8 @@
                     </div>
                 </div>
             </div>
-        </div>
+        </div> -->
+
         <b-modal v-model="showAttendanceModal" size="sm" scrollable centered hide-footer hide-header static>
             <div class="text-center">
                 <p><b>Attendance QR Code:</b></p>

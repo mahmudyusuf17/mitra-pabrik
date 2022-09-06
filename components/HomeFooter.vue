@@ -80,9 +80,9 @@
     </b-row>
 
     <b-row align-h="start" class="mt-5 justify-align-center align-items-center">
-      <b-col cols="5"><img src="https://ik.imagekit.io/d3rdfRTergDURe/PXh_5L3zK.webp?updatedAt=1636390680446" alt="logo mitra pabrik" width="350"></b-col>
+      <b-col cols="12" md="5"><img src="https://ik.imagekit.io/d3rdfRTergDURe/PXh_5L3zK.webp?updatedAt=1636390680446" alt="logo mitra pabrik" width="350" class="mp-logo__footer"></b-col>
       <!-- <b-col cols="5"><img src="/logo-mp-white.png" alt="logo mitra pabrik" width="350"></b-col> -->
-      <b-col cols="4"><p>&copy; 2021 Mitrapabrik</p></b-col>
+      <b-col cols="12" md="4"><p>&copy; 2021 Mitrapabrik</p></b-col>
     </b-row>
   </footer>
 </template>

@@ -12,12 +12,15 @@ const _0f8ff724 = () => interopDefault(import('../pages/home/artikel/index.vue' 
 const _3adf1a2c = () => interopDefault(import('../pages/home/events.vue' /* webpackChunkName: "pages/home/events" */))
 const _54f8f195 = () => interopDefault(import('../pages/home/faq.vue' /* webpackChunkName: "pages/home/faq" */))
 const _0c23fb38 = () => interopDefault(import('../pages/home/inquiries.vue' /* webpackChunkName: "pages/home/inquiries" */))
+const _282e6eb5 = () => interopDefault(import('../pages/home/material-inquiry/index.vue' /* webpackChunkName: "pages/home/material-inquiry/index" */))
 const _6ab049e4 = () => interopDefault(import('../pages/home/news.vue' /* webpackChunkName: "pages/home/news" */))
 const _1fbc1600 = () => interopDefault(import('../pages/home/partnerships.vue' /* webpackChunkName: "pages/home/partnerships" */))
 const _40dea328 = () => interopDefault(import('../pages/home/profile.vue' /* webpackChunkName: "pages/home/profile" */))
+const _98edfdfc = () => interopDefault(import('../pages/home/profile-old.vue' /* webpackChunkName: "pages/home/profile-old" */))
 const _53abe569 = () => interopDefault(import('../pages/home/showroom.vue' /* webpackChunkName: "pages/home/showroom" */))
 const _69466a4a = () => interopDefault(import('../pages/home/verify.vue' /* webpackChunkName: "pages/home/verify" */))
 const _f9f7f154 = () => interopDefault(import('../pages/home/wishlist.vue' /* webpackChunkName: "pages/home/wishlist" */))
+const _04e18a91 = () => interopDefault(import('../pages/home/material-inquiry/principal.vue' /* webpackChunkName: "pages/home/material-inquiry/principal" */))
 const _35384a56 = () => interopDefault(import('../pages/home/artikel/_id.vue' /* webpackChunkName: "pages/home/artikel/_id" */))
 const _0e8f5af8 = () => interopDefault(import('../pages/home/event/_id.vue' /* webpackChunkName: "pages/home/event/_id" */))
 const _71cfcfae = () => interopDefault(import('../pages/home/partnership/_id.vue' /* webpackChunkName: "pages/home/partnership/_id" */))
@@ -83,6 +86,10 @@ export const routerOptions = {
       component: _0c23fb38,
       name: "home-inquiries"
     }, {
+      path: "material-inquiry",
+      component: _282e6eb5,
+      name: "home-material-inquiry"
+    }, {
       path: "news",
       component: _6ab049e4,
       name: "home-news"
@@ -95,6 +102,10 @@ export const routerOptions = {
       component: _40dea328,
       name: "home-profile"
     }, {
+      path: "profile-old",
+      component: _98edfdfc,
+      name: "home-profile-old"
+    }, {
       path: "showroom",
       component: _53abe569,
       name: "home-showroom"
@@ -106,6 +117,10 @@ export const routerOptions = {
       path: "wishlist",
       component: _f9f7f154,
       name: "home-wishlist"
+    }, {
+      path: "material-inquiry/principal",
+      component: _04e18a91,
+      name: "home-material-inquiry-principal"
     }, {
       path: "artikel/:id",
       component: _35384a56,

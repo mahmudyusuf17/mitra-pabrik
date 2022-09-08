@@ -54,6 +54,13 @@
         "_name": "_0c23fb38"
       },
       {
+        "name": "home-material-inquiry",
+        "path": "material-inquiry",
+        "component": "/Users/mahmudyusuf17/Documents/Freelance/mp/pages/home/material-inquiry/index.vue",
+        "chunkName": "pages/home/material-inquiry/index",
+        "_name": "_282e6eb5"
+      },
+      {
         "name": "home-news",
         "path": "news",
         "component": "/Users/mahmudyusuf17/Documents/Freelance/mp/pages/home/news.vue",
@@ -75,6 +82,13 @@
         "_name": "_40dea328"
       },
       {
+        "name": "home-profile-old",
+        "path": "profile-old",
+        "component": "/Users/mahmudyusuf17/Documents/Freelance/mp/pages/home/profile-old.vue",
+        "chunkName": "pages/home/profile-old",
+        "_name": "_98edfdfc"
+      },
+      {
         "name": "home-showroom",
         "path": "showroom",
         "component": "/Users/mahmudyusuf17/Documents/Freelance/mp/pages/home/showroom.vue",
@@ -94,6 +108,13 @@
         "component": "/Users/mahmudyusuf17/Documents/Freelance/mp/pages/home/wishlist.vue",
         "chunkName": "pages/home/wishlist",
         "_name": "_f9f7f154"
+      },
+      {
+        "name": "home-material-inquiry-principal",
+        "path": "material-inquiry/principal",
+        "component": "/Users/mahmudyusuf17/Documents/Freelance/mp/pages/home/material-inquiry/principal.vue",
+        "chunkName": "pages/home/material-inquiry/principal",
+        "_name": "_04e18a91"
       },
       {
         "name": "home-artikel-id",

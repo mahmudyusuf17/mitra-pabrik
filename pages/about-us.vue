@@ -2,7 +2,7 @@
 <div class="mp-about-us__page">
     <div class="mp-container__small-content container">
         <div class="mp-title-page">
-            <h1 class="test">About Us</h1>
+            <h1>About Us</h1>
         </div>
         <div class="mp-card__transparant bg-hand mt-5 text-justify">
           <div class="border-card__left"></div>

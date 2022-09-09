@@ -63,7 +63,8 @@ export default {
             if(this.getUserCredentials.id_user === undefined){
                 this.modalLoginShow = !this.modalLoginShow
             }else{
-                this.modalLoginShow = false;
+                this.$router.push("/home/material-inquiry");
+                // this.modalLoginShow = false;
             }
         }
     },

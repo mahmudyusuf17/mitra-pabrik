@@ -59,13 +59,19 @@
             <div class="row">
                 <div class="mp-navbar__user" v-if="getUserCredentials.nama_depan">
                     <b-nav-item class="mp-navbar-item">
-                        <span>Catalog</span>
+                        <nuxt-link to="/" class="mp-link__black-color">
+                            <span>Catalog</span>
+                        </nuxt-link>
                     </b-nav-item>
                     <b-nav-item class="mp-navbar-item">
-                        <span>Material Inquiry</span>
+                        <nuxt-link to="/home/material-inquiry" class="mp-link__black-color">
+                            <span>Material Inquiry</span>
+                        </nuxt-link>
                     </b-nav-item>
                     <b-nav-item class="mp-navbar-item mr-4">
-                        <span>Principals</span>
+                        <nuxt-link to="/home/partnerships" class="mp-link__black-color">
+                            <span>Principals</span>
+                        </nuxt-link>
                     </b-nav-item>
                     <!-- <b-nav-text class="d-flex align-items-center px-3" @click="showSearchModal = true">
                     <span class="navbar-text-display">Search</span> <b-avatar variant="transparent" src="/search.png"></b-avatar>

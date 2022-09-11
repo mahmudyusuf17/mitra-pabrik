@@ -19,7 +19,7 @@ import NewsSection from '~/components/news/NewsSection.vue';
 import Principal from '~/components/principal/Principal.vue';
 
 export default {
-    middleware: 'landing',
+    middleware: 'auth',
 
     components:{
       HomepageCarousel,

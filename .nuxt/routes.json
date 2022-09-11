@@ -33,6 +33,13 @@
         "_name": "_0f8ff724"
       },
       {
+        "name": "home-catalog",
+        "path": "catalog",
+        "component": "/Users/mahmudyusuf17/Documents/Freelance/mp/pages/home/catalog/index.vue",
+        "chunkName": "pages/home/catalog/index",
+        "_name": "_3a2c93ca"
+      },
+      {
         "name": "home-events",
         "path": "events",
         "component": "/Users/mahmudyusuf17/Documents/Freelance/mp/pages/home/events.vue",

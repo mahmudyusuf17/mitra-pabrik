@@ -29,9 +29,6 @@
   "AuthLoginModal": {
     "description": "Auto imported from components/auth/LoginModal.vue"
   },
-  "MenuItem": {
-    "description": "Auto imported from components/menu/MenuItem.vue"
-  },
   "Event": {
     "description": "Auto imported from components/event/Event.vue"
   },
@@ -43,6 +40,9 @@
   },
   "NewsSidebarCard": {
     "description": "Auto imported from components/news/NewsSidebarCard.vue"
+  },
+  "MenuItem": {
+    "description": "Auto imported from components/menu/MenuItem.vue"
   },
   "Principal": {
     "description": "Auto imported from components/principal/Principal.vue"

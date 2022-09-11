@@ -21,11 +21,13 @@
                     </b-row>
                 </template>
             </b-carousel-slide> -->
-            <b-carousel-slide v-for="(slide, i) in Math.ceil(partners.length / 12)" :key="i" class="mp-slider__principal">
+            <b-carousel-slide v-for="(slide, i) in Math.ceil(listPrincipal.length / 12)" :key="i" class="mp-slider__principal">
                 <template v-slot:img>
                     <b-row>
-                        <b-col cols="12" md="4" lg="2" sm="6" class="my-4" style="cursor: pointer" v-for="(imgsrc, j) in partners.slice(0,12)" :key="j" @onClick="principalDetail">
-                            <b-img :src="imgsrc.foto_perusahaan ? baseUrl+'/company_logo/'+imgsrc.foto_perusahaan+`?t=${new Date().getTime()}` : `/no-image-placeholder.png`" alt="Responsive image" class="mp-image-principal"></b-img>
+                        <b-col cols="12" md="4" lg="2" sm="6" class="my-4" style="cursor: pointer" v-for="(dataPrincipal, j) in listPrincipal" :key="j">
+                            <nuxt-link :to="`/home/partnership/${dataPrincipal.id_user}`">
+                                <b-img :src="baseUrl+'/company_logo/'+dataPrincipal.foto_perusahaan+`?t=${new Date().getTime()}`" alt="Responsive image" class="mp-image-principal"></b-img>
+                            </nuxt-link>
                         </b-col>
                     </b-row>
                 </template>
@@ -44,14 +46,11 @@ export default {
             itemsPerPage: 12,
             resultCount: 0,
             isSlide: false,
+            listPrincipal: []
         }
     },
 
     methods:{
-        principalDetail(){
-
-        },
-
         paginate(list) {
             this.resultCount = list.length
             if (this.currentPage >= this.totalPages) {
@@ -76,6 +75,16 @@ export default {
     async mounted() {
         let fetchPartners = await this.$axios.get(`/user/partners`)
         this.partners = fetchPartners.data.data
+
+        var partner = fetchPartners.data.data
+
+        partner.forEach(item => {
+            if(![null, ""].includes(item.foto_perusahaan)){
+                this.listPrincipal.push(item)
+                console.log(item.foto_perusahaan, "foto perusahaan")
+            }
+        });
+        
     },
 
     // filters: {

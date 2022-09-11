@@ -9,6 +9,7 @@ const _6d3d46da = () => interopDefault(import('../pages/contact-us.vue' /* webpa
 const _0f2b0f8e = () => interopDefault(import('../pages/home.vue' /* webpackChunkName: "pages/home" */))
 const _a83598de = () => interopDefault(import('../pages/home/index.vue' /* webpackChunkName: "pages/home/index" */))
 const _0f8ff724 = () => interopDefault(import('../pages/home/artikel/index.vue' /* webpackChunkName: "pages/home/artikel/index" */))
+const _3a2c93ca = () => interopDefault(import('../pages/home/catalog/index.vue' /* webpackChunkName: "pages/home/catalog/index" */))
 const _3adf1a2c = () => interopDefault(import('../pages/home/events.vue' /* webpackChunkName: "pages/home/events" */))
 const _54f8f195 = () => interopDefault(import('../pages/home/faq.vue' /* webpackChunkName: "pages/home/faq" */))
 const _0c23fb38 = () => interopDefault(import('../pages/home/inquiries.vue' /* webpackChunkName: "pages/home/inquiries" */))
@@ -73,6 +74,10 @@ export const routerOptions = {
       path: "artikel",
       component: _0f8ff724,
       name: "home-artikel"
+    }, {
+      path: "catalog",
+      component: _3a2c93ca,
+      name: "home-catalog"
     }, {
       path: "events",
       component: _3adf1a2c,

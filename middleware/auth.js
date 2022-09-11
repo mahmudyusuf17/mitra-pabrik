@@ -2,7 +2,7 @@ import axios from 'axios'
 
 export default async ({app, redirect, store, route}) => {
     console.log("masuk auth auth")
-    if(false) {
+    // if(false) {
         const checkStore = store.state.auth.user_login.id_user ? true : false
         if (!checkStore) {
             if(app.$cookies.get('token')) {
@@ -31,7 +31,7 @@ export default async ({app, redirect, store, route}) => {
             console.log("masuk sini")
             // redirect({name:'index'})
         }
-    } else {
+    // } else {
         // if(!['maintenance','quickregister'].includes(route.name)) redirect({name:'maintenance'})
-    }
+    // }
 }

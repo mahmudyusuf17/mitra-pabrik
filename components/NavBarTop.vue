@@ -59,7 +59,7 @@
             <div class="row">
                 <div class="mp-navbar__user" v-if="getUserCredentials.nama_depan">
                     <b-nav-item class="mp-navbar-item">
-                        <nuxt-link to="/" class="mp-link__black-color">
+                        <nuxt-link to="/home/catalog" class="mp-link__black-color">
                             <span>Catalog</span>
                         </nuxt-link>
                     </b-nav-item>

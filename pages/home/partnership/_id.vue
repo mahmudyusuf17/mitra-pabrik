@@ -1,6 +1,88 @@
 <template>
-    <div style="min-height: 100vh;">
-        <div class="row" v-if="!loading">
+    <div style="min-height: 100vh;" v-if="!loading">
+        <b-row v-if="partnerData != null">
+            <b-col cols="2">
+                <div class="mp-principal__detail">
+                    <div class="text-center">
+                        <b-img 
+                            thumbnail 
+                            fluid
+                            v-if="partnerData.foto_perusahaan != null" 
+                            :src="baseUrl+'/company_logo/'+partnerData.foto_perusahaan+`?t=${new Date().getTime()}`" 
+                            alt="Image Partnership"
+                            class="mb-2"
+                            style="border-radius: 25px;">
+                        </b-img>
+                        <b-avatar v-else class="mb-3" size="12rem" rounded></b-avatar>
+                        <b-button v-if="user == 'principal'" variant="primary" class="mp-border-radius mb-3" size="sm">Ganti Foto</b-button>
+                    </div>
+                    <p class="mp-fw-600 mb-0">{{ partnerData.nama_perusahaan }}</p>
+                    <div class="d-flex align-items-center mt-2">
+                        <b-icon font-scale="1" icon="geo-alt"></b-icon>
+                        <span class="mp-fw-600 ml-1">{{ partnerData.asal_kota }}</span>
+                    </div>
+                    <div class="mp-principal__edit-button mt-2" v-if="user == 'user'">
+                        <b-button block variant="primary" class="mp-border-radius" size="sm">Apply for distributor</b-button>
+                        <b-button block variant="primary" class="mp-border-radius" size="sm">Download company profile</b-button>
+                    </div>
+                    <div class="mp-principal__edit-button mt-2" v-if="user == 'principal'">
+                        <b-button block variant="primary" class="mp-border-radius" size="sm">Edit Profile</b-button>
+                        <b-button block variant="primary" class="mp-border-radius" size="sm">Upload Company Profile</b-button>
+                    </div>
+                </div>
+            </b-col>
+            <b-col cols="10">
+                <div class="mp-principal__galery" v-if="partnerData.gallery != null">
+                    <b-carousel
+                        id="carousel-fade"
+                        style="text-shadow: 0px 0px 2px #000"
+                        fade
+                        indicators
+                        img-width="1024"
+                        img-height="480"
+                        class="border"
+                    >
+                        <b-carousel-slide
+                            v-for="(tmp,idx) in partnerData.gallery" :key="idx"
+                            :img-src="`${baseUrl}/gallery/${tmp}?t=${new Date().getTime()}`"
+                        ></b-carousel-slide>
+                    </b-carousel>
+                </div>
+            </b-col>
+        </b-row>
+        <div class="mp-principal__product pt-5 mt-4">
+            <b-row>
+                <b-col cols="3"  v-for="data in products" :key="data.id_produk" class="mb-4">
+                    <b-card
+                        :img-src="`${baseUrl}/products/${data.katalog[0]}?t=${new Date().getTime()}`"
+                        img-alt="Image product"
+                        img-top
+                        tag="article"
+                        style="max-width: 18rem; border-radius: 20px"
+                        class="mp-product__card mb-2 mp-box-shadow"
+                        no-body
+                    >
+                        <div class="mp-product__label d-flex justify-content-between align-items-center px-3 pt-3">
+                            <div class="mp-product__wishlist">
+                                <!-- <b-icon :icon="currWishlist ? 'bookmark-fill' : 'bookmark'"></b-icon> -->
+                                <b-icon icon="bookmark"></b-icon>
+                            </div>
+                            <div class="mp-product__color">
+                                <span style="background-color: #FF0000"></span>
+                                <span style="background-color: #00FF00"></span>
+                                <span style="background-color: #0000FF"></span>
+                            </div>
+                        </div>
+                        <b-card-text class="px-3">
+                            <h2 class="mp-fs-20 my-3">{{ data.title }}</h2>
+                        </b-card-text>
+                        <b-card-footer class="text-center" >brand</b-card-footer>
+                    </b-card>
+
+                </b-col>
+            </b-row>
+        </div>
+        <!-- <div class="row" v-if="!loading">
             <div class="col-12" v-if="partnerData != null">
                 <div class="row mt-5">
                     <div class="col-12">
@@ -75,7 +157,7 @@
                     </div>
                 </div>
             </div>
-        </div>
+        </div> -->
     </div>
 </template>
 
@@ -83,11 +165,12 @@
     export default {
         data() {
             return {
-                baseUrl:process.env.BASE_FTP_URL,
-                partnerData:null,
-                errMsg:'',
+                baseUrl: process.env.BASE_FTP_URL,
+                partnerData: null,
+                errMsg: '',
                 loading: true,
                 products:[],
+                user: 'user'
             }
         },
         async mounted() {

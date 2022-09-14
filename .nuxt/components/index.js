@@ -9,12 +9,12 @@ export { default as ShowroomCard } from '../../components/ShowroomCard.vue'
 export { default as CarouselHomepageCarousel } from '../../components/carousel/homepage-carousel.vue'
 export { default as AuthLoginModal } from '../../components/auth/LoginModal.vue'
 export { default as Event } from '../../components/event/Event.vue'
+export { default as MenuItem } from '../../components/menu/MenuItem.vue'
 export { default as NewsArticleCard } from '../../components/news/ArticleCard.vue'
 export { default as NewsSection } from '../../components/news/NewsSection.vue'
 export { default as NewsSidebarCard } from '../../components/news/NewsSidebarCard.vue'
-export { default as MenuItem } from '../../components/menu/MenuItem.vue'
-export { default as Principal } from '../../components/principal/Principal.vue'
 export { default as Showroom } from '../../components/showroom/Showroom.vue'
+export { default as Principal } from '../../components/principal/Principal.vue'
 
 // nuxt/nuxt.js#8607
 function wrapFunctional(options) {

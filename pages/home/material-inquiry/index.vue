@@ -324,7 +324,8 @@
                 },
                 validation:{
                     email: null
-                }
+                },
+                text: "",
             }
         },
         methods: {
@@ -342,7 +343,3 @@
         }
     }
 </script>
-
-<style scoped>
-
-</style>

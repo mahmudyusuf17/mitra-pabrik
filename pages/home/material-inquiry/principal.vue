@@ -4,8 +4,23 @@
         <div class="mp-title-page__with-shadow">
             <h1>Material Inquiry</h1>
         </div>
-        <div class="mp-inquiry__filter">
-
+        <div class="mp-inquiry__filter mt-5">
+            <b-dropdown id="dropdown-left" text="sort" variant="outline" class="mr-3 border border-dark mp-button-sort">
+                <b-dropdown-item href="#">Filter Sort</b-dropdown-item>
+                <b-dropdown-item href="#">Filter Sort</b-dropdown-item>
+                <b-dropdown-item href="#">Filter Sort</b-dropdown-item>
+            </b-dropdown>    
+            <b-input-group class="mp-search__form">
+                <b-form-input
+                    v-model="materialSearch"
+                    placeholder="search"
+                    class="rounded-pill border border-dark"
+                    debounce="200"
+                ></b-form-input>
+                <template #append>
+                    <b-icon icon="search"></b-icon>
+                </template>
+            </b-input-group>
         </div>
         <div class="mp-inquiry__list-product mt-4">
             <b-row>
@@ -46,44 +61,19 @@
     export default {
         data() {
             return {
-                showalert: false,
-                loading:false,
-                form: {
-                    kebutuhan:'',
-                    lokasi:'',
-                    brand:'',
-                    material_qty:'',
-                },
-                validation: {
-                    kebutuhan:null,
-                    lokasi:null,
-                    brand:null,
-                    material_qty:null,
-                },
+                materialSearch: "",
+                currentPage: 1,
                 rows: 100,
-                currentPage: 1
             }
         },
         methods: {
-            async onSubmit() {
-                this.loading = true
-                for(const key in this.validation) {
-                    this.validation[key] = null
-                }
-                await this.$axios.post(`/requests`, this.form, { headers: {
-                    "auth-token":this.$cookies.get('token')
-                }})
-                .then(res => {
-                    this.showalert = true
-                })
-                .catch(err => {
-                    err.response.data.errors.forEach(row => {
-                        this.validation[row.param] = false
-                    });
-                })
-                this.loading = false
-            }
+            
         },
+
+        // async mounted() {
+        //     let fetchEvents = await this.$axios.get(`/material`)
+        //     console.log(fetchEvents, "data")
+        // },
     }
 </script>
 

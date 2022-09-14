@@ -1,157 +1,6 @@
 <template>
-    <div class="mp-material-inquiry__user">
-        <div class="mp-profile__background-image">
-            <div class="mp-profile__avatar">
-                <b-avatar :src="`${baseUrl}/profile/${form.foto_profil}?t=${new Date().getTime()}`" size="10rem" class="border border-dark"></b-avatar><br>
-                <button class="border border-gray mt-3">ganti gambar</button>
-            </div>
-        </div>
-        <div class="mp-profile__form">
-            <div class="mp-profile__form-content">
-                <div class="row">
-                    <div class="col-md-6">
-                        <b-form-group
-                            id="input-group-1"
-                            label="Nama Depan:"
-                            label-for="input-1"
-                        >
-                            <b-form-input
-                                id="input-1"
-                                v-model="form.nama_depan"
-                                placeholder="Nama Depan"
-                                class="rounded-xl bg-glass"
-                                disabled
-                            ></b-form-input>
-                        </b-form-group>
-                    </div>
-                    <div class="col-md-6">
-                        <b-form-group
-                            id="input-group-2"
-                            label="Nama Belakang:"
-                            label-for="input-2"
-                        >
-                            <b-form-input
-                                id="input-2"
-                                v-model="form.nama_belakang"
-                                placeholder="Nama Belakang"
-                                class="rounded-xl bg-glass"
-                                disabled
-                            ></b-form-input>
-                        </b-form-group>
-                    </div>
-                </div>
-                <b-form-group
-                    id="input-group-email"
-                    label="Alamat Email:"
-                    label-for="input-email"
-                >
-                    <b-form-input
-                        id="input-email"
-                        v-model="form.email"
-                        type="email"
-                        placeholder="Masukkan email yang aktif"
-                        class="rounded-xl bg-glass"
-                        disabled
-                    ></b-form-input>
-                </b-form-group>
-                <div class="row">
-                    <div class="col-6">
-                        <b-form-group
-                            id="input-group-3"
-                            label="no. HP:"
-                            label-for="input-3"
-                        >
-                            <b-form-input
-                                id="input-3"
-                                v-model="form.no_hp"
-                                placeholder="nomor HP yang aktif"
-                                :state="validation.no_hp"
-                                class="rounded-xl bg-glass"
-                            ></b-form-input>
-                            <b-form-invalid-feedback :state="validation.no_hp">
-                                {{ msg.no_hp }}
-                            </b-form-invalid-feedback>
-                        </b-form-group>
-                    </div>
-                    <div class="col-6">
-                        <b-form-group
-                            id="input-group-4"
-                            label="Kota Domisili:"
-                            label-for="input-4"
-                        >
-                            <b-form-input
-                                id="input-4"
-                                v-model="form.asal_kota"
-                                placeholder="Kota domisili anda"
-                                :state="validation.asal_kota"
-                                class="rounded-xl bg-glass"
-                            ></b-form-input>
-                            <b-form-invalid-feedback :state="validation.asal_kota">
-                                {{ msg.asal_kota }}
-                            </b-form-invalid-feedback>
-                        </b-form-group>
-                    </div>
-                </div>
-                <b-form-group
-                    id="input-group-5"
-                    label="Profesi:"
-                    label-for="input-5"
-                >
-                    <b-form-select 
-                        id="input-5"
-                        v-model="form.profesi"
-                        :state="validation.profesi"
-                        :options="listProfesi"
-                        class="rounded-xl bg-glass"
-                    >
-                    </b-form-select>
-                    <b-form-invalid-feedback :state="validation.profesi">
-                        {{ msg.profesi }}
-                    </b-form-invalid-feedback>
-                </b-form-group>
-                <b-form-group
-                    id="input-group-6"
-                    label="Tujuan:"
-                    label-for="input-6"
-                >
-                    <b-form-select 
-                        id="input-6"
-                        v-model="form.tujuan"
-                        :state="validation.tujuan"
-                        :options="listTujuan"
-                        class="rounded-xl bg-glass"
-                    >
-                        <b-form-select-option :value="null" disabled></b-form-select-option>
-                    </b-form-select>
-                    <b-form-invalid-feedback :state="validation.tujuan">
-                        {{ msg.tujuan }}
-                    </b-form-invalid-feedback>
-                </b-form-group>
-
-                <b-form-group
-                    id="input-group-7"
-                    label="Minat:"
-                    label-for="input-7"
-                >
-                    <b-form-input
-                        id="input-7"
-                        v-model="form.minat"
-                        placeholder="Minat anda"
-                        :state="validation.minat"
-                        class="rounded-xl bg-glass"
-                    ></b-form-input>
-                    <b-form-invalid-feedback :state="validation.minat">
-                        {{ msg.minat }}
-                    </b-form-invalid-feedback>
-                </b-form-group>
-                <div class="mp-profile__button d-flex justify-content-end">
-                    <b-button class="mp-border-radius ml-3 px-4 mt-4" style="border-radius: 15px;">Ubah password</b-button>
-                    <b-button class="mp-border-radius ml-3 px-4 mt-4" style="border-radius: 15px;">Edit</b-button>
-                    <b-button @click="updateDataDiri" class="mp-border-radius ml-3 px-4 mt-4" style="border-radius: 15px;">Simpan</b-button>
-                </div>
-            </div>
-        </div>
-        <!-- <b-tabs pills vertical :nav-wrapper-class="tabMediaClass" lazy>
+    <div class="row py-5 mp-material-inquiry container">
+        <b-tabs pills vertical :nav-wrapper-class="tabMediaClass" lazy>
             <b-tab title="Data Diri" style="min-height: 100vh;">
                 <div class="row">
                     <div class="col-12 mb-5">
@@ -610,7 +459,7 @@
                     <b-button variant="primary" pill class="px-5" @click="closeAlertGallery">OK</b-button>
                 </div>
             </div>
-        </b-modal> -->
+        </b-modal>
     </div>
 </template>
 
@@ -917,3 +766,12 @@
         }
     }
 </script>
+<style lang="scss" scoped>
+    .container{
+        padding: 0!important;
+    }
+
+    .mp-material-inquiry{
+        background-image: none;
+    }
+</style>

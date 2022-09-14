@@ -14,7 +14,7 @@
                             style="border-radius: 25px;">
                         </b-img>
                         <b-avatar v-else class="mb-3" size="12rem" rounded></b-avatar>
-                        <b-button v-if="user == 'principal'" variant="primary" class="mp-border-radius mb-3" size="sm">Ganti Foto</b-button>
+                        <b-button v-if="user == 'Prinsipal'" variant="primary" class="mp-border-radius mb-3" size="sm">Ganti Foto</b-button>
                     </div>
                     <p class="mp-fw-600 mb-0">{{ partnerData.nama_perusahaan }}</p>
                     <div class="d-flex align-items-center mt-2">
@@ -48,11 +48,11 @@
                         ></b-carousel-slide>
                     </b-carousel>
                 </div>
-                <b-button variant="primary" v-if="user == 'principal'" class="mp-border-radius float-right mt-3" size="sm">Edit Galeri</b-button>
+                <b-button variant="primary" v-if="user == 'Prinsipal'" class="mp-border-radius float-right mt-3" size="sm">Edit Galeri</b-button>
             </b-col>
         </b-row>
         <div class="d-block mt-4">
-            <b-button variant="primary" v-if="user == 'principal'" class="mp-border-radius float-right" size="sm">Tambah Catalog</b-button>
+            <b-button variant="primary" v-if="user == 'Prinsipal'" class="mp-border-radius float-right" size="sm">Tambah Catalog</b-button>
         </div>
         <div class="mp-principal__product pt-5 mt-2">
             <b-row>

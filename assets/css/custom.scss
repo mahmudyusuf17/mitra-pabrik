@@ -578,7 +578,40 @@ a.mp-link__redirect{
         border-radius: 50%;
         display: inline-block;
         margin-left: 4px;
-        // border: 1px solid #7a7a7a;
+    }
+}
+
+.mp-profile__background-image{
+    background-image: url("~/static/bg-profile.png");
+    background-repeat: repeat;
+    background-size: contain;
+    min-height: 100px;
+    height: 350px;
+    margin-top: 145px;
+    
+    .mp-profile__avatar{
+        text-align: center;
+        padding-top: 120px;
+    }
+}
+
+.mp-profile__form{
+    background-image: url("~/static/bg-image-profile.png");
+    background-repeat: no-repeat; 
+    background-size: cover;
+    min-height: 500px;
+
+
+    .mp-profile__form-content{
+        padding: 50px 380px 180px;
+
+        @media (max-width: 1000px){
+            padding: 50px 150px 180px;
+        }
+
+        @media (max-width: 700px){
+            padding: 50px 50px 180px;
+        }
     }
 }
 

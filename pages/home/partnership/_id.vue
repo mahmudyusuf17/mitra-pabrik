@@ -48,9 +48,13 @@
                         ></b-carousel-slide>
                     </b-carousel>
                 </div>
+                <b-button variant="primary" v-if="user == 'principal'" class="mp-border-radius float-right mt-3" size="sm">Edit Galeri</b-button>
             </b-col>
         </b-row>
-        <div class="mp-principal__product pt-5 mt-4">
+        <div class="d-block mt-4">
+            <b-button variant="primary" v-if="user == 'principal'" class="mp-border-radius float-right" size="sm">Tambah Catalog</b-button>
+        </div>
+        <div class="mp-principal__product pt-5 mt-2">
             <b-row>
                 <b-col cols="3"  v-for="data in products" :key="data.id_produk" class="mb-4">
                     <b-card

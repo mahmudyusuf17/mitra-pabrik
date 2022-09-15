@@ -2,13 +2,39 @@
   <div>
     <NavBarTop></NavBarTop>
       <Nuxt />
+      <b-button id="scroll-button" class="mp-button__scroll" @click="moveUp">
+        <b-icon icon="chevron-up"></b-icon>
+      </b-button>
     <home-footer />
   </div>
 </template>
 
 <script>
   export default {
-    
+    methods:{
+      moveUp(){
+          var scroll = new SmoothScroll()
+          scroll.animateScroll(0)
+      },
+
+      scrollFunction() {
+        if (document.body.scrollTop > 20 || document.documentElement.scrollTop > 20) {
+          document.getElementById("scroll-button").style.display = "none";
+        } else {
+          document.getElementById("scroll-button").style.display = "block";
+        }
+      },
+      
+      scrollHandler(e){
+        console.log(e, "scroll")
+      }
+    },
+
+    mounted() {
+      let scrollScript = document.createElement('script')
+      scrollScript.setAttribute('src', 'https://cdn.jsdelivr.net/npm/smooth-scroll@12.1.5')
+      document.head.appendChild(scrollScript)
+    },
   }
 </script>
 

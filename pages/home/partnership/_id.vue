@@ -166,39 +166,56 @@
 </template>
 
 <script>
+import { mapGetters } from 'vuex';
     export default {
-        data() {
-            return {
-                baseUrl: process.env.BASE_FTP_URL,
-                partnerData: null,
-                errMsg: '',
-                loading: true,
-                products:[],
-                user: 'user'
-            }
-        },
-        async mounted() {
-            try {
-                let fetchPartnerData = await this.$axios.get(`/user/partner/${this.$route.params.id}`, { params:{}, headers: { 'auth-token': this.$cookies.get('token') } })
-                if(fetchPartnerData.data.data.length > 0) {
-                    this.partnerData = fetchPartnerData.data.data[0]
-                    if(this.partnerData.gallery) {
-                        this.partnerData.gallery = this.partnerData.gallery.split(',')
-                    }
-                    let fetchProducts = await this.$axios.get(`/products/partner/${this.$route.params.id}`)
-                    this.products = fetchProducts.data.data
-                    this.products.forEach(row => {
-                        row.katalog = row.katalog.split(',')
-                    })
-                } else {
-                    this.errMsg = fetchPartnerData.data.msg
-                }
-            } catch (error) {
-                console.log(error)
-            }
-            this.loading = false
+    data() {
+        return {
+            baseUrl: process.env.BASE_FTP_URL,
+            partnerData: null,
+            errMsg: '',
+            loading: true,
+            products:[],
+            user: 'user'
         }
-    }
+    },
+    methods:{
+        getUserRole(){
+            if(this.getUserCredentials != null){
+               this.user = this.getUserCredentials.role ?? 'user'
+            }
+        }
+    },
+
+    async mounted() {
+        try {
+            let fetchPartnerData = await this.$axios.get(`/user/partner/${this.$route.params.id}`, { params:{}, headers: { 'auth-token': this.$cookies.get('token') } })
+            if(fetchPartnerData.data.data.length > 0) {
+                this.partnerData = fetchPartnerData.data.data[0]
+                if(this.partnerData.gallery) {
+                    this.partnerData.gallery = this.partnerData.gallery.split(',')
+                }
+                let fetchProducts = await this.$axios.get(`/products/partner/${this.$route.params.id}`)
+                this.products = fetchProducts.data.data
+                this.products.forEach(row => {
+                    row.katalog = row.katalog.split(',')
+                })
+            } else {
+                this.errMsg = fetchPartnerData.data.msg
+            }
+        } catch (error) {
+            console.log(error)
+        }
+        this.loading = false
+
+        this.getUserRole()
+    },
+
+    computed: {
+        ...mapGetters({
+            'getUserCredentials':'auth/getUserCredentials',
+        }),
+    },
+}
 </script>
 
 <style scoped>

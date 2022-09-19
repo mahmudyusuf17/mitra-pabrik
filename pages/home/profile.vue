@@ -20,7 +20,7 @@
                                 v-model="form.nama_depan"
                                 placeholder="Nama Depan"
                                 class="rounded-xl bg-glass"
-                                disabled
+                                :disabled="statusEdit"
                             ></b-form-input>
                         </b-form-group>
                     </div>
@@ -35,7 +35,7 @@
                                 v-model="form.nama_belakang"
                                 placeholder="Nama Belakang"
                                 class="rounded-xl bg-glass"
-                                disabled
+                                :disabled="statusEdit"
                             ></b-form-input>
                         </b-form-group>
                     </div>
@@ -67,6 +67,7 @@
                                 placeholder="nomor HP yang aktif"
                                 :state="validation.no_hp"
                                 class="rounded-xl bg-glass"
+                                :disabled="statusEdit"
                             ></b-form-input>
                             <b-form-invalid-feedback :state="validation.no_hp">
                                 {{ msg.no_hp }}
@@ -85,6 +86,7 @@
                                 placeholder="Kota domisili anda"
                                 :state="validation.asal_kota"
                                 class="rounded-xl bg-glass"
+                                :disabled="statusEdit"
                             ></b-form-input>
                             <b-form-invalid-feedback :state="validation.asal_kota">
                                 {{ msg.asal_kota }}
@@ -103,6 +105,7 @@
                         :state="validation.profesi"
                         :options="listProfesi"
                         class="rounded-xl bg-glass"
+                        disabled
                     >
                     </b-form-select>
                     <b-form-invalid-feedback :state="validation.profesi">
@@ -120,6 +123,7 @@
                         :state="validation.tujuan"
                         :options="listTujuan"
                         class="rounded-xl bg-glass"
+                        :disabled="statusEdit"
                     >
                         <b-form-select-option :value="null" disabled></b-form-select-option>
                     </b-form-select>
@@ -139,18 +143,109 @@
                         placeholder="Minat anda"
                         :state="validation.minat"
                         class="rounded-xl bg-glass"
+                        :disabled="statusEdit"
                     ></b-form-input>
                     <b-form-invalid-feedback :state="validation.minat">
                         {{ msg.minat }}
                     </b-form-invalid-feedback>
                 </b-form-group>
                 <div class="mp-profile__button d-flex justify-content-end">
-                    <b-button class="mp-border-radius ml-3 px-4 mt-4" style="border-radius: 15px;">Ubah password</b-button>
-                    <b-button class="mp-border-radius ml-3 px-4 mt-4" style="border-radius: 15px;">Edit</b-button>
+                    <b-button @click="modalShow = !modalShow" class="mp-border-radius ml-3 px-4 mt-4" style="border-radius: 15px;">Ubah password</b-button>
+                    <b-button @click="editDataDiri" class="mp-border-radius ml-3 px-4 mt-4" style="border-radius: 15px;">Edit</b-button>
                     <b-button @click="updateDataDiri" class="mp-border-radius ml-3 px-4 mt-4" style="border-radius: 15px;">Simpan</b-button>
                 </div>
             </div>
         </div>
+
+        <b-modal
+            id="modal-no-backdrop" 
+            hide-backdrop
+            @show="resetModal"
+            @hidden="resetModal"
+            hide-footer
+            header-class="mp-dialog-login"
+            modal-class="mp-modal-login"
+            v-model="modalShow"
+        >
+        <form ref="form" @submit.prevent="changePassword">
+            <div class="row">
+                <div class="col-md-12">
+                    <b-form-group
+                        id="input-group-oldpass"
+                        label="Kata sandi lama"
+                        label-for="input-oldpass"
+                    >
+                        <b-input-group>
+                            <template #append>
+                                <b-icon @click="togglePass1 = !togglePass1" :icon="handleIcon1" style="position: absolute; right: 30px; top:10px;" />
+                            </template>
+                            <b-form-input
+                                id="input-oldpass"
+                                v-model="changePass.oldpass"
+                                class="rounded-xl bg-glass"
+                                :state="validation.oldpass"
+                                :type="type1"
+                            ></b-form-input>
+                        </b-input-group>
+                        <b-form-invalid-feedback :state="validation.oldpass">
+                            {{ msg.oldpass }}
+                        </b-form-invalid-feedback>
+                    </b-form-group>
+                </div>
+                <div class="col-md-12">
+                    <b-form-group
+                        id="input-group-newpass"
+                        label="Kata sandi Baru"
+                        label-for="input-newpass"
+                    >
+                    <b-input-group>
+                        <template #append>
+                            <b-icon @click="togglePass2 = !togglePass2" :icon="handleIcon2" style="position: absolute; right: 30px; top:10px;" />
+                        </template>
+                        <b-form-input
+                            id="input-newpass"
+                            v-model="changePass.newpass"
+                            class="rounded-xl bg-glass"
+                            :state="validation.newpass"
+                            :type="type2"
+                        ></b-form-input>
+                    </b-input-group>
+                        <b-form-invalid-feedback :state="validation.newpass">
+                            {{ msg.newpass }}
+                        </b-form-invalid-feedback>
+                    </b-form-group>
+                </div>
+                <div class="col-md-12">
+                    <b-form-group
+                        id="input-group-cnewpass"
+                        label="Konfirmasi Kata sandi Baru"
+                        label-for="input-cnewpass"
+                    >
+                        <b-input-group>
+                            <template #append>
+                                <b-icon @click="togglePass3 = !togglePass3" :icon="handleIcon3" style="position: absolute; right: 30px; top:10px;" />
+                            </template>
+                            <b-form-input
+                                id="input-cnewpass"
+                                v-model="changePass.cnewpass"
+                                class="rounded-xl bg-glass"
+                                :state="validation.cnewpass"
+                                :type="type3"
+                            ></b-form-input>
+                        </b-input-group>
+                        <b-form-invalid-feedback :state="validation.cnewpass">
+                            {{ msg.cnewpass }}
+                        </b-form-invalid-feedback>
+                    </b-form-group>
+                </div>
+                <div class="col-12">
+                    <b-button pill class="float-right">
+                        Ubah Password
+                    </b-button>
+                </div>
+            </div>
+        </form>
+        </b-modal>
         <!-- <b-tabs pills vertical :nav-wrapper-class="tabMediaClass" lazy>
             <b-tab title="Data Diri" style="min-height: 100vh;">
                 <div class="row">
@@ -718,6 +813,8 @@
                 type2:'password',
                 togglePass3:true,
                 type3:'password',
+                statusEdit: true,
+                modalShow: false,
             }
         },
         computed: {
@@ -826,6 +923,13 @@
                     });
                 })
             },
+
+            editDataDiri(){
+                if(this.statusEdit){
+                    this.statusEdit = false
+                }
+            },
+
             uploadGallery() {
                 if (this.gallery.length > 0) {
                     this.gallery.forEach(row => {
@@ -901,7 +1005,13 @@
                     this.validation[key] = null
                     this.msg[key] = ''
                }
-            }
+            },
+
+            resetModal() {
+                this.changePass.oldpass = ""
+                this.changePass.newpass = ""
+                this.changePass.cnewpass = ""
+            },
         },
         async mounted() {
             await this.fetchGallery()

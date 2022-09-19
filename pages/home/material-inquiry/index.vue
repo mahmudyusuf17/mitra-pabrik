@@ -317,7 +317,7 @@
     export default {
         data() {
             return {
-                count: 2,
+                count: 1,
                 values:{},
                 form:{
                     email: ''

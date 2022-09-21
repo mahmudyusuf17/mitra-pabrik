@@ -59,7 +59,7 @@ export default {
         },
 
         checkStatusLogin(){
-            console.log(this.getUserCredentials.id_user)
+            // console.log(this.getUserCredentials.id_user)
             if(this.getUserCredentials.id_user === undefined){
                 this.modalLoginShow = !this.modalLoginShow
             }else{

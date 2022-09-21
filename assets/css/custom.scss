@@ -623,3 +623,25 @@ a.mp-link__redirect{
     padding: 10px 15px;
 }
 
+.mp-catalog__category{
+    display: flex;
+    justify-content: space-between;
+
+    .mp-catalog__filter-sort-and-search{
+        display: flex;
+    }
+}
+
+.mp-catalog__ads{
+    min-height: 500px;
+    border: 1px solid #c4c4c4;
+
+    .mp-ads{
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        padding: 200px 0;
+    }
+}
+
+

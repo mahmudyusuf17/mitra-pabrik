@@ -3,7 +3,7 @@
         <div class="container">
             <b-row>
                 <b-col cols="4">
-                    <div class="mp-catalog__filter mp-box-shadow mb-4">
+                    <div class="mp-catalog__filter mp-box-shadow mb-5">
                         <b-input-group class="mp-search__form mt-3">    
                             <b-form-input
                                 v-model="categorySearch"
@@ -42,8 +42,10 @@
                             </div>
                         </div>
                     </div>
-                    <div class="mp-catalog__ads">
-                        <b-img src="https://picsum.photos/300/150/?image=41" fluid alt="Fluid image"></b-img>
+                    <div class="mp-catalog__ads" style="cursor: pointer">
+                        <div class="mp-ads">
+                            IKLAN
+                        </div>
                     </div>
                 </b-col>
                 <b-col cols="8">
@@ -53,31 +55,99 @@
                         controls
                         class="mp-carousel__product"
                         >
-                        <b-carousel-slide class="mp-slider__product" v-for="(slide, i) in slides" :key="i">
+                        <b-carousel-slide class="mp-slider__product" v-for="(slide, i) in products.length" :key="i">
                             <template v-slot:img>
-                                <b-row>
-                                    <b-col cols="3" class="my-4" style="cursor: pointer" v-for="(imgsrc, index) in slide" :key="index">
-                                        <nuxt-link to="/">
-                                           <b-card :img-src="imgsrc" img-top no-body>
-                                            <b-card-body>
-                                                <b-card-title>Card Title</b-card-title>
-                                                    <b-card-text>
-                                                        Some quick example text to build on the card title and make up the bulk of the card's content.
-                                                    </b-card-text>
-                                                </b-card-body>
+                                <div class="mp-principal__product">
+                                    <b-row>
+                                        <b-col cols="3"  v-for="(data, index) in products" :key="index">
+                                            <b-card
+                                                :img-src="`${baseUrl}/products/${data.katalog}?t=${new Date().getTime()}`"
+                                                img-alt="Image product"
+                                                img-top
+                                                tag="article"
+                                                style="max-width: 18rem; border-radius: 20px; cursor: pointer;"
+                                                class="mp-product__card mb-2 mp-box-shadow"
+                                                no-body
+                                            >
+                                                <div class="mp-product__label d-flex justify-content-between align-items-center px-3 pt-3">
+                                                    <div class="mp-product__wishlist">
+                                                        <!-- <b-icon :icon="currWishlist ? 'bookmark-fill' : 'bookmark'"></b-icon> -->
+                                                        <b-icon icon="bookmark"></b-icon>
+                                                    </div>
+                                                    <div class="mp-product__color">
+                                                        <span style="background-color: #FF0000"></span>
+                                                        <span style="background-color: #00FF00"></span>
+                                                        <span style="background-color: #0000FF"></span>
+                                                    </div>
+                                                </div>
+                                                <b-card-text class="px-3">
+                                                    <h2 class="mp-fs-20 my-3">{{ data.title }}</h2>
+                                                </b-card-text>
+                                                <b-card-footer class="text-center" >brand</b-card-footer>
                                             </b-card>
-                                        </nuxt-link>
-                                    </b-col>
-                                </b-row>
+                                        </b-col>
+                                    </b-row>
+                                </div>
                             </template>
                         </b-carousel-slide>
                         </b-carousel>
+                        <div class="d-flex justify-content-end mt-2 mb-4">
+                            <a href="#">Lihat semua</a>
+                        </div>
                     </div>
-                    <div class="mp-catalog__category">
-
+                    <div class="mp-catalog__category mt-2">
+                        <div class="mp-category__label">
+                            <span class="mp-fs-20 mp-fw-600">Category 1 > sub category 1</span>
+                        </div>
+                        <div class="mp-catalog__filter-sort-and-search">
+                            <b-dropdown id="dropdown-left" text="sort" variant="outline" class="mr-3 border border-dark mp-button-sort">
+                                <b-dropdown-item href="#">Filter Sort</b-dropdown-item>
+                                <b-dropdown-item href="#">Filter Sort</b-dropdown-item>
+                                <b-dropdown-item href="#">Filter Sort</b-dropdown-item>
+                            </b-dropdown>    
+                            <b-input-group class="mp-search__form">
+                                <b-form-input
+                                    v-model="categorySearch"
+                                    placeholder="search"
+                                    class="rounded-pill border border-dark"
+                                    debounce="200"
+                                ></b-form-input>
+                                <template #append>
+                                    <b-icon icon="search"></b-icon>
+                                </template>
+                            </b-input-group>
+                        </div>
                     </div>
-                    <div class="mp-catalog__product-list">
-
+                    <div class="mp-catalog__product-list mt-4">
+                        <b-row>
+                            <b-col cols="3"  v-for="(data, index) in products" :key="index" class="mb-4">
+                                <b-card
+                                    :img-src="`${baseUrl}/products/${data.katalog}?t=${new Date().getTime()}`"
+                                    img-alt="Image product"
+                                    img-top
+                                    tag="article"
+                                    style="max-width: 18rem; border-radius: 20px; cursor: pointer;"
+                                    class="mp-product__card mb-2 mp-box-shadow"
+                                    no-body
+                                >
+                                    <div class="mp-product__label d-flex justify-content-between align-items-center px-3 pt-3">
+                                        <div class="mp-product__wishlist">
+                                            <!-- <b-icon :icon="currWishlist ? 'bookmark-fill' : 'bookmark'"></b-icon> -->
+                                            <b-icon icon="bookmark"></b-icon>
+                                        </div>
+                                        <div class="mp-product__color">
+                                            <span style="background-color: #FF0000"></span>
+                                            <span style="background-color: #00FF00"></span>
+                                            <span style="background-color: #0000FF"></span>
+                                        </div>
+                                    </div>
+                                    <b-card-text class="px-3">
+                                        <h2 class="mp-fs-20 my-3">{{ data.title }}</h2>
+                                    </b-card-text>
+                                    <b-card-footer class="text-center" >brand</b-card-footer>
+                                </b-card>
+                            </b-col>
+                        </b-row>
                     </div>
                 </b-col>
             </b-row>
@@ -89,9 +159,10 @@
     export default {
         data(){
             return{
+                baseUrl: process.env.BASE_FTP_URL,
                 categorySearch: "",
                 visible: false,
-                index: 5,
+                products: [],
                 slides: [
                     [
                         "https://picsum.photos/1024/480/?image=45", 
@@ -131,6 +202,16 @@
                     ]
                 ]
             }
+        },
+
+       async mounted(){
+            this.$emit('fullpage', false);
+            
+            let fetchEvents = await this.$axios.get(`/products`)
+            if(fetchEvents.data != null){
+                this.products = fetchEvents.data.data;
+            }
+            console.log(fetchEvents.data.data, "data")
         }
     }
 </script>

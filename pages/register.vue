@@ -90,7 +90,7 @@
                     >
                         <b-input-group>
                             <template #append>
-                                <b-icon @click="toggle1 = !toggle1" :icon="handleIcon1" style="position: absolute; right: 17px; top:10px;" />
+                                <b-icon @click="toggle1 = !toggle1" :icon="handleIcon1" style="position: absolute; right: 17px; top:10px; z-index: 9" />
                             </template>
                             <b-form-input
                                 id="input-password"
@@ -112,7 +112,7 @@
                     >
                         <b-input-group>
                             <template #append>
-                                <b-icon @click="toggle2 = !toggle2" :icon="handleIcon2" style="position: absolute; right: 17px; top:10px;" />
+                                <b-icon @click="toggle2 = !toggle2" :icon="handleIcon2" style="position: absolute; right: 17px; top:10px; z-index: 9" />
                             </template>
                             <b-form-input
                                 id="input-cpass"
@@ -544,29 +544,29 @@
                     this.validation[key] = null
                 }
                 if(tahapIdx == 1) {
-                    await this.$axios.post(`/user/register/validate/${tahapIdx}`,this.form).then(res => {
-                        this.userLogin(res.data.data)
-                        this.$cookies.set('token',res.data.token)
+                    // await this.$axios.post(`/user/register/validate/${tahapIdx}`,this.form).then(res => {
+                    //     this.userLogin(res.data.data)
+                    //     this.$cookies.set('token',res.data.token)
                         this.tahap++
-                    }).catch(err => {
-                        err.response.data.errors.forEach(row => {
-                            this.validation[row.param] = false
-                            this.msg[row.param] = row.msg
-                        });
-                    })
+                    // }).catch(err => {
+                    //     err.response.data.errors.forEach(row => {
+                    //         this.validation[row.param] = false
+                    //         this.msg[row.param] = row.msg
+                    //     });
+                    // })
                 } else {
-                    await this.$axios.put(`/user/register/validate/${tahapIdx}`, this.form, { headers: {
-                        "auth-token":this.$cookies.get('token')
-                    }})
-                    .then(() => {
+                    // await this.$axios.put(`/user/register/validate/${tahapIdx}`, this.form, { headers: {
+                    //     "auth-token":this.$cookies.get('token')
+                    // }})
+                    // .then(() => {
                         this.tahap++
-                    })
-                    .catch(err => {
-                        err.response.data.errors.forEach(row => {
-                            this.validation[row.param] = false
-                            this.msg[row.param] = row.msg
-                        });
-                    })
+                    // })
+                    // .catch(err => {
+                    //     err.response.data.errors.forEach(row => {
+                    //         this.validation[row.param] = false
+                    //         this.msg[row.param] = row.msg
+                    //     });
+                    // })
                 }
                 this.loading = false
             },

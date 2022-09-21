@@ -132,12 +132,13 @@
                         <p class="mb-0 mt-2 mp-fs-20 mp-fw-600">Upload foto proyek: </p>
                       </b-col>
                       <b-col cols="6">
-                        <b-form-input
-                            v-model="form.email"
-                            type="email"
-                            :state="validation.email"
-                            class="rounded-pill bg-glass border border-dark"
-                        ></b-form-input>
+                        <b-form-file 
+                            v-model="uploadFoto"
+                            accept="image/jpeg, image/png, image/jiff"
+                            name="uploadFoto"
+                            class="border"
+                            placeholder=""
+                        ></b-form-file>
                       </b-col>
                   </b-row>
                   <b-row class="mb-4">
@@ -276,13 +277,13 @@
                                     label-for="input-1"
                                     label-class="mp-fs-20 mp-fw-600"
                                 >
-                                    <b-form-input
-                                        id="input-1"
-                                        v-model="form.email"
-                                        type="email"
-                                        :state="validation.email"
-                                        class="rounded-pill bg-glass border border-dark"
-                                    ></b-form-input>
+                                    <b-form-file 
+                                        v-model="uploadFoto"
+                                        accept="image/jpeg, image/png, image/jiff"
+                                        name="uploadFoto"
+                                        class="border"
+                                        placeholder=""
+                                    ></b-form-file>
                                     <b-form-invalid-feedback :state="validation.email">
                                         Email tidak valid
                                     </b-form-invalid-feedback>
@@ -326,6 +327,7 @@
                     email: null
                 },
                 text: "",
+                uploadFoto: "",
             }
         },
         methods: {

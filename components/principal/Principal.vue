@@ -24,20 +24,28 @@
             <b-carousel-slide v-for="(slide, i) in Math.ceil(listPrincipal.length / 12)" :key="i" class="mp-slider__principal">
                 <template v-slot:img>
                     <b-row>
-                        <b-col cols="12" md="4" lg="2" sm="6" class="my-4" style="cursor: pointer" v-for="(dataPrincipal, j) in listPrincipal" :key="j">
-                            <nuxt-link :to="`/home/partnership/${dataPrincipal.id_user}`">
+                        <b-col cols="12" md="4" lg="2" sm="6" class="my-4" style="cursor: pointer" v-for="(dataPrincipal, j) in listPrincipal" :key="j" @click="cekLogin(dataPrincipal.id_user)">
+                            <!-- <nuxt-link :to="`/home/partnership/${dataPrincipal.id_user}`"> -->
                                 <b-img :src="baseUrl+'/company_logo/'+dataPrincipal.foto_perusahaan+`?t=${new Date().getTime()}`" alt="Responsive image" class="mp-image-principal"></b-img>
-                            </nuxt-link>
+                            <!-- </nuxt-link> -->
                         </b-col>
                     </b-row>
                 </template>
             </b-carousel-slide>
         </b-carousel>
+        <LoginModal :statusModal="modalLoginShow" />
     </div>
 </template>
 <script>
+
+import LoginModal from "~/components/auth/LoginModal.vue";
+import { mapGetters } from 'vuex';
 export default {
     name: "Principal",
+    components:{
+        LoginModal,
+    },
+    
     data(){
         return{
             partners: [],
@@ -46,7 +54,8 @@ export default {
             itemsPerPage: 12,
             resultCount: 0,
             isSlide: false,
-            listPrincipal: []
+            listPrincipal: [],
+            modalLoginShow: false,
         }
     },
 
@@ -69,6 +78,15 @@ export default {
 
         setPage(pageNumber) {
           this.currentPage = pageNumber
+        },
+
+        cekLogin(id){
+            console.log(id, "testing")    
+            if(this.getUserCredentials.id_user === undefined){
+                this.modalLoginShow = !this.modalLoginShow
+            }else{
+                this.$router.push("/home/partnership/" + id);
+            }
         }
     },
 
@@ -101,7 +119,11 @@ export default {
     computed:{
         totalPages() {
           return Math.ceil(this.resultCount / this.itemsPerPage)
-        }
+        },
+
+        ...mapGetters({
+            'getUserCredentials':'auth/getUserCredentials',
+        }),
     },
 
     watch:{

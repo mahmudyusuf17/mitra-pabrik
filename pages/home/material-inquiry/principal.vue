@@ -71,7 +71,7 @@
         },
 
         // async mounted() {
-        //     let fetchEvents = await this.$axios.get(`/material`)
+        //     let fetchEvents = await this.$axios.get(`/project`)
         //     console.log(fetchEvents, "data")
         // },
     }

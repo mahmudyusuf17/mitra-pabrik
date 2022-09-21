@@ -39,7 +39,7 @@
                 >
                     <b-input-group>
                         <template #append>
-                            <b-icon @click="toggle1 = !toggle1" :icon="handleIcon1" style="position: absolute; right: 30px; top:10px;" />
+                            <b-icon @click="toggle1 = !toggle1" :icon="handleIcon1" style="position: absolute; right: 30px; top:10px; z-index: 9" />
                         </template>
                         <b-form-input
                             id="input-2"

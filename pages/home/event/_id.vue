@@ -81,6 +81,7 @@
                 <p><b>Attendance QR Code:</b></p>
                 <div id="qrcode" class="d-flex justify-content-center align-items-center"></div>
                 <p class="m-0 mt-3">{{ $formatIDDate(new Date()) }}</p>
+                <p class="m-0 mt-3 mp-primary-color">*Silakan screenshot QR Code sebagai tanda bukti</p>
             </div>
         </b-modal>
         <b-modal v-model="showRegisterModal" scrollable size="lg" centered hide-footer hide-header>

@@ -24,9 +24,9 @@
         </div>
         <div class="mp-inquiry__list-product mt-4">
             <b-row>
-                <b-col cols="12" md="6" v-for="(item, i) in 4" :key="i" class="mb-5">
+                <b-col cols="12" md="6" v-for="(item, i) in dataMaterial" :key="i" class="mb-5">
                     <b-card
-                        img-src="https://picsum.photos/600/300/?image=25"
+                        :img-src="`${baseUrl}/${item.project_photo}}`"
                         img-alt="Image"
                         img-top
                         tag="article"
@@ -35,12 +35,12 @@
                         <b-card-text>
                             <div class="d-flex justify-content-between mt-3">
                                 <div class="mp-card-desc">
-                                    <p>nama proyek</p>
-                                    <p>kota</p>
+                                    <p>{{ item.project_name }}</p>
+                                    <p>{{ item.project_city }}</p>
                                 </div>
                                 <div class="mp-card-desc">
-                                    <p>tenggat waktu</p>
-                                    <p>nama penyelenggara</p>
+                                    <p>{{ $formatIDDate(item.project_deadline) }}</p>
+                                    <p>{{ item.person_name }}</p>
                                 </div>
                             </div>
                         </b-card-text>
@@ -50,7 +50,6 @@
             <div class="d-flex justify-content-center mt-4">
                 <b-pagination v-model="currentPage" :total-rows="rows"></b-pagination>
             </div>
-
         </div>
     </div>
 </div>
@@ -61,19 +60,29 @@
     export default {
         data() {
             return {
+                baseUrl:process.env.BASE_FTP_URL,
                 materialSearch: "",
                 currentPage: 1,
-                rows: 100,
+                rows: 1,
+                dataMaterial: [],
             }
         },
         methods: {
             
         },
 
-        // async mounted() {
-        //     let fetchEvents = await this.$axios.get(`/project`)
-        //     console.log(fetchEvents, "data")
-        // },
+        async mounted() {
+            let fetchEvents = await this.$axios.get(`/project`, {
+                headers:{
+                    "auth-token":this.$cookies.get('token')
+                }
+            })
+            
+            if(fetchEvents.data != null){
+                this.dataMaterial = fetchEvents.data.data
+            }
+
+        },
     }
 </script>
 

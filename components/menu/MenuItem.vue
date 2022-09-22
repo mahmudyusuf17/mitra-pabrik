@@ -36,7 +36,7 @@
 <script>
 
 import LoginModal from "~/components/auth/LoginModal.vue";
-import { mapGetters, mapActions } from 'vuex';
+import { mapGetters } from 'vuex';
 
 export default {
     name: "MenuItem",
@@ -63,7 +63,11 @@ export default {
             if(this.getUserCredentials.id_user === undefined){
                 this.modalLoginShow = !this.modalLoginShow
             }else{
-                this.$router.push("/home/material-inquiry");
+                if(getUserCredentials.role == null || getUserCredentials.role == 'user'){
+                    this.$router.push("/home/material-inquiry");
+                }else{
+                    this.$router.push("/home/material-inquiry/principal")
+                }
                 // this.modalLoginShow = false;
             }
         }

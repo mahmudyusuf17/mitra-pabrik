@@ -6,7 +6,7 @@
         </div>
         <div class="mp-card__transparant-form mt-5">
           <div class="mp-material-inquiry__form">
-              <b-form>
+              <b-form @submit.prevent="submit">
                 <div class="mp-form__group">
                   <b-row class="mb-4">
                       <b-col cols="4">
@@ -14,11 +14,14 @@
                       </b-col>
                       <b-col cols="6">
                         <b-form-input
-                            v-model="form.email"
-                            type="email"
-                            :state="validation.email"
+                            v-model="form.project_deadline"
+                            type="text"
+                            :state="validation.project_deadline"
                             class="rounded-pill bg-glass border border-dark"
                         ></b-form-input>
+                        <b-form-invalid-feedback :state="validation.project_deadline">
+                            {{ msg.project_deadline }}
+                        </b-form-invalid-feedback>
                       </b-col>
                   </b-row>
                   <b-row class="mb-4">
@@ -27,9 +30,9 @@
                       </b-col>
                       <b-col cols="6">
                         <b-form-input
-                            v-model="form.email"
-                            type="email"
-                            :state="validation.email"
+                            v-model="form.person_name"
+                            type="text"
+                            :state="validation.person_name"
                             class="rounded-pill bg-glass border border-dark"
                         ></b-form-input>
                       </b-col>
@@ -40,9 +43,9 @@
                       </b-col>
                       <b-col cols="6">
                         <b-form-input
-                            v-model="form.email"
-                            type="email"
-                            :state="validation.email"
+                            v-model="form.person_phone"
+                            type="text"
+                            :state="validation.person_phone"
                             class="rounded-pill bg-glass border border-dark"
                         ></b-form-input>
                       </b-col>
@@ -53,9 +56,9 @@
                       </b-col>
                       <b-col cols="6">
                         <b-form-input
-                            v-model="form.email"
-                            type="email"
-                            :state="validation.email"
+                            v-model="form.project_name"
+                            type="text"
+                            :state="validation.project_name"
                             class="rounded-pill bg-glass border border-dark"
                         ></b-form-input>
                       </b-col>
@@ -66,9 +69,9 @@
                       </b-col>
                       <b-col cols="6">
                         <b-form-input
-                            v-model="form.email"
-                            type="email"
-                            :state="validation.email"
+                            v-model="form.project_address"
+                            type="text"
+                            :state="validation.project_address"
                             class="rounded-pill bg-glass border border-dark"
                         ></b-form-input>
                       </b-col>
@@ -79,9 +82,9 @@
                       </b-col>
                       <b-col cols="6">
                         <b-form-input
-                            v-model="form.email"
-                            type="email"
-                            :state="validation.email"
+                            v-model="form.project_city"
+                            type="text"
+                            :state="validation.project_city"
                             class="rounded-pill bg-glass border border-dark"
                         ></b-form-input>
                       </b-col>
@@ -92,9 +95,9 @@
                       </b-col>
                       <b-col cols="6">
                         <b-form-input
-                            v-model="form.email"
-                            type="email"
-                            :state="validation.email"
+                            v-model="form.project_budget"
+                            type="text"
+                            :state="validation.project_budget"
                             class="rounded-pill bg-glass border border-dark"
                         ></b-form-input>
                       </b-col>
@@ -106,7 +109,7 @@
                       <b-col cols="6">
                             <b-form-textarea
                                 id="textarea"
-                                v-model="text"
+                                v-model="form.project_note"
                                 rows="3"
                                 max-rows="6"
                                 class="border border-dark"
@@ -120,9 +123,9 @@
                       </b-col>
                       <b-col cols="6">
                         <b-form-input
-                            v-model="form.email"
-                            type="email"
-                            :state="validation.email"
+                            v-model="form.project_status"
+                            type="text"
+                            :state="validation.project_status"
                             class="rounded-pill bg-glass border border-dark"
                         ></b-form-input>
                       </b-col>
@@ -150,8 +153,9 @@
 
                 <div class="mp-form__kebutuhan">
                     <b-row>
-                        <b-col cols="4" v-for="key in count" :key="key" class="mb-4">
+                        <!-- <b-col cols="4" v-for="(key, index) in count" :key="index" class="mb-4">
                             <div class="mp-box__form">
+                                <b-icon-x-lg v-show="index > 0" class="float-right mt-2" style="cursor:pointer" @click="remove()"></b-icon-x-lg>
                                 <b-form-group
                                     id="input-group-1"
                                     label="Tipe barang:"
@@ -160,12 +164,12 @@
                                 >
                                     <b-form-input
                                         id="input-1"
-                                        v-model="form.email"
+                                        v-model="kebutuhan.type"
                                         type="email"
-                                        :state="validation.email"
+                                        :state="validation.type"
                                         class="rounded-pill bg-glass border border-dark"
                                     ></b-form-input>
-                                    <b-form-invalid-feedback :state="validation.email">
+                                    <b-form-invalid-feedback :state="validation.type">
                                         Email tidak valid
                                     </b-form-invalid-feedback>
                                 </b-form-group>
@@ -177,12 +181,12 @@
                                 >
                                     <b-form-input
                                         id="input-1"
-                                        v-model="form.email"
+                                        v-model="kebutuhan.brand"
                                         type="email"
-                                        :state="validation.email"
+                                        :state="validation.brand"
                                         class="rounded-pill bg-glass border border-dark"
                                     ></b-form-input>
-                                    <b-form-invalid-feedback :state="validation.email">
+                                    <b-form-invalid-feedback :state="validation.brand">
                                         Email tidak valid
                                     </b-form-invalid-feedback>
                                 </b-form-group>
@@ -194,12 +198,12 @@
                                 >
                                     <b-form-input
                                         id="input-1"
-                                        v-model="form.email"
+                                        v-model="kebutuhan.material"
                                         type="email"
-                                        :state="validation.email"
+                                        :state="validation.material"
                                         class="rounded-pill bg-glass border border-dark"
                                     ></b-form-input>
-                                    <b-form-invalid-feedback :state="validation.email">
+                                    <b-form-invalid-feedback :state="validation.material">
                                         Email tidak valid
                                     </b-form-invalid-feedback>
                                 </b-form-group>
@@ -211,12 +215,12 @@
                                 >
                                     <b-form-input
                                         id="input-1"
-                                        v-model="form.email"
+                                        v-model="kebutuhan.area_needed"
                                         type="email"
-                                        :state="validation.email"
+                                        :state="validation.area_needed"
                                         class="rounded-pill bg-glass border border-dark"
                                     ></b-form-input>
-                                    <b-form-invalid-feedback :state="validation.email">
+                                    <b-form-invalid-feedback :state="validation.area_needed">
                                         Email tidak valid
                                     </b-form-invalid-feedback>
                                 </b-form-group>
@@ -228,12 +232,12 @@
                                 >
                                     <b-form-input
                                         id="input-1"
-                                        v-model="form.email"
+                                        v-model="kebutuhan.size"
                                         type="email"
-                                        :state="validation.email"
+                                        :state="validation.size"
                                         class="rounded-pill bg-glass border border-dark"
                                     ></b-form-input>
-                                    <b-form-invalid-feedback :state="validation.email">
+                                    <b-form-invalid-feedback :state="validation.size">
                                         Email tidak valid
                                     </b-form-invalid-feedback>
                                 </b-form-group>
@@ -245,29 +249,29 @@
                                 >
                                     <b-form-input
                                         id="input-1"
-                                        v-model="form.email"
+                                        v-model="kebutuhan.quantity"
                                         type="email"
-                                        :state="validation.email"
+                                        :state="validation.quantity"
                                         class="rounded-pill bg-glass border border-dark"
                                     ></b-form-input>
-                                    <b-form-invalid-feedback :state="validation.email">
+                                    <b-form-invalid-feedback :state="validation.quantity">
                                         Email tidak valid
                                     </b-form-invalid-feedback>
                                 </b-form-group>
                                 <b-form-group
                                     id="input-group-1"
-                                    label="Budget:"
+                                    label="project_budget:"
                                     label-for="input-1"
                                     label-class="mp-fs-20 mp-fw-600"
                                 >
                                     <b-form-input
                                         id="input-1"
-                                        v-model="form.email"
+                                        v-model="kebutuhan.budget"
                                         type="email"
-                                        :state="validation.email"
+                                        :state="validation.budget"
                                         class="rounded-pill bg-glass border border-dark"
                                     ></b-form-input>
-                                    <b-form-invalid-feedback :state="validation.email">
+                                    <b-form-invalid-feedback :state="validation.budget">
                                         Email tidak valid
                                     </b-form-invalid-feedback>
                                 </b-form-group>
@@ -278,13 +282,155 @@
                                     label-class="mp-fs-20 mp-fw-600"
                                 >
                                     <b-form-file 
-                                        v-model="uploadFoto"
+                                        v-model="kebutuhan.foto"
                                         accept="image/jpeg, image/png, image/jiff"
                                         name="uploadFoto"
                                         class="border"
                                         placeholder=""
                                     ></b-form-file>
-                                    <b-form-invalid-feedback :state="validation.email">
+                                    <b-form-invalid-feedback :state="validation.foto">
+                                        Email tidak valid
+                                    </b-form-invalid-feedback>
+                                </b-form-group>
+                            </div>
+                        </b-col> -->
+
+                        <b-col cols="4" class="mb-4" v-for="(data, index) in needs" :key="index">
+                            <div class="mp-box__form">
+                                <b-icon-x-lg v-show="index > 0" class="float-right mt-2" style="cursor:pointer" @click="remove(index)"></b-icon-x-lg>
+                                <b-form-group
+                                    id="input-group-1"
+                                    label="Tipe barang:"
+                                    label-for="input-1"
+                                    label-class="mp-fs-20 mp-fw-600 mt-2"
+                                >
+                                    <b-form-input
+                                        id="input-1"
+                                        v-model="data.type"
+                                        type="email"
+                                        :state="validation.type"
+                                        class="rounded-pill bg-glass border border-dark"
+                                    ></b-form-input>
+                                    <b-form-invalid-feedback :state="validation.type">
+                                        Email tidak valid
+                                    </b-form-invalid-feedback>
+                                </b-form-group>
+                                <b-form-group
+                                    id="input-group-1"
+                                    label="Brand:"
+                                    label-for="input-1"
+                                    label-class="mp-fs-20 mp-fw-600"
+                                >
+                                    <b-form-input
+                                        id="input-1"
+                                        v-model="data.brand"
+                                        type="email"
+                                        :state="validation.brand"
+                                        class="rounded-pill bg-glass border border-dark"
+                                    ></b-form-input>
+                                    <b-form-invalid-feedback :state="validation.brand">
+                                        Email tidak valid
+                                    </b-form-invalid-feedback>
+                                </b-form-group>
+                                <b-form-group
+                                    id="input-group-1"
+                                    label="Material:"
+                                    label-for="input-1"
+                                    label-class="mp-fs-20 mp-fw-600"
+                                >
+                                    <b-form-input
+                                        id="input-1"
+                                        v-model="data.material"
+                                        type="email"
+                                        :state="validation.material"
+                                        class="rounded-pill bg-glass border border-dark"
+                                    ></b-form-input>
+                                    <b-form-invalid-feedback :state="validation.material">
+                                        Email tidak valid
+                                    </b-form-invalid-feedback>
+                                </b-form-group>
+                                <b-form-group
+                                    id="input-group-1"
+                                    label="Luas kebutuhan:"
+                                    label-for="input-1"
+                                    label-class="mp-fs-20 mp-fw-600"
+                                >
+                                    <b-form-input
+                                        id="input-1"
+                                        v-model="data.area_needed"
+                                        type="email"
+                                        :state="validation.area_needed"
+                                        class="rounded-pill bg-glass border border-dark"
+                                    ></b-form-input>
+                                    <b-form-invalid-feedback :state="validation.area_needed">
+                                        Email tidak valid
+                                    </b-form-invalid-feedback>
+                                </b-form-group>
+                                <b-form-group
+                                    id="input-group-1"
+                                    label="Ukuran:"
+                                    label-for="input-1"
+                                    label-class="mp-fs-20 mp-fw-600"
+                                >
+                                    <b-form-input
+                                        id="input-1"
+                                        v-model="data.size"
+                                        type="email"
+                                        :state="validation.size"
+                                        class="rounded-pill bg-glass border border-dark"
+                                    ></b-form-input>
+                                    <b-form-invalid-feedback :state="validation.size">
+                                        Email tidak valid
+                                    </b-form-invalid-feedback>
+                                </b-form-group>
+                                <b-form-group
+                                    id="input-group-1"
+                                    label="Quantity:"
+                                    label-for="input-1"
+                                    label-class="mp-fs-20 mp-fw-600"
+                                >
+                                    <b-form-input
+                                        id="input-1"
+                                        v-model="data.quantity"
+                                        type="email"
+                                        :state="validation.quantity"
+                                        class="rounded-pill bg-glass border border-dark"
+                                    ></b-form-input>
+                                    <b-form-invalid-feedback :state="validation.quantity">
+                                        Email tidak valid
+                                    </b-form-invalid-feedback>
+                                </b-form-group>
+                                <b-form-group
+                                    id="input-group-1"
+                                    label="project_budget:"
+                                    label-for="input-1"
+                                    label-class="mp-fs-20 mp-fw-600"
+                                >
+                                    <b-form-input
+                                        id="input-1"
+                                        v-model="data.budget"
+                                        type="email"
+                                        :state="validation.budget"
+                                        class="rounded-pill bg-glass border border-dark"
+                                    ></b-form-input>
+                                    <b-form-invalid-feedback :state="validation.budget">
+                                        Email tidak valid
+                                    </b-form-invalid-feedback>
+                                </b-form-group>
+                                <b-form-group
+                                    id="input-group-1"
+                                    label="Upload Gambar Kerja:"
+                                    label-for="input-1"
+                                    label-class="mp-fs-20 mp-fw-600"
+                                >
+                                    <b-form-file 
+                                        v-model="data.foto"
+                                        accept="image/jpeg, image/png, image/jiff"
+                                        name="uploadFoto"
+                                        class="border"
+                                        placeholder=""
+                                    ></b-form-file>
+                                    <b-form-invalid-feedback :state="validation.foto">
                                         Email tidak valid
                                     </b-form-invalid-feedback>
                                 </b-form-group>
@@ -306,8 +452,6 @@
                     <b-button variant="primary" pill type="submit" class="mb-3 px-5" size="lg">Submit</b-button>
                 </div>
               </b-form>
-
-              
           </div>
         </div>
     </div>
@@ -321,22 +465,138 @@
                 count: 1,
                 values:{},
                 form:{
-                    email: ''
+                    project_deadline: "",
+                    person_name: "",
+                    person_phone: "",
+                    project_name: "",
+                    project_address: "",
+                    project_city: "",
+                    project_budget: "",
+                    project_note: "",
+                    project_status: "",
+                    project_photo: "",
                 },
+                // kebutuhan: {
+                //     type: "",
+                //     brand: "",
+                //     material: "",
+                //     area_needed: "",
+                //     size: "",
+                //     quantity: "",
+                //     budget: "",
+                //     photo: []
+                // },
                 validation:{
-                    email: null
+                    project_deadline: null,
+                    person_name: null,
+                    person_phone: null,
+                    project_name: null,
+                    project_address: null,
+                    project_city: null,
+                    project_budget: null,
+                    project_note: null,
+                    project_status: null,
+                    type: null,
+                    brand: null,
+                    material: null,
+                    area_needed: null,
+                    size: null,
+                    quantity: null,
+                    budget: null,
+                    project_photo: null,
+                    foto: null,
                 },
-                text: "",
-                uploadFoto: "",
+                msg: {
+                    project_deadline: "",
+                    person_name: "",
+                    person_phone: "",
+                    project_name: "",
+                    project_address: "",
+                    project_city: "",
+                    project_budget: "",
+                    project_note: "",
+                    project_status: "",
+                    type: "",
+                    brand: "",
+                    material: "",
+                    area_needed: "",
+                    size: "",
+                    quantity: "",
+                    budget: "",
+                    project_photo: "",
+                    foto: "",
+                },
+                needs: [
+                    {
+                        type: "",
+                        brand: "",
+                        material: "",
+                        area_needed: "",
+                        size: "",
+                        quantity: "",
+                        budget: "",
+                        photo: [] 
+                    }
+                ],
+                uploadFoto: [],
             }
         },
         methods: {
             add(){
-                this.count++
+                // this.count++
+                this.needs.push({
+                    type: "",
+                    brand: "",
+                    material: "",
+                    area_needed: "",
+                    size: "",
+                    quantity: "",
+                    budget: "",
+                    photo: [] 
+                });
             },
 
-            remove(){
-                this.count--
+            remove(index){
+                // this.count--
+                this.needs.splice(index, 1);
+            },
+
+            async submit(){
+                for (const key in this.validation) {
+                    this.validation[key] = null
+                }
+                let formData = new FormData();
+                for (const key in this.form) {
+                    formData.append(key, this.form[key])
+                }
+                
+                await this.$axios.post("/project", formData, {
+                    'Content-Type': 'multipart/form-data',
+                }).then(res => {
+                    console.log(res)
+                })
+                .catch(err => {
+                    err.response.data.errors.forEach(row => {
+                        this.validation[row] = false
+                        this.msg[row] = row
+                    });
+                })
+
+                console.log(this.needs)
+
+
+                // this.$axios.post("/project/upload_photo")
+                // this.$axios.post("/material", {
+                //     headers:{
+                //         "auth-token":this.$cookies.get('token')
+                //     }
+                // })
+                // this.$axios.post("/project/replay")
+                // this.$axios.post("/material/upload_photo", {
+                //     headers:{
+                //         "auth-token":this.$cookies.get('token')
+                //     }
+                // })
             }
         },
 

@@ -68,11 +68,11 @@
                             <span>Material Inquiry</span>
                         </nuxt-link>
                     </b-nav-item>
-                    <b-nav-item class="mp-navbar-item mr-4">
+                    <!-- <b-nav-item class="mp-navbar-item mr-4">
                         <nuxt-link to="/home/partnerships" class="mp-link__black-color">
                             <span>Principals</span>
                         </nuxt-link>
-                    </b-nav-item>
+                    </b-nav-item> -->
                     <!-- <b-nav-text class="d-flex align-items-center px-3" @click="showSearchModal = true">
                     <span class="navbar-text-display">Search</span> <b-avatar variant="transparent" src="/search.png"></b-avatar>
                     </b-nav-text> -->

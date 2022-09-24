@@ -18,16 +18,11 @@
                             :state="validation.project_deadline"
                             placeholder=""
                             class="rounded-pill bg-glass border border-dark"
-                            locale="id">
+                            locale="id"
+                            >
                         </b-form-datepicker>
-                        <!-- <b-form-input
-                            v-model="form.project_deadline"
-                            type="text"
-                            :state="validation.project_deadline"
-                            class="rounded-pill bg-glass border border-dark"
-                        ></b-form-input> -->
                         <b-form-invalid-feedback :state="validation.project_deadline">
-                            {{ msg.project_deadline }}
+                            
                         </b-form-invalid-feedback>
                       </b-col>
                   </b-row>
@@ -42,6 +37,9 @@
                             :state="validation.person_name"
                             class="rounded-pill bg-glass border border-dark"
                         ></b-form-input>
+                        <b-form-invalid-feedback :state="validation.person_name">
+                            Tenggat waktu harus diisi
+                        </b-form-invalid-feedback>
                       </b-col>
                   </b-row>
                   <b-row class="mb-4">
@@ -177,7 +175,7 @@
                                         class="rounded-pill bg-glass border border-dark"
                                     ></b-form-input>
                                     <b-form-invalid-feedback :state="validation.type">
-                                        Email tidak valid
+                                        Email harus diisi
                                     </b-form-invalid-feedback>
                                 </b-form-group>
                                 <b-form-group
@@ -194,7 +192,7 @@
                                         class="rounded-pill bg-glass border border-dark"
                                     ></b-form-input>
                                     <b-form-invalid-feedback :state="validation.brand">
-                                        Email tidak valid
+                                        Email harus diisi
                                     </b-form-invalid-feedback>
                                 </b-form-group>
                                 <b-form-group
@@ -211,7 +209,7 @@
                                         class="rounded-pill bg-glass border border-dark"
                                     ></b-form-input>
                                     <b-form-invalid-feedback :state="validation.material">
-                                        Email tidak valid
+                                        Email harus diisi
                                     </b-form-invalid-feedback>
                                 </b-form-group>
                                 <b-form-group
@@ -228,7 +226,7 @@
                                         class="rounded-pill bg-glass border border-dark"
                                     ></b-form-input>
                                     <b-form-invalid-feedback :state="validation.area_needed">
-                                        Email tidak valid
+                                        Email harus diisi
                                     </b-form-invalid-feedback>
                                 </b-form-group>
                                 <b-form-group
@@ -245,7 +243,7 @@
                                         class="rounded-pill bg-glass border border-dark"
                                     ></b-form-input>
                                     <b-form-invalid-feedback :state="validation.size">
-                                        Email tidak valid
+                                        Email harus diisi
                                     </b-form-invalid-feedback>
                                 </b-form-group>
                                 <b-form-group
@@ -262,7 +260,7 @@
                                         class="rounded-pill bg-glass border border-dark"
                                     ></b-form-input>
                                     <b-form-invalid-feedback :state="validation.quantity">
-                                        Email tidak valid
+                                        Email harus diisi
                                     </b-form-invalid-feedback>
                                 </b-form-group>
                                 <b-form-group
@@ -279,7 +277,7 @@
                                         class="rounded-pill bg-glass border border-dark"
                                     ></b-form-input>
                                     <b-form-invalid-feedback :state="validation.budget">
-                                        Email tidak valid
+                                        Email harus diisi
                                     </b-form-invalid-feedback>
                                 </b-form-group>
                                 <b-form-group
@@ -296,7 +294,7 @@
                                         placeholder=""
                                     ></b-form-file>
                                     <b-form-invalid-feedback :state="validation.foto">
-                                        Email tidak valid
+                                        Email harus diisi
                                     </b-form-invalid-feedback>
                                 </b-form-group>
                             </div>
@@ -319,7 +317,7 @@
                                         class="rounded-pill bg-glass border border-dark"
                                     ></b-form-input>
                                     <b-form-invalid-feedback :state="validation.type">
-                                        Email tidak valid
+                                        Email harus diisi
                                     </b-form-invalid-feedback>
                                 </b-form-group>
                                 <b-form-group
@@ -336,7 +334,7 @@
                                         class="rounded-pill bg-glass border border-dark"
                                     ></b-form-input>
                                     <b-form-invalid-feedback :state="validation.brand">
-                                        Email tidak valid
+                                        Email harus diisi
                                     </b-form-invalid-feedback>
                                 </b-form-group>
                                 <b-form-group
@@ -353,7 +351,7 @@
                                         class="rounded-pill bg-glass border border-dark"
                                     ></b-form-input>
                                     <b-form-invalid-feedback :state="validation.material">
-                                        Email tidak valid
+                                        Email harus diisi
                                     </b-form-invalid-feedback>
                                 </b-form-group>
                                 <b-form-group
@@ -370,7 +368,7 @@
                                         class="rounded-pill bg-glass border border-dark"
                                     ></b-form-input>
                                     <b-form-invalid-feedback :state="validation.area_needed">
-                                        Email tidak valid
+                                        Email harus diisi
                                     </b-form-invalid-feedback>
                                 </b-form-group>
                                 <b-form-group
@@ -387,7 +385,7 @@
                                         class="rounded-pill bg-glass border border-dark"
                                     ></b-form-input>
                                     <b-form-invalid-feedback :state="validation.size">
-                                        Email tidak valid
+                                        Email harus diisi
                                     </b-form-invalid-feedback>
                                 </b-form-group>
                                 <b-form-group
@@ -404,7 +402,7 @@
                                         class="rounded-pill bg-glass border border-dark"
                                     ></b-form-input>
                                     <b-form-invalid-feedback :state="validation.quantity">
-                                        Email tidak valid
+                                        Email harus diisi
                                     </b-form-invalid-feedback>
                                 </b-form-group>
                                 <b-form-group
@@ -421,7 +419,7 @@
                                         class="rounded-pill bg-glass border border-dark"
                                     ></b-form-input>
                                     <b-form-invalid-feedback :state="validation.budget">
-                                        Email tidak valid
+                                        Email harus diisi
                                     </b-form-invalid-feedback>
                                 </b-form-group>
                                 <b-form-group
@@ -437,8 +435,8 @@
                                         class="border"
                                         placeholder=""
                                     ></b-form-file>
-                                    <b-form-invalid-feedback :state="validation.foto">
-                                        Email tidak valid
+                                    <b-form-invalid-feedback :state="validation.photo">
+                                        Email harus diisi
                                     </b-form-invalid-feedback>
                                 </b-form-group>
                             </div>
@@ -511,7 +509,7 @@
                     quantity: null,
                     budget: null,
                     project_photo: null,
-                    foto: null,
+                    photo: null,
                 },
                 msg: {
                     project_deadline: "",
@@ -587,18 +585,21 @@
                     if(res.data.data != null){
                         let formDataNeeds = new FormData();
 
-                        this.needs.forEach(arr =>{
-                            arr.project_id  = res.data.data.id
+                        if(this.needs != null){
+                            console.log(this.needs)
+                            this.needs.forEach(arr =>{
+                                arr.project_id  = res.data.data.id
 
                             for (const key in arr) {
                                 formDataNeeds.append(key, arr[key])
-                            }
-                        })
+                                }
+                            })
+                        }
                         
                         for (const pair of formDataNeeds.entries()) {
                             console.log(`${pair[0]} -> ${pair[1]}`);
                         }
-
+                        
                         this.$axios.post("/material", formDataNeeds, {
                             headers:{
                                 'Content-Type': 'multipart/form-data',
@@ -606,35 +607,46 @@
                             }
                         }).then(response => {
                             console.log(response, "response")
+                            this.openModalSuccess()
+                            // location.reload()
                         }).catch(err => {
                             console.log(err, "error")
+                            // err.data.errors.forEach(row => {
+                            //     this.validation[row] = false
+                            //     this.msg[row] = row
+                            // });
+                            err.response.data.errors.forEach(row => {
+                                this.validation[row] = false
+                                this.msg[row] = row
+                            });
                         })
-
-                        console.log("res", res.data.data.id)
                     }
                 })
                 .catch(err => {
-                    err.errors.forEach(row => {
+                    //  console.log(err, "error")
+                     err.response.data.errors.forEach(row => {
+                        console.log(row)
                         this.validation[row] = false
                         this.msg[row] = row
+                        console.log(this.msg[row.param])
                     });
                 })
+            },
 
-                // console.log(this.needs)
-
-
-                // this.$axios.post("/project/upload_photo")
-                // this.$axios.post("/material", {
-                //     headers:{
-                //         "auth-token":this.$cookies.get('token')
-                //     }
-                // })
-                // this.$axios.post("/project/replay")
-                // this.$axios.post("/material/upload_photo", {
-                //     headers:{
-                //         "auth-token":this.$cookies.get('token')
-                //     }
-                // })
+            openModalSuccess() {
+                this.boxTwo = ''
+                this.$bvModal.msgBoxOk('Data was submitted successfully', {
+                size: 'sm',
+                buttonSize: 'sm',
+                okVariant: 'success',
+                headerClass: 'p-2 border-bottom-0',
+                footerClass: 'p-2 border-top-0',
+                centered: true
+            }).then(value => {
+                location.reload()
+            })
+            .catch(err => {
+            })
             }
         },
 

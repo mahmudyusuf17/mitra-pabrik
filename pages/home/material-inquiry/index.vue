@@ -13,12 +13,19 @@
                         <p class="mb-0 mt-2 mp-fs-20 mp-fw-600">Tenggat Waktu: </p>
                       </b-col>
                       <b-col cols="6">
-                        <b-form-input
+                        <b-form-datepicker 
+                            v-model="form.project_deadline" 
+                            :state="validation.project_deadline"
+                            placeholder=""
+                            class="rounded-pill bg-glass border border-dark"
+                            locale="id">
+                        </b-form-datepicker>
+                        <!-- <b-form-input
                             v-model="form.project_deadline"
                             type="text"
                             :state="validation.project_deadline"
                             class="rounded-pill bg-glass border border-dark"
-                        ></b-form-input>
+                        ></b-form-input> -->
                         <b-form-invalid-feedback :state="validation.project_deadline">
                             {{ msg.project_deadline }}
                         </b-form-invalid-feedback>
@@ -136,7 +143,7 @@
                       </b-col>
                       <b-col cols="6">
                         <b-form-file 
-                            v-model="uploadFoto"
+                            v-model="form.project_photo"
                             accept="image/jpeg, image/png, image/jiff"
                             name="uploadFoto"
                             class="border"
@@ -307,7 +314,7 @@
                                     <b-form-input
                                         id="input-1"
                                         v-model="data.type"
-                                        type="email"
+                                        type="text"
                                         :state="validation.type"
                                         class="rounded-pill bg-glass border border-dark"
                                     ></b-form-input>
@@ -324,7 +331,7 @@
                                     <b-form-input
                                         id="input-1"
                                         v-model="data.brand"
-                                        type="email"
+                                        type="text"
                                         :state="validation.brand"
                                         class="rounded-pill bg-glass border border-dark"
                                     ></b-form-input>
@@ -341,7 +348,7 @@
                                     <b-form-input
                                         id="input-1"
                                         v-model="data.material"
-                                        type="email"
+                                        type="text"
                                         :state="validation.material"
                                         class="rounded-pill bg-glass border border-dark"
                                     ></b-form-input>
@@ -358,7 +365,7 @@
                                     <b-form-input
                                         id="input-1"
                                         v-model="data.area_needed"
-                                        type="email"
+                                        type="text"
                                         :state="validation.area_needed"
                                         class="rounded-pill bg-glass border border-dark"
                                     ></b-form-input>
@@ -375,7 +382,7 @@
                                     <b-form-input
                                         id="input-1"
                                         v-model="data.size"
-                                        type="email"
+                                        type="text"
                                         :state="validation.size"
                                         class="rounded-pill bg-glass border border-dark"
                                     ></b-form-input>
@@ -392,7 +399,7 @@
                                     <b-form-input
                                         id="input-1"
                                         v-model="data.quantity"
-                                        type="email"
+                                        type="number"
                                         :state="validation.quantity"
                                         class="rounded-pill bg-glass border border-dark"
                                     ></b-form-input>
@@ -402,14 +409,14 @@
                                 </b-form-group>
                                 <b-form-group
                                     id="input-group-1"
-                                    label="project_budget:"
+                                    label="Budget:"
                                     label-for="input-1"
                                     label-class="mp-fs-20 mp-fw-600"
                                 >
                                     <b-form-input
                                         id="input-1"
                                         v-model="data.budget"
-                                        type="email"
+                                        type="text"
                                         :state="validation.budget"
                                         class="rounded-pill bg-glass border border-dark"
                                     ></b-form-input>
@@ -424,7 +431,7 @@
                                     label-class="mp-fs-20 mp-fw-600"
                                 >
                                     <b-form-file 
-                                        v-model="data.foto"
+                                        v-model="data.photo"
                                         accept="image/jpeg, image/png, image/jiff"
                                         name="uploadFoto"
                                         class="border"
@@ -474,7 +481,7 @@
                     project_budget: "",
                     project_note: "",
                     project_status: "",
-                    project_photo: "",
+                    project_photo: [],
                 },
                 // kebutuhan: {
                 //     type: "",
@@ -535,7 +542,8 @@
                         size: "",
                         quantity: "",
                         budget: "",
-                        photo: [] 
+                        photo: [],
+                        project_id: "" 
                     }
                 ],
                 uploadFoto: [],
@@ -571,18 +579,48 @@
                 }
                 
                 await this.$axios.post("/project", formData, {
-                    'Content-Type': 'multipart/form-data',
+                    headers:{
+                        'Content-Type': 'multipart/form-data',
+                        "auth-token":this.$cookies.get('token')
+                    }
                 }).then(res => {
-                    console.log(res)
+                    if(res.data.data != null){
+                        let formDataNeeds = new FormData();
+
+                        this.needs.forEach(arr =>{
+                            arr.project_id  = res.data.data.id
+
+                            for (const key in arr) {
+                                formDataNeeds.append(key, arr[key])
+                            }
+                        })
+                        
+                        for (const pair of formDataNeeds.entries()) {
+                            console.log(`${pair[0]} -> ${pair[1]}`);
+                        }
+
+                        this.$axios.post("/material", formDataNeeds, {
+                            headers:{
+                                'Content-Type': 'multipart/form-data',
+                                "auth-token":this.$cookies.get('token')
+                            }
+                        }).then(response => {
+                            console.log(response, "response")
+                        }).catch(err => {
+                            console.log(err, "error")
+                        })
+
+                        console.log("res", res.data.data.id)
+                    }
                 })
                 .catch(err => {
-                    err.response.data.errors.forEach(row => {
+                    err.errors.forEach(row => {
                         this.validation[row] = false
                         this.msg[row] = row
                     });
                 })
 
-                console.log(this.needs)
+                // console.log(this.needs)
 
 
                 // this.$axios.post("/project/upload_photo")

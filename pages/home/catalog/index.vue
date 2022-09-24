@@ -60,31 +60,33 @@
                                 <div class="mp-principal__product">
                                     <b-row>
                                         <b-col cols="3"  v-for="(data, index) in products" :key="index">
-                                            <b-card
-                                                :img-src="`${baseUrl}/products/${data.katalog}?t=${new Date().getTime()}`"
-                                                img-alt="Image product"
-                                                img-top
-                                                tag="article"
-                                                style="max-width: 18rem; border-radius: 20px; cursor: pointer;"
-                                                class="mp-product__card mb-2 mp-box-shadow"
-                                                no-body
-                                            >
-                                                <div class="mp-product__label d-flex justify-content-between align-items-center px-3 pt-3">
-                                                    <div class="mp-product__wishlist">
-                                                        <!-- <b-icon :icon="currWishlist ? 'bookmark-fill' : 'bookmark'"></b-icon> -->
-                                                        <b-icon icon="bookmark"></b-icon>
+                                            <nuxt-link :to="`/home/products/details/${data.id_produk}`" class="mp-link__black-color">
+                                                <b-card
+                                                    :img-src="`${baseUrl}/products/${data.katalog}?t=${new Date().getTime()}`"
+                                                    img-alt="Image product"
+                                                    img-top
+                                                    tag="article"
+                                                    style="max-width: 18rem; border-radius: 20px; cursor: pointer;"
+                                                    class="mp-product__card mb-2 mp-box-shadow"
+                                                    no-body
+                                                >
+                                                    <div class="mp-product__label d-flex justify-content-between align-items-center px-3 pt-3">
+                                                        <div class="mp-product__wishlist">
+                                                            <!-- <b-icon :icon="currWishlist ? 'bookmark-fill' : 'bookmark'"></b-icon> -->
+                                                            <b-icon icon="bookmark"></b-icon>
+                                                        </div>
+                                                        <div class="mp-product__color">
+                                                            <span style="background-color: #FF0000"></span>
+                                                            <span style="background-color: #00FF00"></span>
+                                                            <span style="background-color: #0000FF"></span>
+                                                        </div>
                                                     </div>
-                                                    <div class="mp-product__color">
-                                                        <span style="background-color: #FF0000"></span>
-                                                        <span style="background-color: #00FF00"></span>
-                                                        <span style="background-color: #0000FF"></span>
-                                                    </div>
-                                                </div>
-                                                <b-card-text class="px-3">
-                                                    <h2 class="mp-fs-20 my-3">{{ data.title }}</h2>
-                                                </b-card-text>
-                                                <b-card-footer class="text-center" >brand</b-card-footer>
-                                            </b-card>
+                                                    <b-card-text class="px-3">
+                                                        <h2 class="mp-fs-20 my-3">{{ data.title }}</h2>
+                                                    </b-card-text>
+                                                    <b-card-footer class="text-center" >brand</b-card-footer>
+                                                </b-card>
+                                            </nuxt-link>
                                         </b-col>
                                     </b-row>
                                 </div>
@@ -121,6 +123,7 @@
                     <div class="mp-catalog__product-list mt-4">
                         <b-row>
                             <b-col cols="3"  v-for="(data, index) in products" :key="index" class="mb-4">
+                                <nuxt-link :to="`/home/products/details/${data.id_produk}`" class="mp-link__black-color">
                                 <b-card
                                     :img-src="`${baseUrl}/products/${data.katalog}?t=${new Date().getTime()}`"
                                     img-alt="Image product"
@@ -146,6 +149,7 @@
                                     </b-card-text>
                                     <b-card-footer class="text-center" >brand</b-card-footer>
                                 </b-card>
+                                </nuxt-link>
                             </b-col>
                         </b-row>
                     </div>
@@ -211,7 +215,6 @@
             if(fetchEvents.data != null){
                 this.products = fetchEvents.data.data;
             }
-            console.log(fetchEvents.data.data, "data")
         }
     }
 </script>

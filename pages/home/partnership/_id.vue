@@ -21,11 +21,11 @@
                         <b-icon font-scale="1" icon="geo-alt"></b-icon>
                         <span class="mp-fw-600 ml-1">{{ partnerData.asal_kota }}</span>
                     </div>
-                    <div class="mp-principal__edit-button mt-2" v-if="user == 'user'">
+                    <div class="mp-principal__edit-button mt-2" v-if="user == 'User'">
                         <b-button block variant="primary" class="mp-border-radius" size="sm">Apply for distributor</b-button>
                         <b-button block variant="primary" class="mp-border-radius" size="sm">Download company profile</b-button>
                     </div>
-                    <div class="mp-principal__edit-button mt-2" v-if="user == 'principal'">
+                    <div class="mp-principal__edit-button mt-2" v-if="user == 'Principal'">
                         <b-button block variant="primary" class="mp-border-radius" size="sm">Edit Profile</b-button>
                         <b-button block variant="primary" class="mp-border-radius" size="sm">Upload Company Profile</b-button>
                     </div>
@@ -175,13 +175,13 @@ import { mapGetters } from 'vuex';
             errMsg: '',
             loading: true,
             products:[],
-            user: 'user'
+            user: 'User'
         }
     },
     methods:{
         getUserRole(){
             if(this.getUserCredentials != null){
-               this.user = this.getUserCredentials.role ?? 'user'
+               this.user = this.getUserCredentials.role ?? 'User'
             }
         }
     },

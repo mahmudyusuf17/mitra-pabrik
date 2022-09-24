@@ -63,7 +63,7 @@ export default {
             if(this.getUserCredentials.id_user === undefined){
                 this.modalLoginShow = !this.modalLoginShow
             }else{
-                if(getUserCredentials.role == null || getUserCredentials.role == 'user'){
+                if(this.getUserCredentials.role == null || this.getUserCredentials.role == 'User'){
                     this.$router.push("/home/material-inquiry");
                 }else{
                     this.$router.push("/home/material-inquiry/principal")

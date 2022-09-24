@@ -64,7 +64,7 @@
                         </nuxt-link>
                     </b-nav-item>
                     <b-nav-item class="mp-navbar-item">
-                        <nuxt-link :to="getUserCredentials.role == null || getUserCredentials.role == 'user' ? '/home/material-inquiry' : '/home/material-inquiry/principal'" class="mp-link__black-color">
+                        <nuxt-link :to="getUserCredentials.role == null || getUserCredentials.role == 'User' ? '/home/material-inquiry' : '/home/material-inquiry/principal'" class="mp-link__black-color">
                             <span>Material Inquiry</span>
                         </nuxt-link>
                     </b-nav-item>

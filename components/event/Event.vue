@@ -80,8 +80,8 @@
             <b-col cols="12" md="4" class="border-left">
                 <h3>Event dari rekan <span class="mp-primary-color">mitrapabrik.com</span></h3>
                 <b-row>
-                    <b-col v-for="(event, index) in listEvents" :key="event.id_event">
-                        <nuxt-link :to="`/home/event/${event.id_event}`" class="mp-link__redirect" v-if="event.isPartner == 1">
+                    <b-col v-for="event in eventRekan" :key="event.id_event">
+                        <nuxt-link :to="`/home/event/${event.id_event}`" class="mp-link__redirect">
                         <b-card
                             :title="event.event_name"
                             :img-src="event.image"
@@ -91,10 +91,6 @@
                             style="max-width: 20rem;"
                             class="mb-2"
                         >
-                            <!-- <b-card-text>
-                                Some quick example text to build on the card title and make up the bulk of the card's content.
-                            </b-card-text> -->
-
                             <div class="mp-events__detail mt-4">
                                 <div class="d-flex align-items-center">
                                     <b-icon font-scale="1.5" icon="calendar2-date"></b-icon>
@@ -110,8 +106,8 @@
                                 </div>
                             </div>
 
-                            <b-button variant="primary" :class="index > 0 ? 'd-none': 'float-right'" >RSVP sekarang</b-button>
-                            <a :href="`/home/event/${event.id_event}`" variant="primary" :class="index > 0 ? 'float-right': 'd-none'" >See more..</a>
+                            <!-- <b-button variant="primary" :class="index > 0 ? 'd-none': 'float-right'" >RSVP sekarang</b-button> -->
+                            <a :href="`/home/event/${event.id_event}`" variant="primary" class="float-right" >See more..</a>
                         </b-card>
                         </nuxt-link>
                     </b-col>
@@ -145,6 +141,7 @@ export default {
             filterTgl:false,
             listEvents: [],
             defaultListEvents: [],
+            eventRekan: []
         }
     },
 
@@ -164,7 +161,13 @@ export default {
         let fetchEvents = await this.$axios.get(`/events`)
         this.listEvents = fetchEvents.data.data
         this.defaultListEvents = fetchEvents.data.data
-        // this.filterEvents(false)
+
+        if(this.listEvents != null){
+            var data = fetchEvents.data.data.find(item => item.isPartner == 1)
+            if(data != null){
+                this.eventRekan.push(data)
+            }
+        }
     },
 }
 </script>

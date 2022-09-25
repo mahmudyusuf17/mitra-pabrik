@@ -7,7 +7,10 @@
                 <div class="mp-news__detail-content" v-html="artikel.body && $md.render(artikel.body)"></div>
             </b-col>
             <b-col cols="4">
-                <NewsSidebarCard v-for="(data, index) in 3" :key="index"/>
+                <div class="mp-news-card__sidebar" v-for="(data, index) in listArtikels" :key="index">
+                    <NewsSidebarCard :news="data" v-if="index > 0" v-show="index > 0"/>
+                </div>
+                <!-- <NewsSidebarCard v-for="(data, index) in 3" :key="index"/> -->
             </b-col>
         </b-row>
     </div>
@@ -37,6 +40,8 @@ export default {
     data() {
         return {
             artikel:{},
+            listArtikels:[],
+            listKategori:[],
         }
     },
     async mounted() {
@@ -44,6 +49,15 @@ export default {
         let fetchArtikel = await this.$axios.get(`/artikels/artikel/${this.$route.params.id}`)
         this.artikel = fetchArtikel.data.data[0]
         console.log(this.artikel)
+
+        let fetchArtikels = await this.$axios.get(`/artikels`)
+            this.listArtikels = fetchArtikels.data.data
+            this.listArtikels.forEach(row => {
+                this.listKategori.push(row.category)
+            }
+        );
+
+        this.listKategori = [...new Map(this.listKategori.map(v => [v, v])).values()]
     }
 }
 </script>

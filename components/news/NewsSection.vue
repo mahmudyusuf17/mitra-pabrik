@@ -5,13 +5,15 @@
         </div>
         <b-row>
             <b-col>
-                <div class="mp-news-card__new mb-4" v-for="artikel in listArtikels" :key="artikel.id_artikel">
-                    <ArticleCard :news="artikel"/>
+                <div class="mp-news-card__new mb-4" v-for="(artikel, index) in listArtikels" :key="artikel.id_artikel">
+                    <ArticleCard :news="artikel" v-if="index == 0"/>
                 </div>
                 <a href="/home/artikel" class="mp-fs-24">Lihat semua artikel</a>
             </b-col>
             <b-col>
-                <NewsSidebarCard v-for="(data, index) in 5" :key="index"/>
+                <div class="mp-news-card__sidebar" v-for="(data, index) in listArtikels" :key="index">
+                    <NewsSidebarCard :news="data" v-if="index > 0" v-show="index > 0"/>
+                </div>
                 <!-- <b-card class="mb-3">
                     <div class="d-flex">
                         <img src="https://picsum.photos/600/300/?image=25" alt="image news" class="mp-image-rounded mp-rounded mr-3">

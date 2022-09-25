@@ -10,7 +10,7 @@
                         <nuxt-link :to="`/home/event/${event.id_event}`" class="mp-link__redirect">
                         <b-card
                             :title="event.event_name"
-                            :img-src="event.image"
+                            :img-src="`https://mitrapabrik.sgp1.digitaloceanspaces.com/events/`+ event.image"
                             img-alt="Image"
                             img-top
                             tag="article"
@@ -84,7 +84,7 @@
                         <nuxt-link :to="`/home/event/${event.id_event}`" class="mp-link__redirect">
                         <b-card
                             :title="event.event_name"
-                            :img-src="event.image"
+                            :img-src="`https://mitrapabrik.sgp1.digitaloceanspaces.com/events/`+ event.image"
                             img-alt="Image"
                             img-top
                             tag="article"

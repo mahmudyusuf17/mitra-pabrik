@@ -4,6 +4,7 @@
             <b-col cols="8">
                 <h2 class="mp-title__news-detail ml-3 mb-2">{{artikel.title}}</h2>
                 <span class="mp-border-bottom__news ml-3 mb-4"></span>
+                <img :src="`https://mitrapabrik.sgp1.digitaloceanspaces.com/articles/`+ artikel.image" alt="image news" class="mr-3" style="max-height: 500px; max-width: 500px">
                 <div class="mp-news__detail-content" v-html="artikel.body && $md.render(artikel.body)"></div>
             </b-col>
             <b-col cols="4">

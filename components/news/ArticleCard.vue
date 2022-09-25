@@ -4,6 +4,7 @@
         <b-card :title="news.title">
             <!-- <img src="/no-image-placeholder.png" alt="image news" class="w-100 mb-3 mp-border-radius mp-image-news"> -->
             <b-card-text>
+                <img :src="`https://mitrapabrik.sgp1.digitaloceanspaces.com/articles/`+ news.image" class="mr-3">
                 <div v-html="news.body && $md.render(news.body)"></div>
                 <!-- <p class="mp-paragraf"> -->
                     <!-- {{news.body}} <a href="#" class="card-link">read more...</a> -->

@@ -26,7 +26,7 @@
             <b-row>
                 <b-col cols="12" md="6" v-for="(item, i) in dataMaterial" :key="i" class="mb-5">
                     <b-card
-                        :img-src="`${baseUrl}/${item.project_photo}}`"
+                        :img-src="`https://mitrapabrik.sgp1.digitaloceanspaces.com/projects/${item.project_photo}`"
                         img-alt="Image"
                         img-top
                         tag="article"
@@ -41,6 +41,13 @@
                                 <div class="mp-card-desc">
                                     <p>{{ $formatIDDate(item.project_deadline) }}</p>
                                     <p>{{ item.person_name }}</p>
+                                    <b-button 
+                                        pill
+                                        variant="outline-danger"
+                                        size="md"
+                                        :href="`https://wa.me/`+ item.person_phone"
+                                    >Contact Whatsapp
+                                    </b-button>
                                 </div>
                             </div>
                         </b-card-text>

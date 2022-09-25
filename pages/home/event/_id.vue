@@ -7,6 +7,7 @@
         </div> -->
 
         <div class="mp-event__detail">
+            <img :src="`https://mitrapabrik.sgp1.digitaloceanspaces.com/events/`+ eventData.image" width="650" class="mb-3">
             <div v-html="eventData.body && $md.render(eventData.body)" class="text-break"></div>
             <div class="mp-event__description mt-4">
                 <b-row>

@@ -1,9 +1,9 @@
 <template>
   <footer class="footer bg-primary text-light px-5 pt-5 pb-4">
     <b-row>
-      <b-col cols="7">
+      <b-col cols="12" md="7">
         <b-row align-h="start">
-          <b-col cols="4">
+          <b-col cols="12" md="4">
               <ul class="mp-list-text">
                 <li>
                   <span class="mp-white-color">BROWSE</span>
@@ -22,7 +22,7 @@
                 </li>
               </ul>
           </b-col>
-          <b-col cols="4">
+          <b-col cols="12" md="4">
             <ul class="mp-list-text">
                 <li>
                   <nuxt-link to="/about-us">
@@ -44,9 +44,9 @@
           </b-col>
         </b-row>
       </b-col>
-      <b-col cols="5">
+      <b-col cols="12" md="5">
         <b-row>
-          <b-col>
+          <b-col cols="12" md="6">
             <div class="row">
               <div class="col-12">
                 <span class="mp-white-color mp-fs-20">SUPPLIERS</span>
@@ -56,7 +56,7 @@
               </div>
             </div>
           </b-col>
-          <b-col>
+          <b-col cols="12" md="6">
             <div class="row">
               <div class="col-12"><span class="mp-white-color mp-fs-20">NEWSLETTER</span></div>
               <div class="col-12">

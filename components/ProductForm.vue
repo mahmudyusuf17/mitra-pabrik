@@ -109,7 +109,25 @@
                     <b-button variant="primary" pill block @click="editFoto = !editFoto">
                         Edit Foto
                     </b-button>
-                    <b-button variant="primary" pill block>
+                    <b-form-group
+                        v-if="uploadCatalog"
+                        id="input-group-portofolio"
+                        label="Upload Catalog"
+                        label-for="input-portofolio"
+                        class="mt-3"
+                    >
+                        <b-form-file 
+                            accept="application/pdf"
+                            id="input-portofolio"
+                            name="file3"
+                            class="bg-glass"
+                            v-model="file3"
+                        ></b-form-file>
+                        <b-form-invalid-feedback :state="validation.catalog">
+                            file yang diperbolehkan hanyalah pdf.
+                        </b-form-invalid-feedback>
+                    </b-form-group>
+                    <b-button variant="primary" pill block @click="!uploadCatalog ? uploadCatalog = true : uploadPortofolio()">
                         Upload Catalog
                     </b-button>
                 </div>
@@ -429,7 +447,17 @@
             </p>
             <div class="row">
                 <div class="col-md-12 d-flex justify-content-center">
-                    <nuxt-link to="/home/profile" class="btn btn-primary rounded-pill px-5 text-center" @click.native="showAlertModal = false">OK</nuxt-link>
+                    <nuxt-link to="/home" class="btn btn-primary rounded-pill px-5 text-center" @click.native="showAlertModal = false">OK</nuxt-link>
+                </div>
+            </div>
+        </b-modal>
+        <b-modal centered content-class="shadow" title="OK" v-model="showAlertCatalog" hide-footer hide-header no-close-on-backdrop>
+            <p class="my-2 text-center">
+                {{ alertCatalogMsg }}
+            </p>
+            <div class="row">
+                <div class="col-md-12 d-flex justify-content-center">
+                    <b-button variant="primary" pill class="px-5" @click="closeAlertCatalog">OK</b-button>
                 </div>
             </div>
         </b-modal>
@@ -492,7 +520,11 @@
                 thumbnail: "",
                 slide: "",
                 editFoto: false,
-                showPlacholder: true
+                showPlacholder: true,
+                file3: null,
+                uploadCatalog: false,
+                showAlertCatalog: false,
+                alertCatalogMsg: "",
             }
         },
         methods: {
@@ -569,7 +601,32 @@
             removeFile(idx) {
                 this.tempUrl.splice(idx, 1);
                 this.form.katalog.splice(idx, 1);
-            }
+            },
+
+            async uploadPortofolio() {
+                this.validation.portofolio = null
+                let form = new FormData();
+                form.append('foto', this.file3);
+                form.append('idx', 2);
+                await this.$axios.post(`/user/upload/pdf`, form, {
+                    headers: {
+                        'Content-Type': 'multipart/form-data',
+                        "auth-token": this.$cookies.get('token')
+                    }
+                }).then(res => {
+                    console.log(res)
+                    this.showAlertCatalog = true
+                    this.alertCatalogMsg = res.data.msg
+                })
+                .catch( err => {
+                    this.showAlertCatalog = true
+                    this.alertCatalogMsg = err.response.data.msg
+                })
+            },
+
+            async closeAlertCatalog() {
+                this.showAlertCatalog = false
+            },
         },
         mounted() {
             if(this.edit) {

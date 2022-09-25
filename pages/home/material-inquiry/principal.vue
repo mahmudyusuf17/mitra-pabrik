@@ -89,6 +89,8 @@
                 this.dataMaterial = fetchEvents.data.data
             }
 
+            this.$emit('fullpage', false);
+
         },
     }
 </script>

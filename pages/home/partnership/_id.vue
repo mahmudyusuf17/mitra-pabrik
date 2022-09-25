@@ -57,6 +57,7 @@
         <div class="mp-principal__product pt-5 mt-2">
             <b-row>
                 <b-col cols="3"  v-for="data in products" :key="data.id_produk" class="mb-4">
+                    <nuxt-link :to="`/home/products/details/${data.id_produk}`" class="mp-link__black-color">
                     <b-card
                         :img-src="`${baseUrl}/products/${data.katalog[0]}?t=${new Date().getTime()}`"
                         img-alt="Image product"
@@ -82,7 +83,7 @@
                         </b-card-text>
                         <b-card-footer class="text-center" >brand</b-card-footer>
                     </b-card>
-
+                    </nuxt-link>
                 </b-col>
             </b-row>
         </div>

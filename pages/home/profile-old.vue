@@ -762,7 +762,7 @@
             }
             tabMediaQuery.addListener(changeTabWidth)
 
-            this.$emit('fullpage', true);
+            this.$emit('fullpage', false);
         }
     }
 </script>

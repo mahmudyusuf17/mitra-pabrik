@@ -17,7 +17,8 @@
             let fetchProduct = await this.$axios.get(`/products/detail/${this.$route.params.id}`)
             this.payload = fetchProduct.data.data[0]
             this.payload.katalog = this.payload.katalog && this.payload.katalog.split(',')
-            this.payload.varian = this.payload.varian.split(',')
+            this.payload.varian = this.payload.varian.split(','),
+            this.payload.thumbnail = this.payload.katalog[0]
         }
     }
 </script>

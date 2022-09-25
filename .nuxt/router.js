@@ -25,6 +25,8 @@ const _04e18a91 = () => interopDefault(import('../pages/home/material-inquiry/pr
 const _35384a56 = () => interopDefault(import('../pages/home/artikel/_id.vue' /* webpackChunkName: "pages/home/artikel/_id" */))
 const _0e8f5af8 = () => interopDefault(import('../pages/home/event/_id.vue' /* webpackChunkName: "pages/home/event/_id" */))
 const _71cfcfae = () => interopDefault(import('../pages/home/partnership/_id.vue' /* webpackChunkName: "pages/home/partnership/_id" */))
+const _5543b994 = () => interopDefault(import('../pages/home/_products/add.vue' /* webpackChunkName: "pages/home/_products/add" */))
+const _20bbc117 = () => interopDefault(import('../pages/home/_products/add/index.vue' /* webpackChunkName: "pages/home/_products/add/index" */))
 const _1dce9535 = () => interopDefault(import('../pages/home/_products/details.vue' /* webpackChunkName: "pages/home/_products/details" */))
 const _5d8eb002 = () => interopDefault(import('../pages/home/_products/details/edit/_id.vue' /* webpackChunkName: "pages/home/_products/details/edit/_id" */))
 const _50274060 = () => interopDefault(import('../pages/home/_products/details/_id.vue' /* webpackChunkName: "pages/home/_products/details/_id" */))
@@ -138,6 +140,14 @@ export const routerOptions = {
       path: "partnership/:id?",
       component: _71cfcfae,
       name: "home-partnership-id"
+    }, {
+      path: ":products/add",
+      component: _5543b994,
+      children: [{
+        path: "",
+        component: _20bbc117,
+        name: "home-products-add"
+      }]
     }, {
       path: ":products/details",
       component: _1dce9535,

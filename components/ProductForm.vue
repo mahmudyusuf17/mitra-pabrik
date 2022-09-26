@@ -5,7 +5,7 @@
             <h1 v-else>Edit Produk</h1>
         </div>
         <b-row>
-            <b-col cols="4">
+            <b-col cols="12" md="4">
                 <div class="mp-product__thumbnail" v-if="edit"  v-show="!editFoto">
                     <b-img
                         :src="`${baseUrl}/products/${thumbnail}?t=${new Date().getTime()}`"
@@ -137,7 +137,7 @@
                     </b-button>
                 </div>
             </b-col>
-            <b-col cols="8">
+            <b-col cols="12" md="8">
                 <div class="mp-product__form ml-5 mr-5">
                     <div class="mp-product__form-list">
                         <b-form-group

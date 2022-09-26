@@ -1,7 +1,7 @@
 <template>
     <div style="min-height: 100vh;" v-if="!loading">
         <b-row v-if="partnerData != null">
-            <b-col cols="2">
+            <b-col cols="12" md="2">
                 <div class="mp-principal__detail">
                     <div class="text-center">
                         <b-img 
@@ -31,7 +31,7 @@
                     </div>
                 </div>
             </b-col>
-            <b-col cols="10">
+            <b-col cols="12" md="10">
                 <div class="mp-principal__galery" v-if="partnerData.gallery != null">
                     <b-carousel
                         id="carousel-fade"

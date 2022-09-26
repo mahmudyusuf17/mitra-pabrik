@@ -1,13 +1,13 @@
 <template>
     <div class="mp-news__detail">
         <b-row>
-            <b-col cols="8">
+            <b-col cols="12" md="8">
                 <h2 class="mp-title__news-detail ml-3 mb-2">{{artikel.title}}</h2>
                 <span class="mp-border-bottom__news ml-3 mb-4"></span>
                 <img :src="`https://mitrapabrik.sgp1.digitaloceanspaces.com/articles/`+ artikel.image" alt="image news" class="mr-3" style="max-height: 500px; max-width: 500px">
                 <div class="mp-news__detail-content" v-html="artikel.body && $md.render(artikel.body)"></div>
             </b-col>
-            <b-col cols="4">
+            <b-col cols="12" md="4">
                 <div class="mp-news-card__sidebar" v-for="(data, index) in listArtikels" :key="index">
                     <NewsSidebarCard :news="data" v-if="index > 0" v-show="index > 0"/>
                 </div>

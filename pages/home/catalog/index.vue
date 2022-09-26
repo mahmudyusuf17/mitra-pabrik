@@ -2,7 +2,7 @@
     <div class="mp-catalog">
         <div class="container">
             <b-row>
-                <b-col cols="4">
+                <b-col cols="12" md="4">
                     <div class="mp-catalog__filter mp-box-shadow mb-5">
                         <b-input-group class="mp-search__form mt-3">    
                             <b-form-input
@@ -48,7 +48,7 @@
                         </div>
                     </div>
                 </b-col>
-                <b-col cols="8">
+                <b-col cols="12" md="8">
                     <div class="mp-catalog__product-list-carousel">
                         <b-carousel 
                         indicators
@@ -59,7 +59,7 @@
                             <template v-slot:img>
                                 <div class="mp-principal__product">
                                     <b-row>
-                                        <b-col cols="3"  v-for="(data, index) in products" :key="index">
+                                        <b-col cols="12" md="3" v-for="(data, index) in products" :key="index">
                                             <nuxt-link :to="`/home/products/details/${data.id_produk}`" class="mp-link__black-color">
                                                 <b-card
                                                     :img-src="`${baseUrl}/products/${data.katalog}?t=${new Date().getTime()}`"
@@ -122,7 +122,7 @@
                     </div>
                     <div class="mp-catalog__product-list mt-4">
                         <b-row>
-                            <b-col cols="3"  v-for="(data, index) in products" :key="index" class="mb-4">
+                            <b-col cols="12" md="3"  v-for="(data, index) in products" :key="index" class="mb-4">
                                 <nuxt-link :to="`/home/products/details/${data.id_produk}`" class="mp-link__black-color">
                                 <b-card
                                     :img-src="`${baseUrl}/products/${data.katalog}?t=${new Date().getTime()}`"

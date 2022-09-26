@@ -23,8 +23,14 @@
   "ShowroomCard": {
     "description": "Auto imported from components/ShowroomCard.vue"
   },
-  "AuthLoginModal": {
-    "description": "Auto imported from components/auth/LoginModal.vue"
+  "MenuItem": {
+    "description": "Auto imported from components/menu/MenuItem.vue"
+  },
+  "CarouselHomepageCarousel": {
+    "description": "Auto imported from components/carousel/homepage-carousel.vue"
+  },
+  "Event": {
+    "description": "Auto imported from components/event/Event.vue"
   },
   "NewsArticleCard": {
     "description": "Auto imported from components/news/ArticleCard.vue"
@@ -38,14 +44,8 @@
   "Principal": {
     "description": "Auto imported from components/principal/Principal.vue"
   },
-  "Event": {
-    "description": "Auto imported from components/event/Event.vue"
-  },
-  "CarouselHomepageCarousel": {
-    "description": "Auto imported from components/carousel/homepage-carousel.vue"
-  },
-  "MenuItem": {
-    "description": "Auto imported from components/menu/MenuItem.vue"
+  "AuthLoginModal": {
+    "description": "Auto imported from components/auth/LoginModal.vue"
   },
   "Showroom": {
     "description": "Auto imported from components/showroom/Showroom.vue"

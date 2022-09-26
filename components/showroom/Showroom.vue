@@ -37,13 +37,13 @@
                                             class="m-1"
                                         /> -->
                                         <div class="col-12 text-center">
-                                        <b-button variant="primary" pill class="px-5" @click="openGmap($decodeHtml(d.drop_pin))">
-                                            Direction <b-icon icon="cursor-fill"></b-icon>
-                                        </b-button>
-                                        <b-button variant="primary" pill class="px-5" @click="openWA($decodeHtml(d.wa_contact))">
-                                            Contact <b-icon icon="telephone-forward-fill"></b-icon>
-                                        </b-button>
-                                    </div>
+                                            <b-button variant="primary" pill class="px-5" @click="openGmap($decodeHtml(d.drop_pin))">
+                                                Direction <b-icon icon="cursor-fill"></b-icon>
+                                            </b-button>
+                                            <b-button variant="primary" pill class="px-5" @click="openWA($decodeHtml(d.wa_contact))">
+                                                Contact <b-icon icon="telephone-forward-fill"></b-icon>
+                                            </b-button>
+                                        </div>
                                     </div>
                                 </div>
                                 <!-- <div class="row mt-4">

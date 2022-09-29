@@ -470,6 +470,10 @@ a.mp-link__redirect{
 .mp-slider__principal{
     padding: 30px 80px;
     background-color: #D9D9D9;
+
+    @media (max-width: 720px){
+        padding: 30px 20px;
+    }
 }
 
 .mp-image-principal{
@@ -479,6 +483,11 @@ a.mp-link__redirect{
     max-height: 200px;
     border-radius: 10px;
     box-shadow: $mp-box-shadow;
+
+    @media (max-width: 720px){
+        width: 150px;
+        height: 150px;
+    }
 }
 
 .mp-box-shadow{
@@ -643,5 +652,18 @@ a.mp-link__redirect{
         padding: 200px 0;
     }
 }
+
+.mp-show{
+    visibility: visible;
+    opacity: 1;
+    transition: visibility 0s, opacity 0.5s linear;
+}
+
+.mp-hide{
+    visibility: hidden;
+  opacity: 0;
+  transition: visibility 0s, opacity 0.5s linear;
+}
+
 
 

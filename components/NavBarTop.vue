@@ -95,7 +95,7 @@
                                         <b-avatar square class="ml-5" variant="transparent" src="/profile.png"></b-avatar>
                                     </b-list-group-item>
                                 </nuxt-link>
-                                <nuxt-link to="/home/wishlist" @click.native="burgerToggle = false">
+                                <!-- <nuxt-link to="/home/wishlist" @click.native="burgerToggle = false">
                                     <b-list-group-item class="d-flex justify-content-between align-items-center">
                                         Saved Materials
                                         <b-avatar square class="ml-5" variant="transparent" src="/saved.png"></b-avatar>
@@ -106,7 +106,7 @@
                                         Help and Support
                                         <b-avatar square class="ml-5" variant="transparent" src="/info.png"></b-avatar>
                                     </b-list-group-item>
-                                </nuxt-link>
+                                </nuxt-link> -->
                                 <a href="#">
                                     <b-list-group-item class="d-flex justify-content-between align-items-center" @click="handleLogout">
                                     Logout

@@ -116,7 +116,7 @@
                 </b-card>
             </b-col> -->
         </b-row>
-        <a href="#" class="mp-fs-24 float-right mt-4">Lihat semua showroom</a>
+        <!-- <a href="#" class="mp-fs-24 float-right mt-4">Lihat semua showroom</a> -->
     </div>
 </template>
 <script>
@@ -126,6 +126,21 @@ export default {
     data() {
         return {
             showroomData:null,
+        }
+    },
+
+    methods: {
+        goToBrand(id_partner) {
+            if(this.getUserCredentials.nama_depan)
+                this.$router.push({path: `/home/partnership/${id_partner}`});
+            else
+                this.$router.push({path: `/partnership/${id_partner}`});
+        },
+        openGmap(url) {
+            window.open(url, '_blank').focus();
+        },
+        openWA(phone) {
+            window.open(`https://wa.me/${phone}`, '_blank').focus();
         }
     },
 

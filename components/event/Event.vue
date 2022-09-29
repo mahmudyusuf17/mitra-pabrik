@@ -6,7 +6,7 @@
         <b-row>
             <b-col cols="12" md="8">
                 <b-row>
-                    <b-col v-for="(event, index) in listEvents" :key="event.id_event">
+                    <b-col v-for="(event, index) in eventMitra" :key="event.id_event">
                         <nuxt-link :to="`/home/event/${event.id_event}`" class="mp-link__redirect">
                         <b-card
                             :title="event.event_name"
@@ -141,7 +141,8 @@ export default {
             filterTgl:false,
             listEvents: [],
             defaultListEvents: [],
-            eventRekan: []
+            eventRekan: [],
+            eventMitra: []
         }
     },
 
@@ -163,10 +164,13 @@ export default {
         this.defaultListEvents = fetchEvents.data.data
 
         if(this.listEvents != null){
-            var data = fetchEvents.data.data.find(item => item.isPartner == 1)
-            if(data != null){
-                this.eventRekan.push(data)
-            }
+            this.listEvents.forEach(element => {
+                if(element.isPartner == 1){
+                    this.eventRekan.push(element)
+                }else{
+                    this.eventMitra.push(element)
+                }
+            });
         }
     },
 }

@@ -24,10 +24,8 @@
             <b-carousel-slide v-for="(slide, i) in Math.ceil(listPrincipal.length / 12)" :key="i" class="mp-slider__principal">
                 <template v-slot:img>
                     <b-row>
-                        <b-col cols="12" md="4" lg="2" sm="6" class="my-4" style="cursor: pointer" v-for="(dataPrincipal, j) in listPrincipal" :key="j" @click="cekLogin(dataPrincipal.id_user)">
-                            <!-- <nuxt-link :to="`/home/partnership/${dataPrincipal.id_user}`"> -->
+                        <b-col cols="6" md="4" lg="2" sm="6" class="my-4" style="cursor: pointer" v-for="(dataPrincipal, j) in listPrincipal" :key="j" @click="cekLogin(dataPrincipal.id_user)">
                                 <b-img :src="baseUrl+'/company_logo/'+dataPrincipal.foto_perusahaan+`?t=${new Date().getTime()}`" alt="Responsive image" class="mp-image-principal"></b-img>
-                            <!-- </nuxt-link> -->
                         </b-col>
                     </b-row>
                 </template>

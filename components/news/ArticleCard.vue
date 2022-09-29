@@ -1,6 +1,6 @@
 <template>
-<a :href="getUserCredentials.nama_depan ? `/home/artikel/${news.id_artikel}` : `/artikel/${news.id_artikel}`" style="text-decoration: unset;" class="mp-link__redirect">
-    <div class="mp-news-card">
+<div class="mp-link__redirect">
+    <div class="mp-news-card" @click="toDetail(news.id_artikel)">
         <b-card :title="news.title">
             <!-- <img src="/no-image-placeholder.png" alt="image news" class="w-100 mb-3 mp-border-radius mp-image-news"> -->
             <b-card-text>
@@ -12,12 +12,25 @@
             </b-card-text>
         </b-card>
     </div>
-</a>
+    <LoginModal :statusModal="modalShow"/>
+</div>
 </template>
 <script>
 import { mapGetters } from 'vuex';
+import LoginModal from "~/components/auth/LoginModal.vue";
+
 export default {
     name:"ArticleCard",
+    components:{
+        LoginModal
+    },
+
+    data(){
+        return{
+            modalShow: false,
+        }
+    },
+
     props:{
         news:{
             default:() => {}
@@ -29,5 +42,15 @@ export default {
             'getUserCredentials':'auth/getUserCredentials',
         }),
     },
+
+    methods:{
+        toDetail(id){
+            if(this.getUserCredentials.nama_depan != null){
+                this.$router.push(`/home/artikel/${id}`)
+            }else{
+                this.modalShow = !this.modalShow
+            }
+        }
+    }
 }
 </script>

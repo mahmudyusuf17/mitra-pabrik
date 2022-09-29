@@ -14,8 +14,9 @@
                             img-alt="Image"
                             img-top
                             tag="article"
-                            style="max-width: 20rem;"
                             class="mb-2"
+                            style="max-width: 20rem; cursor: pointer;"
+                            @click="toEventDetail(event.id_event)"
                         >
                             <!-- <b-card-text>
                                 Some quick example text to build on the card title and make up the bulk of the card's content.
@@ -81,15 +82,16 @@
                 <h3>Event dari rekan <span class="mp-primary-color">mitrapabrik.com</span></h3>
                 <b-row>
                     <b-col v-for="event in eventRekan" :key="event.id_event">
-                        <nuxt-link :to="`/home/event/${event.id_event}`" class="mp-link__redirect">
+                        <!-- <nuxt-link :to="`/home/event/${event.id_event}`" class="mp-link__redirect"> -->
                         <b-card
                             :title="event.event_name"
                             :img-src="`https://mitrapabrik.sgp1.digitaloceanspaces.com/events/`+ event.image"
                             img-alt="Image"
                             img-top
                             tag="article"
-                            style="max-width: 20rem;"
                             class="mb-2"
+                            style="max-width: 20rem; cursor: pointer;"
+                            @click="toEventDetail(event.id_event)"
                         >
                             <div class="mp-events__detail mt-4">
                                 <div class="d-flex align-items-center">
@@ -109,7 +111,8 @@
                             <!-- <b-button variant="primary" :class="index > 0 ? 'd-none': 'float-right'" >RSVP sekarang</b-button> -->
                             <a :href="`/home/event/${event.id_event}`" variant="primary" class="float-right" >See more..</a>
                         </b-card>
-                        </nuxt-link>
+                        <!-- </nuxt-link> -->
+                        <LoginModal :statusModal="modalShow"/>
                     </b-col>
                     <!-- <b-col>
                         <b-card
@@ -134,15 +137,23 @@
     </div>
 </template>
 <script>
+import { mapGetters } from 'vuex';
+import LoginModal from "~/components/auth/LoginModal.vue";
+
 export default {
     name: "Event",
+    components:{
+        LoginModal
+    },
+
     data() {
         return {
             filterTgl:false,
             listEvents: [],
             defaultListEvents: [],
             eventRekan: [],
-            eventMitra: []
+            eventMitra: [],
+            modalShow: false,
         }
     },
 
@@ -154,7 +165,11 @@ export default {
         },
 
         toEventDetail(id){
-            this.$router.push(`/home/event/${id}`)
+            if(this.getUserCredentials.nama_depan != null){
+                this.$router.push(`/home/event/${id}`)
+            }else{
+                this.modalShow = !this.modalShow
+            }
         }
     },
 
@@ -172,6 +187,12 @@ export default {
                 }
             });
         }
+    },
+
+    computed: {
+        ...mapGetters({
+            'getUserCredentials':'auth/getUserCredentials',
+        }),
     },
 }
 </script>

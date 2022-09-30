@@ -21,15 +21,15 @@ export default async ({app, redirect, store, route}) => {
                 }).catch(err => {
                     app.$cookies.removeAll()
                     store.state.auth.user_login = {}
-                    redirect({name:'index'})
+                    redirect("/")
                 })
             } else {
                 console.log("auth gagal: g ada token")
-                redirect({name:'index'})
+                // redirect("/")
             }
         } else {
             console.log("masuk sini")
-            // redirect({name:'index'})
+            // redirect("/")
         }
     // } else {
         // if(!['maintenance','quickregister'].includes(route.name)) redirect({name:'maintenance'})

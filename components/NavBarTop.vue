@@ -94,7 +94,7 @@
                                     Settings & Privacy
                                     <b-avatar class="ml-5" variant="transparent" src="/settings.png"></b-avatar>
                                 </b-list-group-item> -->
-                                <nuxt-link to="/home/profile" @click.native="burgerToggle = false">
+                                <nuxt-link :to="getUserCredentials.role == 'Prinsipal' ? `/home/partnership/${getUserCredentials.id_user}` : '/home/profile'" @click.native="burgerToggle = false">
                                     <b-list-group-item class="d-flex justify-content-between align-items-center">
                                         Profile
                                         <b-avatar square class="ml-5" variant="transparent" src="/profile.png"></b-avatar>

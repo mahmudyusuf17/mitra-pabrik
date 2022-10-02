@@ -390,7 +390,7 @@
                 <div class="row">
                     <div class="col-md-12 d-flex justify-content-center">
                         <b-button v-if="valid" variant="primary" pill class="px-5"  @click="alert = false">OK</b-button>
-                        <nuxt-link v-else variant="primary" pill class="px-5" to="/home">OK</nuxt-link>
+                        <nuxt-link v-else variant="primary" pill class="px-5" to="/">OK</nuxt-link>
                     </div>
                 </div>
             </b-modal>
@@ -437,7 +437,7 @@
                     { value: '', text: '-- Pilih salah satu --', disabled: true },
                     'Prinsipal',
                     'Proffesional',
-                    'Partner'
+                    'Project Owner'
                 ],
                 listKategori:[
                     { value: '', text: '-- Pilih kategori --', disabled: true },

@@ -25,7 +25,7 @@
         methods: {
             close() {
                 this.alert = false
-                window.location.href = '/home'
+                window.location.href = '/'
             }
         },
         async mounted() {

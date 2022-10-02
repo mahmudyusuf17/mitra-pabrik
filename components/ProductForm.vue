@@ -447,7 +447,7 @@
             </p>
             <div class="row">
                 <div class="col-md-12 d-flex justify-content-center">
-                    <nuxt-link to="/home" class="btn btn-primary rounded-pill px-5 text-center" @click.native="showAlertModal = false">OK</nuxt-link>
+                    <nuxt-link to="/home/catalog" class="btn btn-primary rounded-pill px-5 text-center" @click.native="showAlertModal = false">OK</nuxt-link>
                 </div>
             </div>
         </b-modal>

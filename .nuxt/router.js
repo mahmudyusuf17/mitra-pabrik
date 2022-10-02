@@ -8,6 +8,7 @@ const _17052c8d = () => interopDefault(import('../pages/about-us.vue' /* webpack
 const _6d3d46da = () => interopDefault(import('../pages/contact-us.vue' /* webpackChunkName: "pages/contact-us" */))
 const _0f2b0f8e = () => interopDefault(import('../pages/home.vue' /* webpackChunkName: "pages/home" */))
 const _a83598de = () => interopDefault(import('../pages/home/index.vue' /* webpackChunkName: "pages/home/index" */))
+const _2fa5fd9c = () => interopDefault(import('../pages/home/about-us/index.vue' /* webpackChunkName: "pages/home/about-us/index" */))
 const _0f8ff724 = () => interopDefault(import('../pages/home/artikel/index.vue' /* webpackChunkName: "pages/home/artikel/index" */))
 const _3a2c93ca = () => interopDefault(import('../pages/home/catalog/index.vue' /* webpackChunkName: "pages/home/catalog/index" */))
 const _3adf1a2c = () => interopDefault(import('../pages/home/events.vue' /* webpackChunkName: "pages/home/events" */))
@@ -72,6 +73,10 @@ export const routerOptions = {
       path: "",
       component: _a83598de,
       name: "home"
+    }, {
+      path: "about-us",
+      component: _2fa5fd9c,
+      name: "home-about-us"
     }, {
       path: "artikel",
       component: _0f8ff724,

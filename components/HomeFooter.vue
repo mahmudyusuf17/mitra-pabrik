@@ -9,7 +9,7 @@
                   <span class="mp-white-color">BROWSE</span>
                 </li>
                 <li>
-                  <a href="#" class="mp-white-color">Products</a>
+                  <a href="/home/catalog" class="mp-white-color">Products</a>
                 </li>
                 <li>
                   <a href="#" class="mp-white-color">Professionals</a>
@@ -18,21 +18,21 @@
                   <a href="#" class="mp-white-color">Projects</a>
                 </li>
                 <li>
-                  <a href="#" class="mp-white-color">Articles</a>
+                  <a href="/home/artikel" class="mp-white-color">Articles</a>
                 </li>
               </ul>
           </b-col>
           <b-col cols="12" md="4">
             <ul class="mp-list-text">
                 <li>
-                  <nuxt-link to="/about-us">
-                    <span class="mp-white-color">ABOUT</span>
-                  </nuxt-link>
+                  <a :href="getUserCredentials.nama_depan != null ? '/home/about-us' : '/about-us'" class="mp-white-color">
+                    ABOUT
+                  </a>
                 </li>
                 <li>
-                  <nuxt-link to="/about-us">
-                    <span class="mp-white-color">About Us</span>
-                  </nuxt-link>
+                  <a :href="getUserCredentials.nama_depan != null ? '/home/about-us' : '/about-us'" class="mp-white-color">
+                    About Us
+                  </a>
                 </li>
                 <li>
                   <a href="#" class="mp-white-color">Privacy Policy/ToU</a>
@@ -87,6 +87,7 @@
   </footer>
 </template>
 <script>
+import { mapGetters } from 'vuex';
 export default {
   data() {
     return {
@@ -100,7 +101,12 @@ export default {
     handleHover1(hovered) {this.isHovered1 = hovered},
     handleHover2(hovered) {this.isHovered2 = hovered},
     handleHover3(hovered) {this.isHovered3 = hovered},
-  }
+  },
+  computed: {
+      ...mapGetters({
+          'getUserCredentials':'auth/getUserCredentials',
+      }),
+  },
 }
 </script>
 <style scoped>

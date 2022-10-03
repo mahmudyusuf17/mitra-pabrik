@@ -666,5 +666,22 @@ a.mp-link__redirect{
   transition: visibility 0s, opacity 0.5s linear;
 }
 
+.mp-navbar__mobile{
+    display: none;
+
+    @media (max-width: 900px){
+       display: block;
+    }
+}
+
+.mobile-nav-item-container{
+    max-height: 400px; 
+    overflow: overlay;
+    max-width: 200px;
+
+    .mp-navbar-item{
+        padding: 0 25px;
+    }
+}
 
 

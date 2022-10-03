@@ -149,80 +149,54 @@
                     <b-nav-item>
                         <span class="navbar-text-display mp-text-red mr-3" @click="modalShow = !modalShow" >Masuk</span>
                         <LoginModal :statusModal="modalShow"/>
-                        <!-- <nuxt-link to="/login" class="mp-text-red pr-4">
-                            <span class="navbar-text-display">Masuk</span>
-                            <b-avatar variant="transparent" class="p-1" src="/person.png"></b-avatar>
-                        </nuxt-link> -->
                     </b-nav-item>
                 </div>
             </div>
-        </b-navbar-nav>
-        <!-- <b-modal hide-footer hide-header v-model="showSearchModal" scrollable>
-            <h4>Search:</h4>
-            <b-form-input
-                v-model="omniSearch"
-                placeholder="Cari pada Mitrapabrik.com"
-                class="rounded-pill"
-                @keyup.enter="fetchOmniSearch"
-                debounce="200"
-            ></b-form-input>
-            <b-overlay :show="loading" rounded="sm">
-                <div class="row" style="line-height: 95%;">
-                    <div class="col-12 mt-3" v-if="searchDataArticle.length > 0"><h4>Related Articles</h4></div>
-                        <div class="col-12 mb-2" v-for="itm in searchDataArticle" :key="'article'+itm.id_artikel">
-                            <a :href="`${basePath}/artikel/${itm.id_artikel}`" class="w-100">
-                                {{ itm.title }} <br>
-                                <small class="text-secondary">{{ itm.tipe }}</small>
-                            </a>
+
+            <div class="mp-navbar__mobile">
+                <b-dropdown size="lg" right variant="link" no-caret>
+                    <template #button-content>
+                        <b-icon icon="list"  font-scale="1.5" style="color: #000;"></b-icon>
+                    </template>
+                    <div class="mobile-nav-item-container">
+                        <div class="mobile-nav__user" v-if="getUserCredentials.nama_depan != null">
+                            <b-nav-item class="mp-navbar-item">
+                                <nuxt-link :to="getUserCredentials.role == 'Prinsipal' ? `/home/partnership/${getUserCredentials.id_user}` : '/home/profile'" class="mp-link__black-color">
+                                    <span>Profile</span>
+                                </nuxt-link>
+                            </b-nav-item>
+                            <b-nav-item class="mp-navbar-item">
+                                <nuxt-link to="/home/catalog" class="mp-link__black-color">
+                                    <span>Catalog</span>
+                                </nuxt-link>
+                            </b-nav-item>
+                            <b-nav-item class="mp-navbar-item">
+                                <nuxt-link :to="getUserCredentials.role == null || getUserCredentials.role == 'User' ? '/home/material-inquiry' : '/home/material-inquiry/principal'" class="mp-link__black-color">
+                                    <span>Material Inquiry</span>
+                                </nuxt-link>
+                            </b-nav-item>
+                            <b-nav-item class="mp-navbar-item" v-if="getUserCredentials.role == 'Prinsipal'">
+                                <nuxt-link to="/home/product/add" class="mp-link__black-color">
+                                    <span>Product</span>
+                                </nuxt-link>
+                            </b-nav-item>
+                            <b-nav-item class="mp-navbar-item" @click="handleLogout">
+                                <a href="#" class="mp-link__black-color">
+                                    <span>Logout</span>
+                                </a>
+                            </b-nav-item>
                         </div>
-                    <div class="col-12 mt-3" v-if="searchDataEvent.length > 0"><h4>Related Events</h4></div>
-                    <div class="col-12 mb-2" v-for="itm in searchDataEvent" :key="'event'+itm.id_event">
-                        <a :href="`${basePath}/event/${itm.id_event}`" class="w-100">
-                            {{ itm.event_name }} <br>
-                            <small class="text-secondary">{{ $formatIDDate(itm.starting_date) }}</small>
-                        </a>
+                        <div class="mobile-nav__guest" v-else>
+                            <b-nav-item class="mp-navbar-item" @click="modalShow = !modalShow">
+                                <a href="#" class="mp-link__black-color">
+                                    <span>Masuk</span>
+                                </a>
+                            </b-nav-item>
+                        </div>
                     </div>
-
-                    <div class="col-12 mt-3" v-if="searchDataProduct.length > 0"><h4>Related Products</h4></div>
-                    <div class="col-12 mb-2" v-for="itm in searchDataProduct" :key="'produk'+itm.id_produk">
-                        <template v-if="basePath == '/home'">
-                            <a :href="`/home/products/details/${itm.id_produk}`" class="w-100">
-                                <div class="row">
-                                    <div class="col-auto">
-                                        <b-avatar square :src="`${baseUrl}/products/${itm.katalog.split(',')[0]}?t=${new Date().getTime()}`"></b-avatar>
-                                    </div>
-                                    <div class="col-auto">
-                                        {{ itm.title }} <br>
-                                        <small>{{ itm.nama_perusahaan }}</small>
-                                    </div>
-                                </div>
-                            </a>
-                        </template>
-                        <template v-else>
-                            <a :href="`/product/${itm.id_produk}`" class="w-100">
-                                <div class="row">
-                                    <div class="col-auto">
-                                        <b-avatar square :src="`${baseUrl}/products/${itm.katalog.split(',')[0]}?t=${new Date().getTime()}`"></b-avatar>
-                                    </div>
-                                    <div class="col-auto">
-                                        {{ itm.title }} <br>
-                                        <small>{{ itm.nama_perusahaan }}</small>
-                                    </div>
-                                </div>
-                            </a>
-                        </template>
-                    </div>
-
-                    <div class="col-12 mt-3" v-if="searchDataShowroom.length > 0"><h4>Related Showrooms</h4></div>
-                    <div class="col-12 mb-2" v-for="itm in searchDataShowroom" :key="'showroom'+itm.id_showroom">
-                        <a :href="`${basePath}/showroom`" class="w-100">
-                            {{ itm.title }} <br>
-                            <small class="text-secondary">{{ itm.kota }}</small>
-                        </a>
-                    </div>
-                </div>
-            </b-overlay>
-        </b-modal> -->
+                </b-dropdown>
+            </div>
+        </b-navbar-nav>
     </b-navbar>
 </template>
 

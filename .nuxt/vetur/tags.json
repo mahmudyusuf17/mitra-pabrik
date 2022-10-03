@@ -29,15 +29,6 @@
   "Event": {
     "description": "Auto imported from components/event/Event.vue"
   },
-  "Principal": {
-    "description": "Auto imported from components/principal/Principal.vue"
-  },
-  "Showroom": {
-    "description": "Auto imported from components/showroom/Showroom.vue"
-  },
-  "CarouselHomepageCarousel": {
-    "description": "Auto imported from components/carousel/homepage-carousel.vue"
-  },
   "MenuItem": {
     "description": "Auto imported from components/menu/MenuItem.vue"
   },
@@ -49,5 +40,14 @@
   },
   "NewsSidebarCard": {
     "description": "Auto imported from components/news/NewsSidebarCard.vue"
+  },
+  "Principal": {
+    "description": "Auto imported from components/principal/Principal.vue"
+  },
+  "CarouselHomepageCarousel": {
+    "description": "Auto imported from components/carousel/homepage-carousel.vue"
+  },
+  "Showroom": {
+    "description": "Auto imported from components/showroom/Showroom.vue"
   }
 }

@@ -22,7 +22,7 @@
                             >
                         </b-form-datepicker>
                         <b-form-invalid-feedback :state="validation.project_deadline">
-                            
+                            Tenggat Waktu harus diisi
                         </b-form-invalid-feedback>
                       </b-col>
                   </b-row>
@@ -38,7 +38,7 @@
                             class="rounded-pill bg-glass border border-dark"
                         ></b-form-input>
                         <b-form-invalid-feedback :state="validation.person_name">
-                            Tenggat waktu harus diisi
+                            Nama contact person harus diisi
                         </b-form-invalid-feedback>
                       </b-col>
                   </b-row>
@@ -53,6 +53,9 @@
                             :state="validation.person_phone"
                             class="rounded-pill bg-glass border border-dark"
                         ></b-form-input>
+                        <b-form-invalid-feedback :state="validation.person_phone">
+                            Nomor telepon harus diisi
+                        </b-form-invalid-feedback>
                       </b-col>
                   </b-row>
                   <b-row class="mb-4">
@@ -66,6 +69,9 @@
                             :state="validation.project_name"
                             class="rounded-pill bg-glass border border-dark"
                         ></b-form-input>
+                        <b-form-invalid-feedback :state="validation.project_name">
+                            Nama proyek harus diisi
+                        </b-form-invalid-feedback>
                       </b-col>
                   </b-row>
                   <b-row class="mb-4">
@@ -79,6 +85,9 @@
                             :state="validation.project_address"
                             class="rounded-pill bg-glass border border-dark"
                         ></b-form-input>
+                        <b-form-invalid-feedback :state="validation.project_address">
+                            Alamat proyek harus diisi
+                        </b-form-invalid-feedback>
                       </b-col>
                   </b-row>
                   <b-row class="mb-4">
@@ -92,6 +101,9 @@
                             :state="validation.project_city"
                             class="rounded-pill bg-glass border border-dark"
                         ></b-form-input>
+                        <b-form-invalid-feedback :state="validation.project_city">
+                            Kota harus diisi
+                        </b-form-invalid-feedback>
                       </b-col>
                   </b-row>
                   <b-row class="mb-4">
@@ -105,6 +117,9 @@
                             :state="validation.project_budget"
                             class="rounded-pill bg-glass border border-dark"
                         ></b-form-input>
+                        <b-form-invalid-feedback :state="validation.project_budget">
+                            Budget harus diisi
+                        </b-form-invalid-feedback>
                       </b-col>
                   </b-row>
                   <b-row class="mb-4">
@@ -120,6 +135,9 @@
                                 class="border border-dark"
                                 >
                             </b-form-textarea>
+                            <b-form-invalid-feedback :state="validation.project_note">
+                                Catatan proyek harus diisi
+                            </b-form-invalid-feedback>
                       </b-col>
                   </b-row>
                   <b-row class="mb-4">
@@ -133,6 +151,9 @@
                             :state="validation.project_status"
                             class="rounded-pill bg-glass border border-dark"
                         ></b-form-input>
+                        <b-form-invalid-feedback :state="validation.project_status">
+                            Status proyek harus diisi
+                        </b-form-invalid-feedback>
                       </b-col>
                   </b-row>
                   <b-row class="mb-4">
@@ -146,7 +167,11 @@
                             name="uploadFoto"
                             class="border"
                             placeholder=""
+                            :state="validation.project_photo"
                         ></b-form-file>
+                        <b-form-invalid-feedback :state="validation.project_photo">
+                            Upload foto proyek harus diisi
+                        </b-form-invalid-feedback>
                       </b-col>
                   </b-row>
                   <b-row class="mb-4">
@@ -158,148 +183,6 @@
 
                 <div class="mp-form__kebutuhan">
                     <b-row>
-                        <!-- <b-col cols="4" v-for="(key, index) in count" :key="index" class="mb-4">
-                            <div class="mp-box__form">
-                                <b-icon-x-lg v-show="index > 0" class="float-right mt-2" style="cursor:pointer" @click="remove()"></b-icon-x-lg>
-                                <b-form-group
-                                    id="input-group-1"
-                                    label="Tipe barang:"
-                                    label-for="input-1"
-                                    label-class="mp-fs-20 mp-fw-600 mt-2"
-                                >
-                                    <b-form-input
-                                        id="input-1"
-                                        v-model="kebutuhan.type"
-                                        type="email"
-                                        :state="validation.type"
-                                        class="rounded-pill bg-glass border border-dark"
-                                    ></b-form-input>
-                                    <b-form-invalid-feedback :state="validation.type">
-                                        Email harus diisi
-                                    </b-form-invalid-feedback>
-                                </b-form-group>
-                                <b-form-group
-                                    id="input-group-1"
-                                    label="Brand:"
-                                    label-for="input-1"
-                                    label-class="mp-fs-20 mp-fw-600"
-                                >
-                                    <b-form-input
-                                        id="input-1"
-                                        v-model="kebutuhan.brand"
-                                        type="email"
-                                        :state="validation.brand"
-                                        class="rounded-pill bg-glass border border-dark"
-                                    ></b-form-input>
-                                    <b-form-invalid-feedback :state="validation.brand">
-                                        Email harus diisi
-                                    </b-form-invalid-feedback>
-                                </b-form-group>
-                                <b-form-group
-                                    id="input-group-1"
-                                    label="Material:"
-                                    label-for="input-1"
-                                    label-class="mp-fs-20 mp-fw-600"
-                                >
-                                    <b-form-input
-                                        id="input-1"
-                                        v-model="kebutuhan.material"
-                                        type="email"
-                                        :state="validation.material"
-                                        class="rounded-pill bg-glass border border-dark"
-                                    ></b-form-input>
-                                    <b-form-invalid-feedback :state="validation.material">
-                                        Email harus diisi
-                                    </b-form-invalid-feedback>
-                                </b-form-group>
-                                <b-form-group
-                                    id="input-group-1"
-                                    label="Luas kebutuhan:"
-                                    label-for="input-1"
-                                    label-class="mp-fs-20 mp-fw-600"
-                                >
-                                    <b-form-input
-                                        id="input-1"
-                                        v-model="kebutuhan.area_needed"
-                                        type="email"
-                                        :state="validation.area_needed"
-                                        class="rounded-pill bg-glass border border-dark"
-                                    ></b-form-input>
-                                    <b-form-invalid-feedback :state="validation.area_needed">
-                                        Email harus diisi
-                                    </b-form-invalid-feedback>
-                                </b-form-group>
-                                <b-form-group
-                                    id="input-group-1"
-                                    label="Ukuran:"
-                                    label-for="input-1"
-                                    label-class="mp-fs-20 mp-fw-600"
-                                >
-                                    <b-form-input
-                                        id="input-1"
-                                        v-model="kebutuhan.size"
-                                        type="email"
-                                        :state="validation.size"
-                                        class="rounded-pill bg-glass border border-dark"
-                                    ></b-form-input>
-                                    <b-form-invalid-feedback :state="validation.size">
-                                        Email harus diisi
-                                    </b-form-invalid-feedback>
-                                </b-form-group>
-                                <b-form-group
-                                    id="input-group-1"
-                                    label="Quantity:"
-                                    label-for="input-1"
-                                    label-class="mp-fs-20 mp-fw-600"
-                                >
-                                    <b-form-input
-                                        id="input-1"
-                                        v-model="kebutuhan.quantity"
-                                        type="email"
-                                        :state="validation.quantity"
-                                        class="rounded-pill bg-glass border border-dark"
-                                    ></b-form-input>
-                                    <b-form-invalid-feedback :state="validation.quantity">
-                                        Email harus diisi
-                                    </b-form-invalid-feedback>
-                                </b-form-group>
-                                <b-form-group
-                                    id="input-group-1"
-                                    label="project_budget:"
-                                    label-for="input-1"
-                                    label-class="mp-fs-20 mp-fw-600"
-                                >
-                                    <b-form-input
-                                        id="input-1"
-                                        v-model="kebutuhan.budget"
-                                        type="email"
-                                        :state="validation.budget"
-                                        class="rounded-pill bg-glass border border-dark"
-                                    ></b-form-input>
-                                    <b-form-invalid-feedback :state="validation.budget">
-                                        Email harus diisi
-                                    </b-form-invalid-feedback>
-                                </b-form-group>
-                                <b-form-group
-                                    id="input-group-1"
-                                    label="Upload Gambar Kerja:"
-                                    label-for="input-1"
-                                    label-class="mp-fs-20 mp-fw-600"
-                                >
-                                    <b-form-file 
-                                        v-model="kebutuhan.foto"
-                                        accept="image/jpeg, image/png, image/jiff"
-                                        name="uploadFoto"
-                                        class="border"
-                                        placeholder=""
-                                    ></b-form-file>
-                                    <b-form-invalid-feedback :state="validation.foto">
-                                        Email harus diisi
-                                    </b-form-invalid-feedback>
-                                </b-form-group>
-                            </div>
-                        </b-col> -->
-
                         <b-col cols="4" class="mb-4" v-for="(data, index) in needs" :key="index">
                             <div class="mp-box__form">
                                 <b-icon-x-lg v-show="index > 0" class="float-right mt-2" style="cursor:pointer" @click="remove(index)"></b-icon-x-lg>
@@ -317,7 +200,7 @@
                                         class="rounded-pill bg-glass border border-dark"
                                     ></b-form-input>
                                     <b-form-invalid-feedback :state="validation.type">
-                                        Email harus diisi
+                                        Tipe barang harus diisi
                                     </b-form-invalid-feedback>
                                 </b-form-group>
                                 <b-form-group
@@ -334,7 +217,7 @@
                                         class="rounded-pill bg-glass border border-dark"
                                     ></b-form-input>
                                     <b-form-invalid-feedback :state="validation.brand">
-                                        Email harus diisi
+                                        Brand harus diisi
                                     </b-form-invalid-feedback>
                                 </b-form-group>
                                 <b-form-group
@@ -351,7 +234,7 @@
                                         class="rounded-pill bg-glass border border-dark"
                                     ></b-form-input>
                                     <b-form-invalid-feedback :state="validation.material">
-                                        Email harus diisi
+                                        Material harus diisi
                                     </b-form-invalid-feedback>
                                 </b-form-group>
                                 <b-form-group
@@ -368,7 +251,7 @@
                                         class="rounded-pill bg-glass border border-dark"
                                     ></b-form-input>
                                     <b-form-invalid-feedback :state="validation.area_needed">
-                                        Email harus diisi
+                                        Luas kebutuhan harus diisi
                                     </b-form-invalid-feedback>
                                 </b-form-group>
                                 <b-form-group
@@ -385,7 +268,7 @@
                                         class="rounded-pill bg-glass border border-dark"
                                     ></b-form-input>
                                     <b-form-invalid-feedback :state="validation.size">
-                                        Email harus diisi
+                                        Ukuran harus diisi
                                     </b-form-invalid-feedback>
                                 </b-form-group>
                                 <b-form-group
@@ -402,7 +285,7 @@
                                         class="rounded-pill bg-glass border border-dark"
                                     ></b-form-input>
                                     <b-form-invalid-feedback :state="validation.quantity">
-                                        Email harus diisi
+                                        Quantity harus diisi
                                     </b-form-invalid-feedback>
                                 </b-form-group>
                                 <b-form-group
@@ -419,7 +302,7 @@
                                         class="rounded-pill bg-glass border border-dark"
                                     ></b-form-input>
                                     <b-form-invalid-feedback :state="validation.budget">
-                                        Email harus diisi
+                                        Budget harus diisi
                                     </b-form-invalid-feedback>
                                 </b-form-group>
                                 <b-form-group
@@ -436,7 +319,7 @@
                                         placeholder=""
                                     ></b-form-file>
                                     <b-form-invalid-feedback :state="validation.photo">
-                                        Email harus diisi
+                                        gambar kerja harus diisi
                                     </b-form-invalid-feedback>
                                 </b-form-group>
                             </div>
@@ -481,16 +364,6 @@
                     project_status: "",
                     project_photo: [],
                 },
-                // kebutuhan: {
-                //     type: "",
-                //     brand: "",
-                //     material: "",
-                //     area_needed: "",
-                //     size: "",
-                //     quantity: "",
-                //     budget: "",
-                //     photo: []
-                // },
                 validation:{
                     project_deadline: null,
                     person_name: null,
@@ -616,19 +489,18 @@
                             //     this.msg[row] = row
                             // });
                             err.response.data.errors.forEach(row => {
-                                this.validation[row] = false
-                                this.msg[row] = row
+                                console.log(row)
+                                var data = row.split(" ")[0];
+                                this.validation[data] = false;
                             });
                         })
                     }
                 })
                 .catch(err => {
-                    //  console.log(err, "error")
                      err.response.data.errors.forEach(row => {
                         console.log(row)
-                        this.validation[row] = false
-                        this.msg[row] = row
-                        console.log(this.msg[row.param])
+                        var data = row.split(" ")[0];
+                        this.validation[data] = false;
                     });
                 })
             },

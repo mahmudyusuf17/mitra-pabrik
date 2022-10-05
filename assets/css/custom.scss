@@ -135,6 +135,7 @@ $mp-box-shadow: 4px 4px 4px rgba(0, 0, 0, 0.25);
     }
 
     @media (max-width: 900px){
+        padding: 60px 20px;
         &.showroom{
             padding: 60px 50px;
         }
@@ -268,6 +269,10 @@ a.mp-link__redirect{
     background-repeat: no-repeat;
     margin-top: 140px;
     background-position: top, bottom;
+
+    @media (max-width: 900px){
+        margin-top: 0;
+    }
 }
 
 .mp-title-page{
@@ -309,14 +314,30 @@ a.mp-link__redirect{
     .mp-text__aboutus-content{
         font-size: 32px;
         font-weight: 500;
-    }
 
+    }
+    
     &.bg-hand{
         background-image: url("~/static/bg-hand.png");
         background-position: left;
         background-repeat: no-repeat;
         background-size: 10em;
         background-position-y: bottom;
+    }
+
+    @media (max-width: 900px){
+        &.bg-hand{
+            background-size: 5em;
+        }
+
+        .mp-card__content-padding{
+            padding: 50px 20px;
+        }
+
+        .mp-text__aboutus-content{
+            font-size: 18px;
+            font-weight: 500;
+        }
     }
 }
 
@@ -372,6 +393,10 @@ a.mp-link__redirect{
 
 .mp-same-box{
     min-height: 710px;
+
+    @media (max-width: 900px){
+        min-height: 250px;
+    }
 }
 
 
@@ -426,6 +451,17 @@ a.mp-link__redirect{
     background-image: url("~/static/bg-abstract.png");
     background-repeat: repeat;
     background-size: auto;
+}
+
+.mp-material-inquiry__principal{
+    .mp-material__principal{
+        min-height: 100vh; 
+        padding: 0 60px;
+
+        @media (max-width: 720px){
+            padding: 0 15px;
+        }
+    }
 }
 
 .mp-form__group{
@@ -684,4 +720,17 @@ a.mp-link__redirect{
     }
 }
 
+.mp-newsletter{
+    @media (max-width: 900px){
+        margin-top: 20px;
+    }
+}
+
+.mp-navbar__logo{
+    max-width: 250px;
+
+    @media (max-width: 600px){
+        max-width: 200px;
+    }
+}
 

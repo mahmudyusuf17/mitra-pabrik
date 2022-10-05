@@ -1,6 +1,6 @@
 <template>
     <b-navbar toggleable="md" class="p-4 bg-semi-dark">
-        <b-navbar-brand style="max-width:250px">
+        <b-navbar-brand class="mp-navbar__logo">
             <nuxt-link to="/" class="text-primary">
                 <b-img src="https://ik.imagekit.io/d3rdfRTergDURe/mitrapabrik_assets/logo_DVBKC2Wjb.webp?ik-sdk-version=javascript-1.4.3&updatedAt=1646666518140" fluid></b-img>
                 <!-- <b-img src="/logo-mp.png" fluid></b-img> -->

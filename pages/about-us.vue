@@ -13,7 +13,7 @@
           </div>
         </div>
         <b-row>
-          <b-col>
+          <b-col cols="12" md="6">
             <div class="mp-card__transparant mp-same-box mt-5">
               <p style="font-size: 2.5rem;" class="text-center mb-0 pt-4">Visi</p>
               <div class="border-card__left border__visi-misi"></div>
@@ -24,7 +24,7 @@
               </div>
             </div>
           </b-col>
-          <b-col>
+          <b-col cols="12" md="6">
             <div class="mp-card__transparant mp-same-box mt-5">
               <p style="font-size: 2.5rem;" class="text-center mb-0 pt-4">Misi</p>
               <div class="border-card__left border__visi-misi"></div>

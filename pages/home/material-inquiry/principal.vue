@@ -1,6 +1,6 @@
 <template>
 <div class="mp-material-inquiry__principal">
-    <div class="container" style="min-height: 100vh; padding: 0 60px;">
+    <div class="container mp-material__principal">
         <div class="mp-title-page__with-shadow">
             <h1>Material Inquiry</h1>
         </div>

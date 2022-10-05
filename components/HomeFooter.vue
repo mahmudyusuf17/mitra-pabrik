@@ -56,7 +56,7 @@
               </div>
             </div>
           </b-col>
-          <b-col cols="12" md="6">
+          <b-col cols="12" md="6" class="mp-newsletter">
             <div class="row">
               <div class="col-12"><span class="mp-white-color mp-fs-20">NEWSLETTER</span></div>
               <div class="col-12">

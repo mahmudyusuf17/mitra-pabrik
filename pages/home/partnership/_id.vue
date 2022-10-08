@@ -208,7 +208,9 @@ import { mapGetters } from 'vuex';
         }
         this.loading = false
 
-        this.getUserRole()
+        this.getUserRole();
+
+        this.$emit('fullpage', false);
     },
 
     computed: {

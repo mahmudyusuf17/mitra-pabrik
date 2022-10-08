@@ -1,12 +1,12 @@
 <template>
 <div class="mp-material-inquiry">
-    <div class="container mp-material__container">
+    <div class="container" style="min-height: 100vh; padding: 180px 80px;">
         <div class="mp-title-page__with-shadow">
             <h1>Material Inquiry</h1>
         </div>
         <div class="mp-card__transparant-form mt-5">
           <div class="mp-material-inquiry__form">
-              <b-form @submit.prevent="submit">
+              <b-form>
                 <div class="mp-form__group">
                   <b-row class="mb-4">
                       <b-col cols="4">
@@ -15,15 +15,11 @@
                       <b-col cols="6">
                         <b-form-datepicker 
                             v-model="form.project_deadline" 
-                            :state="validation.project_deadline"
                             placeholder=""
                             class="rounded-pill bg-glass border border-dark"
                             locale="id"
                             >
                         </b-form-datepicker>
-                        <b-form-invalid-feedback :state="validation.project_deadline">
-                            Tenggat Waktu harus diisi
-                        </b-form-invalid-feedback>
                       </b-col>
                   </b-row>
                   <b-row class="mb-4">
@@ -34,12 +30,8 @@
                         <b-form-input
                             v-model="form.person_name"
                             type="text"
-                            :state="validation.person_name"
                             class="rounded-pill bg-glass border border-dark"
                         ></b-form-input>
-                        <b-form-invalid-feedback :state="validation.person_name">
-                            Nama contact person harus diisi
-                        </b-form-invalid-feedback>
                       </b-col>
                   </b-row>
                   <b-row class="mb-4">
@@ -50,12 +42,8 @@
                         <b-form-input
                             v-model="form.person_phone"
                             type="text"
-                            :state="validation.person_phone"
                             class="rounded-pill bg-glass border border-dark"
                         ></b-form-input>
-                        <b-form-invalid-feedback :state="validation.person_phone">
-                            Nomor telepon harus diisi
-                        </b-form-invalid-feedback>
                       </b-col>
                   </b-row>
                   <b-row class="mb-4">
@@ -66,12 +54,8 @@
                         <b-form-input
                             v-model="form.project_name"
                             type="text"
-                            :state="validation.project_name"
                             class="rounded-pill bg-glass border border-dark"
                         ></b-form-input>
-                        <b-form-invalid-feedback :state="validation.project_name">
-                            Nama proyek harus diisi
-                        </b-form-invalid-feedback>
                       </b-col>
                   </b-row>
                   <b-row class="mb-4">
@@ -82,12 +66,8 @@
                         <b-form-input
                             v-model="form.project_address"
                             type="text"
-                            :state="validation.project_address"
                             class="rounded-pill bg-glass border border-dark"
                         ></b-form-input>
-                        <b-form-invalid-feedback :state="validation.project_address">
-                            Alamat proyek harus diisi
-                        </b-form-invalid-feedback>
                       </b-col>
                   </b-row>
                   <b-row class="mb-4">
@@ -98,12 +78,8 @@
                         <b-form-input
                             v-model="form.project_city"
                             type="text"
-                            :state="validation.project_city"
                             class="rounded-pill bg-glass border border-dark"
                         ></b-form-input>
-                        <b-form-invalid-feedback :state="validation.project_city">
-                            Kota harus diisi
-                        </b-form-invalid-feedback>
                       </b-col>
                   </b-row>
                   <!-- <b-row class="mb-4">
@@ -114,10 +90,9 @@
                         <b-form-input
                             v-model="form.project_budget"
                             type="text"
-                            :state="validation.project_budget"
                             class="rounded-pill bg-glass border border-dark"
                         ></b-form-input>
-                        <b-form-invalid-feedback :state="validation.project_budget">
+                        <b-form-invalid-f
                             Budget harus diisi
                         </b-form-invalid-feedback>
                       </b-col>
@@ -135,9 +110,6 @@
                                 class="border border-dark"
                                 >
                             </b-form-textarea>
-                            <b-form-invalid-feedback :state="validation.project_note">
-                                Catatan proyek harus diisi
-                            </b-form-invalid-feedback>
                       </b-col>
                   </b-row>
                   <b-row class="mb-4">
@@ -148,12 +120,8 @@
                         <b-form-input
                             v-model="form.project_status"
                             type="text"
-                            :state="validation.project_status"
                             class="rounded-pill bg-glass border border-dark"
                         ></b-form-input>
-                        <b-form-invalid-feedback :state="validation.project_status">
-                            Status proyek harus diisi
-                        </b-form-invalid-feedback>
                       </b-col>
                   </b-row>
                   <b-row class="mb-4">
@@ -167,11 +135,7 @@
                             name="uploadFoto"
                             class="border"
                             placeholder=""
-                            :state="validation.project_photo"
                         ></b-form-file>
-                        <b-form-invalid-feedback :state="validation.project_photo">
-                            Upload foto proyek harus diisi
-                        </b-form-invalid-feedback>
                       </b-col>
                   </b-row>
                   <b-row class="mb-4">
@@ -196,12 +160,8 @@
                                         id="input-1"
                                         v-model="data.type"
                                         type="text"
-                                        :state="validation.type"
                                         class="rounded-pill bg-glass border border-dark"
                                     ></b-form-input>
-                                    <b-form-invalid-feedback :state="validation.type">
-                                        Tipe barang harus diisi
-                                    </b-form-invalid-feedback>
                                 </b-form-group>
                                 <b-form-group
                                     id="input-group-1"
@@ -213,12 +173,8 @@
                                         id="input-1"
                                         v-model="data.brand"
                                         type="text"
-                                        :state="validation.brand"
                                         class="rounded-pill bg-glass border border-dark"
                                     ></b-form-input>
-                                    <b-form-invalid-feedback :state="validation.brand">
-                                        Brand harus diisi
-                                    </b-form-invalid-feedback>
                                 </b-form-group>
                                 <b-form-group
                                     id="input-group-1"
@@ -230,12 +186,8 @@
                                         id="input-1"
                                         v-model="data.material"
                                         type="text"
-                                        :state="validation.material"
                                         class="rounded-pill bg-glass border border-dark"
                                     ></b-form-input>
-                                    <b-form-invalid-feedback :state="validation.material">
-                                        Material harus diisi
-                                    </b-form-invalid-feedback>
                                 </b-form-group>
                                 <b-form-group
                                     id="input-group-1"
@@ -247,12 +199,8 @@
                                         id="input-1"
                                         v-model="data.area_needed"
                                         type="text"
-                                        :state="validation.area_needed"
                                         class="rounded-pill bg-glass border border-dark"
                                     ></b-form-input>
-                                    <b-form-invalid-feedback :state="validation.area_needed">
-                                        Luas kebutuhan harus diisi
-                                    </b-form-invalid-feedback>
                                 </b-form-group>
                                 <b-form-group
                                     id="input-group-1"
@@ -264,12 +212,8 @@
                                         id="input-1"
                                         v-model="data.size"
                                         type="text"
-                                        :state="validation.size"
                                         class="rounded-pill bg-glass border border-dark"
                                     ></b-form-input>
-                                    <b-form-invalid-feedback :state="validation.size">
-                                        Ukuran harus diisi
-                                    </b-form-invalid-feedback>
                                 </b-form-group>
                                 <b-form-group
                                     id="input-group-1"
@@ -281,12 +225,8 @@
                                         id="input-1"
                                         v-model="data.quantity"
                                         type="number"
-                                        :state="validation.quantity"
                                         class="rounded-pill bg-glass border border-dark"
                                     ></b-form-input>
-                                    <b-form-invalid-feedback :state="validation.quantity">
-                                        Quantity harus diisi
-                                    </b-form-invalid-feedback>
                                 </b-form-group>
                                 <b-form-group
                                     id="input-group-1"
@@ -298,12 +238,8 @@
                                         id="input-1"
                                         v-model="data.budget"
                                         type="text"
-                                        :state="validation.budget"
                                         class="rounded-pill bg-glass border border-dark"
                                     ></b-form-input>
-                                    <b-form-invalid-feedback :state="validation.budget">
-                                        Budget harus diisi
-                                    </b-form-invalid-feedback>
                                 </b-form-group>
                                 <b-form-group
                                     id="input-group-1"
@@ -318,26 +254,13 @@
                                         class="border"
                                         placeholder=""
                                     ></b-form-file>
-                                    <b-form-invalid-feedback :state="validation.photo">
-                                        gambar kerja harus diisi
-                                    </b-form-invalid-feedback>
                                 </b-form-group>
-                            </div>
-                        </b-col>
-
-                        <b-col cols="4">
-                            <div class="mp-box__form">
-                                <div class="mp-button__add-form" @click="add">
-                                    <b-icon icon="plus" font-scale="4"></b-icon>
-                                    <p class="mb-0">Tambah</p>
+                                <div class="d-flex justify-content-center mt-5">
+                                    <b-button variant="primary" pill type="submit" class="mb-3 px-5" size="lg">Reply</b-button>
                                 </div>
                             </div>
                         </b-col>
                     </b-row>
-                </div>
-
-                <div class="d-flex justify-content-end pr-5 pb-5">
-                    <b-button variant="primary" pill type="submit" class="mb-3 px-5" size="lg">Submit</b-button>
                 </div>
               </b-form>
           </div>
@@ -364,46 +287,6 @@
                     project_status: "",
                     project_photo: [],
                 },
-                validation:{
-                    project_deadline: null,
-                    person_name: null,
-                    person_phone: null,
-                    project_name: null,
-                    project_address: null,
-                    project_city: null,
-                    project_budget: null,
-                    project_note: null,
-                    project_status: null,
-                    type: null,
-                    brand: null,
-                    material: null,
-                    area_needed: null,
-                    size: null,
-                    quantity: null,
-                    budget: null,
-                    project_photo: null,
-                    photo: null,
-                },
-                msg: {
-                    project_deadline: "",
-                    person_name: "",
-                    person_phone: "",
-                    project_name: "",
-                    project_address: "",
-                    project_city: "",
-                    project_budget: "",
-                    project_note: "",
-                    project_status: "",
-                    type: "",
-                    brand: "",
-                    material: "",
-                    area_needed: "",
-                    size: "",
-                    quantity: "",
-                    budget: "",
-                    project_photo: "",
-                    foto: "",
-                },
                 needs: [
                     {
                         type: "",
@@ -421,108 +304,20 @@
             }
         },
         methods: {
-            add(){
-                // this.count++
-                this.needs.push({
-                    type: "",
-                    brand: "",
-                    material: "",
-                    area_needed: "",
-                    size: "",
-                    quantity: "",
-                    budget: "",
-                    photo: [] 
-                });
-            },
-
-            remove(index){
-                // this.count--
-                this.needs.splice(index, 1);
-            },
-
-            async submit(){
-                for (const key in this.validation) {
-                    this.validation[key] = null
-                }
-                let formData = new FormData();
-                for (const key in this.form) {
-                    formData.append(key, this.form[key])
-                }
-                
-                await this.$axios.post("/project", formData, {
-                    headers:{
-                        'Content-Type': 'multipart/form-data',
-                        "auth-token":this.$cookies.get('token')
-                    }
-                }).then(res => {
-                    if(res.data.data != null){
-                        let formDataNeeds = new FormData();
-
-                        if(this.needs != null){
-                            console.log(this.needs)
-                            this.needs.forEach(arr =>{
-                                arr.project_id  = res.data.data.id
-
-                            for (const key in arr) {
-                                formDataNeeds.append(key, arr[key])
-                                }
-                            })
-                        }
-                        
-                        for (const pair of formDataNeeds.entries()) {
-                            console.log(`${pair[0]} -> ${pair[1]}`);
-                        }
-                        
-                        this.$axios.post("/material", formDataNeeds, {
-                            headers:{
-                                'Content-Type': 'multipart/form-data',
-                                "auth-token":this.$cookies.get('token')
-                            }
-                        }).then(response => {
-                            console.log(response, "response")
-                            this.openModalSuccess()
-                            // location.reload()
-                        }).catch(err => {
-                            console.log(err, "error")
-                            // err.data.errors.forEach(row => {
-                            //     this.validation[row] = false
-                            //     this.msg[row] = row
-                            // });
-                            err.response.data.errors.forEach(row => {
-                                console.log(row)
-                                var data = row.split(" ")[0];
-                                this.validation[data] = false;
-                            });
-                        })
-                    }
-                })
-                .catch(err => {
-                     err.response.data.errors.forEach(row => {
-                        console.log(row)
-                        var data = row.split(" ")[0];
-                        this.validation[data] = false;
-                    });
-                })
-            },
-
-            openModalSuccess() {
-                this.boxTwo = ''
-                this.$bvModal.msgBoxOk('Data was submitted successfully', {
-                size: 'sm',
-                buttonSize: 'sm',
-                okVariant: 'success',
-                headerClass: 'p-2 border-bottom-0',
-                footerClass: 'p-2 border-top-0',
-                centered: true
-            }).then(value => {
-                location.reload()
-            })
-            .catch(err => {
-            })
-            }
+            
         },
 
-        mounted(){
+        async mounted(){
+            let fetchEvents = await this.$axios.get(`/project`, {
+                headers:{
+                    "auth-token":this.$cookies.get('token')
+                }
+            })
+            
+            if(fetchEvents.data != null){
+                this.dataMaterial = fetchEvents.data.data
+            }
+
             this.$emit('fullpage', true);
         }
     }

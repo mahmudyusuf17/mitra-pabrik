@@ -124,6 +124,13 @@
         "_name": "_f9f7f154"
       },
       {
+        "name": "home-material-inquiry-detail",
+        "path": "material-inquiry/detail",
+        "component": "/Users/mahmudyusuf17/Documents/Freelance/mp/pages/home/material-inquiry/detail.vue",
+        "chunkName": "pages/home/material-inquiry/detail",
+        "_name": "_75f2777e"
+      },
+      {
         "name": "home-material-inquiry-principal",
         "path": "material-inquiry/principal",
         "component": "/Users/mahmudyusuf17/Documents/Freelance/mp/pages/home/material-inquiry/principal.vue",

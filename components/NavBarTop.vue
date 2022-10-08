@@ -68,11 +68,11 @@
                             <span>Material Inquiry</span>
                         </nuxt-link>
                     </b-nav-item>
-                    <b-nav-item class="mp-navbar-item" v-if="getUserCredentials.role == 'Prinsipal'">
+                    <!-- <b-nav-item class="mp-navbar-item" v-if="getUserCredentials.role == 'Prinsipal'">
                         <nuxt-link to="/home/product/add" class="mp-link__black-color">
                             <span>Product</span>
                         </nuxt-link>
-                    </b-nav-item>
+                    </b-nav-item> -->
                     <!-- <b-nav-item class="mp-navbar-item mr-4">
                         <nuxt-link to="/home/partnerships" class="mp-link__black-color">
                             <span>Principals</span>
@@ -175,11 +175,11 @@
                                     <span>Material Inquiry</span>
                                 </nuxt-link>
                             </b-nav-item>
-                            <b-nav-item class="mp-navbar-item" v-if="getUserCredentials.role == 'Prinsipal'">
+                            <!-- <b-nav-item class="mp-navbar-item" v-if="getUserCredentials.role == 'Prinsipal'">
                                 <nuxt-link to="/home/product/add" class="mp-link__black-color">
                                     <span>Product</span>
                                 </nuxt-link>
-                            </b-nav-item>
+                            </b-nav-item> -->
                             <b-nav-item class="mp-navbar-item" @click="handleLogout">
                                 <a href="#" class="mp-link__black-color">
                                     <span>Logout</span>

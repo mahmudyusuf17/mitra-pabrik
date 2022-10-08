@@ -16,15 +16,10 @@
                             </template>
                         </b-input-group>
                         <div class="mp-list-category mt-4">
-                            <div class="mp-list-category__level-1" v-b-toggle="'collapse-'+1">
-                                <span> > Category 1</span>
-                                <b-collapse id="collapse-1" visible class="mp-list-category__level-2 mt-2">
-                                    <p> > Sub-category 1</p>
-                                    <p> > Sub-category 2</p>
-                                    <p> > Sub-category 3</p>
-                                </b-collapse>
+                            <div class="mp-list-category__level-1" v-b-toggle="'collapse-'+1" v-for="(item, index) in category" :key="index">
+                                <span> > {{item.tipe}}</span>
                             </div>
-                            <div class="mp-list-category__level-1" v-b-toggle="'collapse-'+2">
+                            <!-- <div class="mp-list-category__level-1" v-b-toggle="'collapse-'+2">
                                 <span> > Category 2</span>
                                 <b-collapse id="collapse-2" class="mp-list-category__level-2 mt-2">
                                     <p> > Sub-category 1</p>
@@ -39,7 +34,7 @@
                                     <p> > Sub-category 2</p>
                                     <p> > Sub-category 3</p>
                                 </b-collapse>
-                            </div>
+                            </div> -->
                         </div>
                     </div>
                     <div class="mp-catalog__ads" style="cursor: pointer">
@@ -167,6 +162,7 @@
                 categorySearch: "",
                 visible: false,
                 products: [],
+                category: [],
                 slides: [
                     [
                         "https://picsum.photos/1024/480/?image=45", 
@@ -211,9 +207,14 @@
        async mounted(){
             this.$emit('fullpage', false);
             
-            let fetchEvents = await this.$axios.get(`/products`)
-            if(fetchEvents.data != null){
-                this.products = fetchEvents.data.data;
+            let fetchProducts = await this.$axios.get(`/products`)
+            if(fetchProducts.data != null){
+                this.products = fetchProducts.data.data;
+            }
+
+            let fetchCategory = await this.$axios.get(`/products/tipe`)
+            if(fetchCategory.data != null){
+                this.category = fetchCategory.data.data;
             }
         }
     }

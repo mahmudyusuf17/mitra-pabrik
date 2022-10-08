@@ -78,7 +78,7 @@
                     </b-col> -->
                 </b-row>
             </b-col>
-            <b-col cols="12" md="4" class="border-left">
+            <b-col cols="12" md="4" class="border-left" v-if="eventRekan.length != 0 ">
                 <h3>Event dari rekan <span class="mp-primary-color">mitrapabrik.com</span></h3>
                 <b-row>
                     <b-col v-for="event in eventRekan" :key="event.id_event">

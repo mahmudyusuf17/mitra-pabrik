@@ -39,7 +39,7 @@
                     </div>
                     <div class="mb-4">
                         <b-button 
-                            v-if="product.id_partner != getUserCredentials.id_user"
+                            v-if="product.id_partner != getUserCredentials.id_user && getUserCredentials.role != 'Prinsipal'"
                             variant="primary" pill class="px-3" size="sm" 
                             @click="addWishlist(product.id_produk)">
                             Save <b-icon :icon="currWishlist ? 'bookmark-fill' : 'bookmark'"></b-icon>

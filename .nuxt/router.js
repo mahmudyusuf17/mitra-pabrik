@@ -22,6 +22,7 @@ const _98edfdfc = () => interopDefault(import('../pages/home/profile-old.vue' /*
 const _53abe569 = () => interopDefault(import('../pages/home/showroom.vue' /* webpackChunkName: "pages/home/showroom" */))
 const _69466a4a = () => interopDefault(import('../pages/home/verify.vue' /* webpackChunkName: "pages/home/verify" */))
 const _f9f7f154 = () => interopDefault(import('../pages/home/wishlist.vue' /* webpackChunkName: "pages/home/wishlist" */))
+const _75f2777e = () => interopDefault(import('../pages/home/material-inquiry/detail.vue' /* webpackChunkName: "pages/home/material-inquiry/detail" */))
 const _04e18a91 = () => interopDefault(import('../pages/home/material-inquiry/principal.vue' /* webpackChunkName: "pages/home/material-inquiry/principal" */))
 const _35384a56 = () => interopDefault(import('../pages/home/artikel/_id.vue' /* webpackChunkName: "pages/home/artikel/_id" */))
 const _0e8f5af8 = () => interopDefault(import('../pages/home/event/_id.vue' /* webpackChunkName: "pages/home/event/_id" */))
@@ -129,6 +130,10 @@ export const routerOptions = {
       path: "wishlist",
       component: _f9f7f154,
       name: "home-wishlist"
+    }, {
+      path: "material-inquiry/detail",
+      component: _75f2777e,
+      name: "home-material-inquiry-detail"
     }, {
       path: "material-inquiry/principal",
       component: _04e18a91,

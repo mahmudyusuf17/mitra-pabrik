@@ -21,11 +21,23 @@
                     </b-row>
                 </template>
             </b-carousel-slide> -->
-            <b-carousel-slide v-for="(slide, i) in Math.ceil(listPrincipal.length / 12)" :key="i" class="mp-slider__principal">
+            <!-- <b-carousel-slide v-for="(slide, i) in Math.ceil(listPrincipal.length / 12)" :key="i" class="mp-slider__principal">
                 <template v-slot:img>
                     <b-row>
                         <b-col cols="6" md="4" lg="2" sm="6" class="my-4" style="cursor: pointer" v-for="(dataPrincipal, j) in listPrincipal" :key="j" @click="cekLogin(dataPrincipal.id_user)">
                                 <b-img :src="baseUrl+'/company_logo/'+dataPrincipal.foto_perusahaan+`?t=${new Date().getTime()}`" alt="Responsive image" class="mp-image-principal"></b-img>
+                        </b-col>
+                    </b-row>
+                </template>
+            </b-carousel-slide> -->
+
+            <b-carousel-slide v-for="(slide, i) in 2" :key="i" class="mp-slider__principal">
+                <template v-slot:img>
+                    <b-row>
+                        <b-col cols="6" md="4" lg="2" sm="6" class="my-4" style="cursor: pointer" v-for="(dataPrincipal, j) in 12" :key="j">
+                            <div class="mp-prinsipal__card">
+                                <span>Logo Principal</span>
+                            </div>
                         </b-col>
                     </b-row>
                 </template>

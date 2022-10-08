@@ -6,9 +6,8 @@
         </div>
         <div class="mp-inquiry__filter mt-5">
             <b-dropdown id="dropdown-left" text="sort" variant="outline" class="mr-3 border border-dark mp-button-sort">
-                <b-dropdown-item href="#">Filter Sort</b-dropdown-item>
-                <b-dropdown-item href="#">Filter Sort</b-dropdown-item>
-                <b-dropdown-item href="#">Filter Sort</b-dropdown-item>
+                <b-dropdown-item href="#">Terbaru</b-dropdown-item>
+                <b-dropdown-item href="#">Terlama</b-dropdown-item>
             </b-dropdown>    
             <b-input-group class="mp-search__form">
                 <b-form-input
@@ -25,6 +24,7 @@
         <div class="mp-inquiry__list-product mt-4">
             <b-row>
                 <b-col cols="12" md="6" v-for="(item, i) in dataMaterial" :key="i" class="mb-5">
+                    <nuxt-link to="/home/material-inquiry/detail" class="mp-link__redirect">
                     <b-card
                         :img-src="`https://mitrapabrik.sgp1.digitaloceanspaces.com/projects/${item.project_photo}`"
                         img-alt="Image"
@@ -41,17 +41,18 @@
                                 <div class="mp-card-desc">
                                     <p>{{ $formatIDDate(item.project_deadline) }}</p>
                                     <p>{{ item.person_name }}</p>
-                                    <b-button 
+                                    <!-- <b-button 
                                         pill
                                         variant="outline-danger"
                                         size="md"
                                         :href="`https://wa.me/`+ item.person_phone"
                                     >Contact Whatsapp
-                                    </b-button>
+                                    </b-button> -->
                                 </div>
                             </div>
                         </b-card-text>
                     </b-card>
+                    </nuxt-link>
                 </b-col>
             </b-row>
             <div class="d-flex justify-content-center mt-4">
@@ -79,14 +80,14 @@
         },
 
         async mounted() {
-            let fetchEvents = await this.$axios.get(`/project`, {
+            let fetchMaterials = await this.$axios.get(`/project`, {
                 headers:{
                     "auth-token":this.$cookies.get('token')
                 }
             })
             
-            if(fetchEvents.data != null){
-                this.dataMaterial = fetchEvents.data.data
+            if(fetchMaterials.data != null){
+                this.dataMaterial = fetchMaterials.data.data
             }
 
             this.$emit('fullpage', false);
@@ -94,7 +95,3 @@
         },
     }
 </script>
-
-<style scoped>
-
-</style>

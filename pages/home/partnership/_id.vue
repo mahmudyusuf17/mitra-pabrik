@@ -52,7 +52,7 @@
             </b-col>
         </b-row>
         <div class="d-block mt-4">
-            <b-button variant="primary" v-if="user == 'Prinsipal'" class="mp-border-radius float-right" size="sm" href="/home/product/add">Tambah Catalog</b-button>
+            <b-button variant="primary" v-if="user == 'Prinsipal' && getUserCredentials.id_user == userId" class="mp-border-radius float-right" size="sm" href="/home/product/add">Tambah Catalog</b-button>
         </div>
         <div class="mp-principal__product pt-5 mt-2">
             <b-row>
@@ -176,7 +176,8 @@ import { mapGetters } from 'vuex';
             errMsg: '',
             loading: true,
             products:[],
-            user: 'User'
+            user: 'User',
+            userId: this.$route.params.id,
         }
     },
     methods:{

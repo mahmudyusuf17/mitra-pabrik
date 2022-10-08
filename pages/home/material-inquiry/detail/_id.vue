@@ -308,14 +308,15 @@
         },
 
         async mounted(){
-            let fetchEvents = await this.$axios.get(`/project`, {
+            var id = this.$route.params.id;
+            let fetchMaterialDetail = await this.$axios.get(`/project/${id}`, {
                 headers:{
                     "auth-token":this.$cookies.get('token')
                 }
             })
             
-            if(fetchEvents.data != null){
-                this.dataMaterial = fetchEvents.data.data
+            if(fetchMaterialDetail.data != null){
+                this.dataMaterial = fetchMaterialDetail.data.data
             }
 
             this.$emit('fullpage', true);

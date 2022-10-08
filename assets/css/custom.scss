@@ -148,6 +148,10 @@ $mp-box-shadow: 4px 4px 4px rgba(0, 0, 0, 0.15);
 
 .carousel-inner {
     max-height: 800px;
+
+    @media (max-width: 720px){
+        max-height: 735px;
+    }
 }
 
 ul.mp-list-text{

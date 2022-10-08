@@ -5,9 +5,9 @@
             <h1>Material Inquiry</h1>
         </div>
         <div class="mp-inquiry__filter mt-5">
-            <b-dropdown id="dropdown-left" text="sort" variant="outline" class="mr-3 border border-dark mp-button-sort">
-                <b-dropdown-item href="#">Terbaru</b-dropdown-item>
-                <b-dropdown-item href="#">Terlama</b-dropdown-item>
+            <b-dropdown id="dropdown-left" :text="sortData" variant="outline" class="mr-3 border border-dark mp-button-sort">
+                <b-dropdown-item @click="filterSort('Terbaru')">Terbaru</b-dropdown-item>
+                <b-dropdown-item @click="filterSort('Terlama')">Terlama</b-dropdown-item>
             </b-dropdown>    
             <b-input-group class="mp-search__form">
                 <b-form-input
@@ -24,7 +24,7 @@
         <div class="mp-inquiry__list-product mt-4">
             <b-row>
                 <b-col cols="12" md="6" v-for="(item, i) in dataMaterial" :key="i" class="mb-5">
-                    <nuxt-link to="/home/material-inquiry/detail" class="mp-link__redirect">
+                    <nuxt-link :to="`/home/material-inquiry/detail/${item.id}`" class="mp-link__redirect">
                     <b-card
                         :img-src="`https://mitrapabrik.sgp1.digitaloceanspaces.com/projects/${item.project_photo}`"
                         img-alt="Image"
@@ -73,10 +73,13 @@
                 currentPage: 1,
                 rows: 1,
                 dataMaterial: [],
+                sortData: "sort"
             }
         },
         methods: {
-            
+            filterSort(val){
+                this.sortData = val
+            }
         },
 
         async mounted() {

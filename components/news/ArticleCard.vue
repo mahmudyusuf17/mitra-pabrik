@@ -1,6 +1,6 @@
 <template>
 <div class="mp-link__redirect">
-    <div class="mp-news-card" @click="toDetail(news.id_artikel)">
+    <div class="mp-news-card" @click="toDetail(news.id_artikel)" style="cursor: pointer">
         <b-card :title="news.title">
             <!-- <img src="/no-image-placeholder.png" alt="image news" class="w-100 mb-3 mp-border-radius mp-image-news"> -->
             <b-card-text>

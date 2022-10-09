@@ -3,13 +3,15 @@
     "name": "about-us",
     "path": "/about-us",
     "component": "/Users/mahmudyusuf17/Documents/Freelance/mp/pages/about-us.vue",
-    "chunkName": "pages/about-us"
+    "chunkName": "pages/about-us",
+    "_name": "_17052c8d"
   },
   {
     "name": "contact-us",
     "path": "/contact-us",
     "component": "/Users/mahmudyusuf17/Documents/Freelance/mp/pages/contact-us.vue",
-    "chunkName": "pages/contact-us"
+    "chunkName": "pages/contact-us",
+    "_name": "_6d3d46da"
   },
   {
     "path": "/home",
@@ -20,121 +22,141 @@
         "name": "home",
         "path": "",
         "component": "/Users/mahmudyusuf17/Documents/Freelance/mp/pages/home/index.vue",
-        "chunkName": "pages/home/index"
+        "chunkName": "pages/home/index",
+        "_name": "_a83598de"
       },
       {
         "name": "home-about-us",
         "path": "about-us",
         "component": "/Users/mahmudyusuf17/Documents/Freelance/mp/pages/home/about-us/index.vue",
-        "chunkName": "pages/home/about-us/index"
+        "chunkName": "pages/home/about-us/index",
+        "_name": "_2fa5fd9c"
       },
       {
         "name": "home-artikel",
         "path": "artikel",
         "component": "/Users/mahmudyusuf17/Documents/Freelance/mp/pages/home/artikel/index.vue",
-        "chunkName": "pages/home/artikel/index"
+        "chunkName": "pages/home/artikel/index",
+        "_name": "_0f8ff724"
       },
       {
         "name": "home-catalog",
         "path": "catalog",
         "component": "/Users/mahmudyusuf17/Documents/Freelance/mp/pages/home/catalog/index.vue",
-        "chunkName": "pages/home/catalog/index"
+        "chunkName": "pages/home/catalog/index",
+        "_name": "_3a2c93ca"
       },
       {
         "name": "home-events",
         "path": "events",
         "component": "/Users/mahmudyusuf17/Documents/Freelance/mp/pages/home/events.vue",
-        "chunkName": "pages/home/events"
+        "chunkName": "pages/home/events",
+        "_name": "_3adf1a2c"
       },
       {
         "name": "home-faq",
         "path": "faq",
         "component": "/Users/mahmudyusuf17/Documents/Freelance/mp/pages/home/faq.vue",
-        "chunkName": "pages/home/faq"
+        "chunkName": "pages/home/faq",
+        "_name": "_54f8f195"
       },
       {
         "name": "home-inquiries",
         "path": "inquiries",
         "component": "/Users/mahmudyusuf17/Documents/Freelance/mp/pages/home/inquiries.vue",
-        "chunkName": "pages/home/inquiries"
+        "chunkName": "pages/home/inquiries",
+        "_name": "_0c23fb38"
       },
       {
         "name": "home-material-inquiry",
         "path": "material-inquiry",
         "component": "/Users/mahmudyusuf17/Documents/Freelance/mp/pages/home/material-inquiry/index.vue",
-        "chunkName": "pages/home/material-inquiry/index"
+        "chunkName": "pages/home/material-inquiry/index",
+        "_name": "_282e6eb5"
       },
       {
         "name": "home-news",
         "path": "news",
         "component": "/Users/mahmudyusuf17/Documents/Freelance/mp/pages/home/news.vue",
-        "chunkName": "pages/home/news"
+        "chunkName": "pages/home/news",
+        "_name": "_6ab049e4"
       },
       {
         "name": "home-partnerships",
         "path": "partnerships",
         "component": "/Users/mahmudyusuf17/Documents/Freelance/mp/pages/home/partnerships.vue",
-        "chunkName": "pages/home/partnerships"
+        "chunkName": "pages/home/partnerships",
+        "_name": "_1fbc1600"
       },
       {
         "name": "home-profile",
         "path": "profile",
         "component": "/Users/mahmudyusuf17/Documents/Freelance/mp/pages/home/profile.vue",
-        "chunkName": "pages/home/profile"
+        "chunkName": "pages/home/profile",
+        "_name": "_40dea328"
       },
       {
         "name": "home-profile-old",
         "path": "profile-old",
         "component": "/Users/mahmudyusuf17/Documents/Freelance/mp/pages/home/profile-old.vue",
-        "chunkName": "pages/home/profile-old"
+        "chunkName": "pages/home/profile-old",
+        "_name": "_98edfdfc"
       },
       {
         "name": "home-showroom",
         "path": "showroom",
         "component": "/Users/mahmudyusuf17/Documents/Freelance/mp/pages/home/showroom.vue",
-        "chunkName": "pages/home/showroom"
+        "chunkName": "pages/home/showroom",
+        "_name": "_53abe569"
       },
       {
         "name": "home-verify",
         "path": "verify",
         "component": "/Users/mahmudyusuf17/Documents/Freelance/mp/pages/home/verify.vue",
-        "chunkName": "pages/home/verify"
+        "chunkName": "pages/home/verify",
+        "_name": "_69466a4a"
       },
       {
         "name": "home-wishlist",
         "path": "wishlist",
         "component": "/Users/mahmudyusuf17/Documents/Freelance/mp/pages/home/wishlist.vue",
-        "chunkName": "pages/home/wishlist"
+        "chunkName": "pages/home/wishlist",
+        "_name": "_f9f7f154"
       },
       {
         "name": "home-material-inquiry-principal",
         "path": "material-inquiry/principal",
         "component": "/Users/mahmudyusuf17/Documents/Freelance/mp/pages/home/material-inquiry/principal.vue",
-        "chunkName": "pages/home/material-inquiry/principal"
+        "chunkName": "pages/home/material-inquiry/principal",
+        "_name": "_04e18a91"
       },
       {
         "name": "home-material-inquiry-detail-id",
         "path": "material-inquiry/detail/:id",
         "component": "/Users/mahmudyusuf17/Documents/Freelance/mp/pages/home/material-inquiry/detail/_id.vue",
-        "chunkName": "pages/home/material-inquiry/detail/_id"
+        "chunkName": "pages/home/material-inquiry/detail/_id",
+        "_name": "_538ed629"
       },
       {
         "name": "home-artikel-id",
         "path": "artikel/:id",
         "component": "/Users/mahmudyusuf17/Documents/Freelance/mp/pages/home/artikel/_id.vue",
-        "chunkName": "pages/home/artikel/_id"
+        "chunkName": "pages/home/artikel/_id",
+        "_name": "_35384a56"
       },
       {
         "name": "home-event-id",
         "path": "event/:id?",
         "component": "/Users/mahmudyusuf17/Documents/Freelance/mp/pages/home/event/_id.vue",
-        "chunkName": "pages/home/event/_id"
+        "chunkName": "pages/home/event/_id",
+        "_name": "_0e8f5af8"
       },
       {
         "name": "home-partnership-id",
         "path": "partnership/:id?",
         "component": "/Users/mahmudyusuf17/Documents/Freelance/mp/pages/home/partnership/_id.vue",
-        "chunkName": "pages/home/partnership/_id"
+        "chunkName": "pages/home/partnership/_id",
+        "_name": "_71cfcfae"
       },
       {
         "path": ":products/add",
@@ -145,9 +167,11 @@
             "name": "home-products-add",
             "path": "",
             "component": "/Users/mahmudyusuf17/Documents/Freelance/mp/pages/home/_products/add/index.vue",
-            "chunkName": "pages/home/_products/add/index"
+            "chunkName": "pages/home/_products/add/index",
+            "_name": "_20bbc117"
           }
-        ]
+        ],
+        "_name": "_5543b994"
       },
       {
         "name": "home-products-details",
@@ -159,41 +183,49 @@
             "name": "home-products-details-edit-id",
             "path": "edit/:id?",
             "component": "/Users/mahmudyusuf17/Documents/Freelance/mp/pages/home/_products/details/edit/_id.vue",
-            "chunkName": "pages/home/_products/details/edit/_id"
+            "chunkName": "pages/home/_products/details/edit/_id",
+            "_name": "_5d8eb002"
           },
           {
             "name": "home-products-details-id",
             "path": ":id?",
             "component": "/Users/mahmudyusuf17/Documents/Freelance/mp/pages/home/_products/details/_id.vue",
-            "chunkName": "pages/home/_products/details/_id"
+            "chunkName": "pages/home/_products/details/_id",
+            "_name": "_50274060"
           }
-        ]
+        ],
+        "_name": "_1dce9535"
       }
-    ]
+    ],
+    "_name": "_0f2b0f8e"
   },
   {
     "name": "login",
     "path": "/login",
     "component": "/Users/mahmudyusuf17/Documents/Freelance/mp/pages/login.vue",
-    "chunkName": "pages/login"
+    "chunkName": "pages/login",
+    "_name": "_17c86e6c"
   },
   {
     "name": "maintenance",
     "path": "/maintenance",
     "component": "/Users/mahmudyusuf17/Documents/Freelance/mp/pages/maintenance.vue",
-    "chunkName": "pages/maintenance"
+    "chunkName": "pages/maintenance",
+    "_name": "_d1c0e698"
   },
   {
     "name": "quickregister",
     "path": "/quickregister",
     "component": "/Users/mahmudyusuf17/Documents/Freelance/mp/pages/quickregister.vue",
-    "chunkName": "pages/quickregister"
+    "chunkName": "pages/quickregister",
+    "_name": "_09c92c71"
   },
   {
     "name": "register",
     "path": "/register",
     "component": "/Users/mahmudyusuf17/Documents/Freelance/mp/pages/register.vue",
-    "chunkName": "pages/register"
+    "chunkName": "pages/register",
+    "_name": "_28c7b85c"
   },
   {
     "path": "/",
@@ -204,62 +236,73 @@
         "name": "index",
         "path": "",
         "component": "/Users/mahmudyusuf17/Documents/Freelance/mp/pages/index/index.vue",
-        "chunkName": "pages/index/index"
+        "chunkName": "pages/index/index",
+        "_name": "_4a674c14"
       },
       {
         "name": "index-events",
         "path": "events",
         "component": "/Users/mahmudyusuf17/Documents/Freelance/mp/pages/index/events.vue",
-        "chunkName": "pages/index/events"
+        "chunkName": "pages/index/events",
+        "_name": "_dee3cdb6"
       },
       {
         "name": "index-news",
         "path": "news",
         "component": "/Users/mahmudyusuf17/Documents/Freelance/mp/pages/index/news.vue",
-        "chunkName": "pages/index/news"
+        "chunkName": "pages/index/news",
+        "_name": "_826f7a42"
       },
       {
         "name": "index-partnerships",
         "path": "partnerships",
         "component": "/Users/mahmudyusuf17/Documents/Freelance/mp/pages/index/partnerships.vue",
-        "chunkName": "pages/index/partnerships"
+        "chunkName": "pages/index/partnerships",
+        "_name": "_1774e3fb"
       },
       {
         "name": "index-pricing",
         "path": "pricing",
         "component": "/Users/mahmudyusuf17/Documents/Freelance/mp/pages/index/pricing.vue",
-        "chunkName": "pages/index/pricing"
+        "chunkName": "pages/index/pricing",
+        "_name": "_b644f82c"
       },
       {
         "name": "index-showroom",
         "path": "showroom",
         "component": "/Users/mahmudyusuf17/Documents/Freelance/mp/pages/index/showroom.vue",
-        "chunkName": "pages/index/showroom"
+        "chunkName": "pages/index/showroom",
+        "_name": "_78d8e8e4"
       },
       {
         "name": "index-artikel-id",
         "path": "artikel/:id?",
         "component": "/Users/mahmudyusuf17/Documents/Freelance/mp/pages/index/artikel/_id.vue",
-        "chunkName": "pages/index/artikel/_id"
+        "chunkName": "pages/index/artikel/_id",
+        "_name": "_668050fb"
       },
       {
         "name": "index-event-id",
         "path": "event/:id?",
         "component": "/Users/mahmudyusuf17/Documents/Freelance/mp/pages/index/event/_id.vue",
-        "chunkName": "pages/index/event/_id"
+        "chunkName": "pages/index/event/_id",
+        "_name": "_792bbe69"
       },
       {
         "name": "index-partnership-id",
         "path": "partnership/:id?",
         "component": "/Users/mahmudyusuf17/Documents/Freelance/mp/pages/index/partnership/_id.vue",
-        "chunkName": "pages/index/partnership/_id"
+        "chunkName": "pages/index/partnership/_id",
+        "_name": "_1cb9fbd3"
       },
       {
         "name": "index-product-id",
         "path": "product/:id?",
         "component": "/Users/mahmudyusuf17/Documents/Freelance/mp/pages/index/product/_id.vue",
-        "chunkName": "pages/index/product/_id"
+        "chunkName": "pages/index/product/_id",
+        "_name": "_65d3c0be"
       }
-    ]
+    ],
+    "_name": "_2a7425b3"
   }
 ]

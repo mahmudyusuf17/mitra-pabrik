@@ -1,6 +1,6 @@
 <template>
 <div class="mp-material-inquiry">
-    <div class="container" style="min-height: 100vh; padding: 180px 80px;">
+    <div class="container mp-material__container">
         <div class="mp-title-page__with-shadow">
             <h1>Material Inquiry</h1>
         </div>
@@ -14,10 +14,12 @@
                       </b-col>
                       <b-col cols="6">
                         <b-form-datepicker 
-                            v-model="form.project_deadline" 
+                            v-model="form.project_deadline"
+                            :value="dataMaterial.project_deadline" 
                             placeholder=""
                             class="rounded-pill bg-glass border border-dark"
                             locale="id"
+                            disabled
                             >
                         </b-form-datepicker>
                       </b-col>
@@ -31,6 +33,7 @@
                             v-model="form.person_name"
                             type="text"
                             class="rounded-pill bg-glass border border-dark"
+                            disabled
                         ></b-form-input>
                       </b-col>
                   </b-row>
@@ -43,6 +46,7 @@
                             v-model="form.person_phone"
                             type="text"
                             class="rounded-pill bg-glass border border-dark"
+                            disabled
                         ></b-form-input>
                       </b-col>
                   </b-row>
@@ -55,6 +59,7 @@
                             v-model="form.project_name"
                             type="text"
                             class="rounded-pill bg-glass border border-dark"
+                            disabled
                         ></b-form-input>
                       </b-col>
                   </b-row>
@@ -67,6 +72,7 @@
                             v-model="form.project_address"
                             type="text"
                             class="rounded-pill bg-glass border border-dark"
+                            disabled
                         ></b-form-input>
                       </b-col>
                   </b-row>
@@ -79,6 +85,7 @@
                             v-model="form.project_city"
                             type="text"
                             class="rounded-pill bg-glass border border-dark"
+                            disabled
                         ></b-form-input>
                       </b-col>
                   </b-row>
@@ -108,6 +115,7 @@
                                 rows="3"
                                 max-rows="6"
                                 class="border border-dark"
+                                disabled
                                 >
                             </b-form-textarea>
                       </b-col>
@@ -121,6 +129,7 @@
                             v-model="form.project_status"
                             type="text"
                             class="rounded-pill bg-glass border border-dark"
+                            disabled
                         ></b-form-input>
                       </b-col>
                   </b-row>
@@ -129,13 +138,14 @@
                         <p class="mb-0 mt-2 mp-fs-20 mp-fw-600">Upload foto proyek: </p>
                       </b-col>
                       <b-col cols="6">
-                        <b-form-file 
+                          <img :src="`https://mitrapabrik.sgp1.digitaloceanspaces.com/projects/${form.project_photo}`" width="200" height="200" alt="image foto proyek">
+                        <!-- <b-form-file 
                             v-model="form.project_photo"
                             accept="image/jpeg, image/png, image/jiff"
                             name="uploadFoto"
                             class="border"
                             placeholder=""
-                        ></b-form-file>
+                        ></b-form-file> -->
                       </b-col>
                   </b-row>
                   <b-row class="mb-4">
@@ -147,7 +157,7 @@
 
                 <div class="mp-form__kebutuhan">
                     <b-row>
-                        <b-col cols="4" class="mb-4" v-for="(data, index) in needs" :key="index">
+                        <b-col cols="12" md="4" class="mb-4" v-for="(data, index) in needs" :key="index">
                             <div class="mp-box__form">
                                 <b-icon-x-lg v-show="index > 0" class="float-right mt-2" style="cursor:pointer" @click="remove(index)"></b-icon-x-lg>
                                 <b-form-group
@@ -161,6 +171,7 @@
                                         v-model="data.type"
                                         type="text"
                                         class="rounded-pill bg-glass border border-dark"
+                                        disabled
                                     ></b-form-input>
                                 </b-form-group>
                                 <b-form-group
@@ -174,6 +185,7 @@
                                         v-model="data.brand"
                                         type="text"
                                         class="rounded-pill bg-glass border border-dark"
+                                        disabled
                                     ></b-form-input>
                                 </b-form-group>
                                 <b-form-group
@@ -187,6 +199,7 @@
                                         v-model="data.material"
                                         type="text"
                                         class="rounded-pill bg-glass border border-dark"
+                                        disabled
                                     ></b-form-input>
                                 </b-form-group>
                                 <b-form-group
@@ -200,6 +213,7 @@
                                         v-model="data.area_needed"
                                         type="text"
                                         class="rounded-pill bg-glass border border-dark"
+                                        disabled
                                     ></b-form-input>
                                 </b-form-group>
                                 <b-form-group
@@ -213,6 +227,7 @@
                                         v-model="data.size"
                                         type="text"
                                         class="rounded-pill bg-glass border border-dark"
+                                        disabled
                                     ></b-form-input>
                                 </b-form-group>
                                 <b-form-group
@@ -226,6 +241,7 @@
                                         v-model="data.quantity"
                                         type="number"
                                         class="rounded-pill bg-glass border border-dark"
+                                        disabled
                                     ></b-form-input>
                                 </b-form-group>
                                 <b-form-group
@@ -239,6 +255,7 @@
                                         v-model="data.budget"
                                         type="text"
                                         class="rounded-pill bg-glass border border-dark"
+                                        disabled
                                     ></b-form-input>
                                 </b-form-group>
                                 <b-form-group
@@ -247,16 +264,10 @@
                                     label-for="input-1"
                                     label-class="mp-fs-20 mp-fw-600"
                                 >
-                                    <b-form-file 
-                                        v-model="data.photo"
-                                        accept="image/jpeg, image/png, image/jiff"
-                                        name="uploadFoto"
-                                        class="border"
-                                        placeholder=""
-                                    ></b-form-file>
+                                <img :src="`https://mitrapabrik.sgp1.digitaloceanspaces.com/projects/${data.photo}`" width="200" height="200" alt="image foto proyek">
                                 </b-form-group>
                                 <div class="d-flex justify-content-center mt-5">
-                                    <b-button variant="primary" pill type="submit" class="mb-3 px-5" size="lg">Reply</b-button>
+                                    <b-button variant="primary" pill class="mb-3 px-5" size="lg" :href="`https://wa.me/`+ form.person_phone">Reply</b-button>
                                 </div>
                             </div>
                         </b-col>
@@ -301,10 +312,8 @@
                     }
                 ],
                 uploadFoto: [],
+                dataMaterial:{}
             }
-        },
-        methods: {
-            
         },
 
         async mounted(){
@@ -314,9 +323,19 @@
                     "auth-token":this.$cookies.get('token')
                 }
             })
+
             
             if(fetchMaterialDetail.data != null){
-                this.dataMaterial = fetchMaterialDetail.data.data
+                this.dataMaterial = fetchMaterialDetail.data.data[0]
+                this.form = fetchMaterialDetail.data.data[0]
+                var needs = fetchMaterialDetail.data.data[0].materials
+
+                if(needs != null){
+                    var parsingNeeds = JSON.parse(needs)
+                    this.needs = parsingNeeds;
+                }
+
+                console.log(JSON.parse(needs))
             }
 
             this.$emit('fullpage', true);

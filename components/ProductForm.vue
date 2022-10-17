@@ -138,7 +138,7 @@
                 </div>
             </b-col>
             <b-col cols="12" md="8">
-                <div class="mp-product__form ml-5 mr-5">
+                <div class="mp-product__form">
                     <div class="mp-product__form-list">
                         <b-form-group
                             id="input-group-title"
@@ -264,7 +264,7 @@
                     opacity="0.6"
                     spinner-small
                     spinner-variant="light"
-                    class="d-inline-block float-right mr-5 mt-5"
+                    class="d-inline-block float-right mp-button__product mt-5"
                 >
                     <b-button variant="primary" class="px-5 mb-5" pill @click="editProduct" size="lg" v-if="edit">Edit Product</b-button>
                     <b-button variant="primary" class="px-5 mb-5" pill @click="submitProduct" size="lg" v-else>Submit Product</b-button>

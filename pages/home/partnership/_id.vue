@@ -14,7 +14,7 @@
                             style="border-radius: 25px;">
                         </b-img>
                         <b-avatar v-else class="mb-3" size="12rem" rounded></b-avatar>
-                        <b-button v-if="user == 'Prinsipal'" variant="primary" class="mp-border-radius mb-3" size="sm">Ganti Foto</b-button>
+                        <b-button v-if="user == 'Prinsipal' && getUserCredentials.userId == userId" variant="primary" class="mp-border-radius mb-3" size="sm">Ganti Foto</b-button>
                     </div>
                     <p class="mp-fw-600 mb-0">{{ partnerData.nama_perusahaan }}</p>
                     <div class="d-flex align-items-center mt-2">
@@ -48,7 +48,7 @@
                         ></b-carousel-slide>
                     </b-carousel>
                 </div>
-                <b-button variant="primary" v-if="user == 'Prinsipal'" class="mp-border-radius float-right mt-3" size="sm">Edit Galeri</b-button>
+                <b-button variant="primary" v-if="user == 'Prinsipal' && getUserCredentials.userId == userId" class="mp-border-radius float-right mt-3" size="sm">Edit Galeri</b-button>
             </b-col>
         </b-row>
         <div class="d-block mt-4">
@@ -56,14 +56,14 @@
         </div>
         <div class="mp-principal__product pt-5 mt-2">
             <b-row>
-                <b-col cols="3"  v-for="data in products" :key="data.id_produk" class="mb-4">
+                <b-col cols="12" md="3"  v-for="data in products" :key="data.id_produk" class="mb-4">
                     <nuxt-link :to="`/home/products/details/${data.id_produk}`" class="mp-link__black-color">
                     <b-card
                         :img-src="`${baseUrl}/products/${data.katalog[0]}?t=${new Date().getTime()}`"
                         img-alt="Image product"
                         img-top
                         tag="article"
-                        style="max-width: 18rem; border-radius: 20px"
+                        style="max-width: 24rem; border-radius: 20px"
                         class="mp-product__card mb-2 mp-box-shadow"
                         no-body
                     >

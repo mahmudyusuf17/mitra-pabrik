@@ -11,7 +11,7 @@
             @sliding-start="onSlideStart"
             @sliding-end="onSlideEnd"
         >
-            <b-carousel-slide>
+            <!-- <b-carousel-slide>
                 <template #img>
                     <img
                     class="d-block img-fluid w-100 h-50"
@@ -21,7 +21,7 @@
                     alt="mp-image"
                     >
                 </template>
-            </b-carousel-slide>
+            </b-carousel-slide> -->
             <b-carousel-slide>
                 <template #img>
                     <img

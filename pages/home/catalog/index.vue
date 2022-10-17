@@ -61,7 +61,7 @@
                                                     img-alt="Image product"
                                                     img-top
                                                     tag="article"
-                                                    style="max-width: 18rem; border-radius: 20px; cursor: pointer;"
+                                                    style="max-width: 25rem; border-radius: 20px; cursor: pointer;"
                                                     class="mp-product__card mb-2 mp-box-shadow"
                                                     no-body
                                                 >
@@ -124,7 +124,7 @@
                                     img-alt="Image product"
                                     img-top
                                     tag="article"
-                                    style="max-width: 18rem; border-radius: 20px; cursor: pointer;"
+                                    style="max-width: 25rem; border-radius: 20px; cursor: pointer;"
                                     class="mp-product__card mb-2 mp-box-shadow"
                                     no-body
                                 >

@@ -790,7 +790,7 @@ a.mp-link__redirect{
 .mp-product__form{
     margin: 0 3rem;
 
-    @media (max-width: 600px){
+    @media (max-width: 900px){
         margin: 40px 0;
     }
 }
@@ -798,8 +798,28 @@ a.mp-link__redirect{
 .mp-button__product{
     margin-right: 3rem;
 
-    @media (max-width: 600px){
+    @media (max-width: 900px){
         margin-right: 0;
     }
 }
 
+.mp-showroom__content{
+    padding: 4rem 2rem;
+
+    @media (max-width: 900px){
+        padding: 20px 10px;
+    }
+}
+.btn-showroom{
+    @media (max-width: 900px){
+        margin-top: 20px;
+
+        
+    }
+
+    @media (max-width: 500px){
+        .mp-btn-contact__showroom{
+            margin-top: 10px;
+        }
+    }
+}

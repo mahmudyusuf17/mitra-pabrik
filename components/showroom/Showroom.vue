@@ -8,24 +8,21 @@
                 <b-card 
                     class="mb-4 text-center mp-box-shadow mp-card__showroom" 
                     v-b-toggle="'collapse-mp-showroom'+kota" 
-                    :img-src="`https://ik.imagekit.io/d3rdfRTergDURe/mitrapabrik_assets/${kota}.webp?ik-sdk-version=javascript-1.4.3&updatedAt=1645510618902`"
+                    :img-src="`https://ik.imagekit.io/d3rdfRTergDURe/mitrapabrik_assets/${data.kota}.webp?ik-sdk-version=javascript-1.4.3&updatedAt=1645510618902`"
                     style="border-radius: 20px"
                 >
                     <!-- <b-img-lazy :src="`https://ik.imagekit.io/d3rdfRTergDURe/mitrapabrik_assets/${kota}.webp?ik-sdk-version=javascript-1.4.3&updatedAt=1645510618902`" alt="image showroom" fluid></b-img-lazy> -->
                     <div class="mp-news-content">
-                        <h2 class="mp-fs-34 mp-fw-600 my-1">{{ $decodeHtml(kota) }}</h2>
+                        <h2 class="mp-fs-34 mp-fw-600 my-1">{{ data.kota }}</h2>
                         <b-collapse :id="`collapse-mp-showroom`+kota" class="mt-2">
-                            <div 
-                                v-for="(d,idx) in data" :key="idx" 
-                                class="p-5 text-left"
-                            >
+                            <div class="mp-showroom__content text-left">
                                 <div class="row">
-                                    <div class="col-md-4">
-                                        <h3>{{ d.title }}</h3>
-                                        <p>{{ d.alamat }}</p>
-                                        {{ d.wa_contact }}
+                                    <div class="col-md-5">
+                                        <h3>{{ data.title }}</h3>
+                                        <p>{{ data.alamat }}</p>
+                                        {{ data.wa_contact }}
                                     </div>
-                                    <div class="col-md-8">
+                                    <div class="col-md-7">
                                         <!-- <p class="h5">Brand Partners:</p>
                                         <b-avatar 
                                             v-for="(brand,idx) in d.list_brand" :key="idx"
@@ -36,11 +33,11 @@
                                             :title="brand.nama_perusahaan"
                                             class="m-1"
                                         /> -->
-                                        <div class="col-12 text-center">
-                                            <b-button variant="primary" pill class="px-5" @click="openGmap($decodeHtml(d.drop_pin))">
+                                        <div class="btn-showroom text-center">
+                                            <b-button variant="primary" pill class="px-5" @click="openGmap($decodeHtml(data.drop_pin))">
                                                 Direction <b-icon icon="cursor-fill"></b-icon>
                                             </b-button>
-                                            <b-button variant="primary" pill class="px-5" @click="openWA($decodeHtml(d.wa_contact))">
+                                            <b-button variant="primary" pill class="px-5 mp-btn-contact__showroom" @click="openWA($decodeHtml(data.wa_contact))">
                                                 Contact <b-icon icon="telephone-forward-fill"></b-icon>
                                             </b-button>
                                         </div>
@@ -147,9 +144,9 @@ export default {
     async mounted() {
         let fetchShowrooms = await this.$axios.get(`/showrooms`)
         this.showroomData = fetchShowrooms.data.data
-        for (const key in this.showroomData) {
-            this.showroomData[key] = this.showroomData[key].filter(row => row.status != 0)
-        }
+        // for (const key in this.showroomData) {
+        //     this.showroomData[key] = this.showroomData[key].filter(row => row.status != 0)
+        // }
     }
 }
 </script>

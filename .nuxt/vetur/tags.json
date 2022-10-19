@@ -23,6 +23,9 @@
   "ShowroomCard": {
     "description": "Auto imported from components/ShowroomCard.vue"
   },
+  "AuthLoginModal": {
+    "description": "Auto imported from components/auth/LoginModal.vue"
+  },
   "CarouselHomepageCarousel": {
     "description": "Auto imported from components/carousel/homepage-carousel.vue"
   },
@@ -31,9 +34,6 @@
   },
   "MenuItem": {
     "description": "Auto imported from components/menu/MenuItem.vue"
-  },
-  "AuthLoginModal": {
-    "description": "Auto imported from components/auth/LoginModal.vue"
   },
   "NewsArticleCard": {
     "description": "Auto imported from components/news/ArticleCard.vue"
